@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Blue Nebula 8 - 1024x1024_0: -6995695775703584158
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,13 +7,16 @@ public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody2D rb;
-    AttributeManager attributes;
-    public float maxSpeed = 10f;
+    Attribute maxSpeed;
+    Attribute acceleration;
+
+    public string maxSpeedAttribute = "MaxSpeed";
+    public string accelerationAttribute = "Acceleration";
+
     void Start()
     {
-        attributes = GetComponent<AttributeManager>();
-        //maxSpeed = attributes.getAttribute("MaxSpeed");
-        
+        maxSpeed = (GetComponent<AttributeManager>()).getAttribute(maxSpeedAttribute);
+        acceleration = (GetComponent<AttributeManager>()).getAttribute(accelerationAttribute);
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -30,16 +33,16 @@ public class PlayerMovement : MonoBehaviour
         // move ship
         float forward = Input.GetAxis("Vertical");
 
-        rb.AddForce(transform.up * 2f * forward, ForceMode2D.Force);
+        rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
 
     }
     void FixedUpdate()
     {
         //Debug.Log("Speed: " + rb.velocity.magnitude + " max: " + maxSpeed.getvalue());
-        if (rb.velocity.magnitude > maxSpeed)
+        if (rb.velocity.magnitude > maxSpeed.getvalue())
         {
             // Clamp the velocity magnitude
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rb.velocity = rb.velocity.normalized * maxSpeed.getvalue();
         }
     }
 }

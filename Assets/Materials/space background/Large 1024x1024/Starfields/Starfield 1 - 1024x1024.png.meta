@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Starfield 1 - 1024x1024_0: 6841667873990578429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Green Nebula 2 - 1024x1024_0: -1216354236070408476
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

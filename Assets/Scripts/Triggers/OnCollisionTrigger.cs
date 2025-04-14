@@ -17,9 +17,6 @@ public class OnCollisionTrigger : MonoBehaviour
 
     private Collision2D collision;
 
-    [SerializeField]
-    public delegate void Delagate();
-
     public UnityEvent onCollisionEnter;
 
     public UnityEvent onCollisionExit;
