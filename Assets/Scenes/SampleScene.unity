@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
+  boosterObjects:
+  - {fileID: 684456636}
 --- !u!212 &358665536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -336,7 +338,7 @@ Transform:
   m_LocalScale: {x: 3.8379984, y: 1.5220011, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 729777180}
+  - {fileID: 684456637}
   - {fileID: 1705199223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -657,6 +659,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &684456636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684456637}
+  m_Layer: 0
+  m_Name: booster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &684456637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684456636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 729777180}
+  m_Father: {fileID: 358665537}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729777177
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +798,7 @@ Transform:
   m_LocalScale: {x: 0.011862552, y: 0.052661795, z: 0.044223852}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 358665537}
+  m_Father: {fileID: 684456637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &904971624
 GameObject:
@@ -5806,7 +5840,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008398642}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Blue Nebula 3 - 1024x1024_0: -3305680200050646181
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

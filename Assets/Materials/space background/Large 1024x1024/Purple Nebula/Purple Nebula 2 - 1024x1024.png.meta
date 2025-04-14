@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Purple Nebula 2 - 1024x1024_0: -4606205375693594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

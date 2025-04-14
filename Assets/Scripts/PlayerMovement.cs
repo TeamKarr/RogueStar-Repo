@@ -9,8 +9,16 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     AttributeManager attributes;
     public float maxSpeed = 10f;
+    public GameObject[] boosterObjects;
+    private float boosterLevel = 0f;
     void Start()
     {
+        foreach(GameObject booster in boosterObjects)
+        {
+            //booster.transform.localScale = new Vector3(boosterLevel, boosterLevel, boosterLevel);
+            Debug.Log(booster.transform.localScale);
+        }
+        
         attributes = GetComponent<AttributeManager>();
         //maxSpeed = attributes.getAttribute("MaxSpeed");
         
@@ -29,6 +37,23 @@ public class PlayerMovement : MonoBehaviour
 
         // move ship
         float forward = Input.GetAxis("Vertical");
+
+        if (forward > 0f)
+        {
+            boosterLevel += 0.1f;
+        }
+        else
+        {
+            boosterLevel =0f;
+        }
+        boosterLevel = Mathf.Min(boosterLevel, 1);
+
+        boosterLevel = Mathf.Max(boosterLevel, 0);
+
+        foreach (GameObject booster in boosterObjects)
+        {
+            booster.transform.localScale = new Vector3(boosterLevel, boosterLevel, boosterLevel);
+        }
 
         rb.AddForce(transform.up * 2f * forward, ForceMode2D.Force);
 
