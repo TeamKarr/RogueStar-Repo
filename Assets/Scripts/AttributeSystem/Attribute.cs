@@ -6,18 +6,17 @@ using UnityEngine;
 public class Attribute : MonoBehaviour
 {
 
-    public string name;
+    public new string name;
     public string description;
     public float baseValue;
 
-    //[ReadOnly]
-    public float currentValue = 0;
+    [ReadOnly] public float currentValue = 0;
 
     public HashSet<AttributeModifier> modifiers = new ();
 
     private void Start()
     {
-        
+        getvalue();
     }
 
     private void Update()
@@ -30,7 +29,7 @@ public class Attribute : MonoBehaviour
         public ModifierType type;
         public float value;
         public bool enabled = true;
-        public string tag;
+        //public string tag;
 
 
     }
@@ -67,7 +66,13 @@ public class Attribute : MonoBehaviour
                 }
         }
         currentValue = baseValue * (baseMultiplier + baseAdder) * totalMultiplier;
-        return baseValue * (baseMultiplier + baseAdder) * totalMultiplier;
+        Debug.Log("set value to " + currentValue);
+        return currentValue;
+    }
+
+    public void setBaseValue(float value)
+    {
+        baseValue = value;
     }
 
     public enum ModifierType { add, multiply, multiplyBase }
