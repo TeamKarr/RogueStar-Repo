@@ -10,9 +10,8 @@ public class PlayerMovement : MonoBehaviour
     AttributeManager attributes;
     public float maxSpeed = 10f;
 
-    public float localmaxSpeed = 1f;
 
-    public float distanceToMouseLimit = 400;
+
     public GameObject[] boosterObjects;
     private float boosterLevel = 0f;
 
@@ -52,13 +51,17 @@ public class PlayerMovement : MonoBehaviour
         if (forward > 0f)
         {
             boosterLevel += 0.05f;
-            smoke.Play();
+            if (smoke.isPlaying == false)
+                smoke.Play();
+            
 
         }
         else
         {
-            boosterLevel -= 0.1f;
-            smoke.Stop();
+            boosterLevel -= 0.03f;
+            if (smoke.isPlaying)
+                smoke.Stop();
+      
         }
         boosterLevel = Mathf.Min(boosterLevel, 1);
 
@@ -66,25 +69,19 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (GameObject booster in boosterObjects)
         {
-            booster.transform.localScale = new Vector3(boosterLevel, boosterLevel, boosterLevel);
+  booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
         }
-        Vector3 objectSreenPos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 mouseScreenPos = Input.mousePosition;
-        float distanceToMouse = Vector3.Distance(objectSreenPos, mouseScreenPos);
-        Debug.Log("Distance to mouse: " + distanceToMouse);
-        localmaxSpeed = Mathf.Min(distanceToMouse/distanceToMouseLimit,1)*maxSpeed;
-        //Debug.Log("Local max speed: " + localmaxSpeed);
-        //Debug.Log("max speed: " + maxSpeed);
+        
         rb.AddForce(transform.up * 2f * forward, ForceMode2D.Force);
 
     }
     void FixedUpdate()
     {
         //Debug.Log("Speed: " + rb.velocity.magnitude + " max: " + maxSpeed.getvalue());
-        if (rb.velocity.magnitude > localmaxSpeed)
+        if (rb.velocity.magnitude > maxSpeed)
         {
             // Clamp the velocity magnitude
-            rb.velocity = rb.velocity.normalized * localmaxSpeed;
+            rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
 }
