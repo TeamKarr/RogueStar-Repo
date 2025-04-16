@@ -13,8 +13,24 @@ public class PlayerMovement : MonoBehaviour
     public string maxSpeedAttribute = "MaxSpeed";
     public string accelerationAttribute = "Acceleration";
 
+    public GameObject[] boosterObjects;
+    private float boosterLevel = 0f;
+
+
+
+    public ParticleSystem smoke;
+
     void Start()
     {
+
+        foreach(GameObject booster in boosterObjects)
+        {
+            
+            booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
+
+            
+        }
+        
         maxSpeed = (GetComponent<AttributeManager>()).getAttribute(maxSpeedAttribute);
         acceleration = (GetComponent<AttributeManager>()).getAttribute(accelerationAttribute);
 
@@ -32,6 +48,30 @@ public class PlayerMovement : MonoBehaviour
 
         // move ship
         float forward = Input.GetAxis("Vertical");
+        //Debug.Log("Forward: " + forward);
+        if (forward > 0f)
+        {
+            boosterLevel += 0.05f;
+            if (smoke.isPlaying == false)
+                smoke.Play();
+            
+
+        }
+        else
+        {
+            boosterLevel -= 0.03f;
+            if (smoke.isPlaying)
+                smoke.Stop();
+      
+        }
+        boosterLevel = Mathf.Min(boosterLevel, 1);
+
+        boosterLevel = Mathf.Max(boosterLevel, 0);
+
+        foreach (GameObject booster in boosterObjects)
+        {
+  booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
+        }
 
         rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
 

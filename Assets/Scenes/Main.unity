@@ -269,6 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
+  boosterObjects:
+  - {fileID: 684456636}
+  smoke: {fileID: 904971627}
 --- !u!212 &358665536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -336,7 +339,8 @@ Transform:
   m_LocalScale: {x: 3.8379984, y: 1.5220011, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 729777180}
+  - {fileID: 904971625}
+  - {fileID: 684456637}
   - {fileID: 1705199223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -657,6 +661,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &684456636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684456637}
+  m_Layer: 0
+  m_Name: booster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &684456637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684456636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 729777180}
+  m_Father: {fileID: 358665537}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729777177
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,11 +796,11 @@ Transform:
   m_GameObject: {fileID: 729777177}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.011724863, y: -0.81530833, z: 0.398}
+  m_LocalPosition: {x: -0.011724863, y: -0.526, z: 2}
   m_LocalScale: {x: 0.011862552, y: 0.052661795, z: 0.044223852}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 358665537}
+  m_Father: {fileID: 684456637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &904971624
 GameObject:
@@ -778,7 +814,7 @@ GameObject:
   - component: {fileID: 904971627}
   - component: {fileID: 904971626}
   m_Layer: 0
-  m_Name: fire
+  m_Name: smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -792,12 +828,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904971624}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2.28, z: 0}
-  m_LocalScale: {x: 0.4008421, y: 0.4008421, z: 0.4008421}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.0015343, y: -0.28672123, z: 0.30787}
+  m_LocalScale: {x: 0.023345502, y: 0.08959998, z: 0.058869857}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1705199223}
+  m_Father: {fileID: 358665537}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &904971626
 ParticleSystemRenderer:
@@ -5747,9 +5783,6 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1bbe4a36582194c4f9435ee55d6da970, type: 3}
       insertIndex: 0
-      addedObject: {fileID: 904971625}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1bbe4a36582194c4f9435ee55d6da970, type: 3}
-      insertIndex: 1
       addedObject: {fileID: 216645850}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbe4a36582194c4f9435ee55d6da970, type: 3}
@@ -5806,7 +5839,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008398642}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
