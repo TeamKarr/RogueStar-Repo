@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class KeyboardTriggers : MonoBehaviour
+public class KeyboardTrigger : MonoBehaviour
 {
     public KeyCode key;
     public UnityEvent onkeyPressed;
@@ -12,7 +12,7 @@ public class KeyboardTriggers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("hi");
     }
 
     // Update is called once per frame
@@ -23,5 +23,10 @@ public class KeyboardTriggers : MonoBehaviour
             Debug.Log("Key Pressed: " + key);
             onkeyPressed?.Invoke();
         }
+    }
+
+    public void Log(string message)
+    {
+        Debug.Log(message);
     }
 }

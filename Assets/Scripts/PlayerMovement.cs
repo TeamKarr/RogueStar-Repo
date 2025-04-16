@@ -25,23 +25,32 @@ public class PlayerMovement : MonoBehaviour
 
         foreach(GameObject booster in boosterObjects)
         {
-            
             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
-
-            
         }
         
         maxSpeed = (GetComponent<AttributeManager>()).getAttribute(maxSpeedAttribute);
         acceleration = (GetComponent<AttributeManager>()).getAttribute(accelerationAttribute);
 
+        if (maxSpeed == null)
+        {
+            Debug.LogError("Max Speed Attribute not found");
+        }
+        if (acceleration == null)
+        {
+            Debug.LogError("Acceleration Attribute not found");
+        }
         rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D not found");
+        }
     }
     // Update is called once per frame
     void Update()
     {
 
         // rotate ship
-        Vector2 m = Camera.main.ScreenToWorldPoint( Input.mousePosition);
+        Vector2 m = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.Rotate(new Vector3(0,0,1), 1);
         Vector2 direction = (m - (Vector2) transform.position ).normalized;
         transform.up = direction;
@@ -64,13 +73,12 @@ public class PlayerMovement : MonoBehaviour
                 smoke.Stop();
       
         }
-        boosterLevel = Mathf.Min(boosterLevel, 1);
 
-        boosterLevel = Mathf.Max(boosterLevel, 0);
+        boosterLevel = Mathf.Clamp(boosterLevel, 0, 1);
 
         foreach (GameObject booster in boosterObjects)
         {
-  booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
+             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
         }
 
         rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
