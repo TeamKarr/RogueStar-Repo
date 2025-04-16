@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public ParticleSystem smoke;
+    public Light fireLight;
     void Start()
     {
 
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (forward > 0f)
         {
             boosterLevel += 0.05f;
+            fireLight.intensity += 0.2f;
             if (smoke.isPlaying == false)
                 smoke.Play();
             
@@ -58,11 +60,16 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            boosterLevel -= 0.03f;
+            fireLight.intensity -= 0.2f;
+            boosterLevel -= 0.05f;
             if (smoke.isPlaying)
                 smoke.Stop();
       
         }
+        fireLight.intensity = Mathf.Min(fireLight.intensity, 2.5f);
+
+        fireLight.intensity = Mathf.Max(fireLight.intensity, 0);
+
         boosterLevel = Mathf.Min(boosterLevel, 1);
 
         boosterLevel = Mathf.Max(boosterLevel, 0);
