@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float someCoefficient=1f;
     private float roll = 0f;
+    public Transform body;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
         }
-        
+        Debug.Log(GetComponent<AttributeManager>());
         maxSpeed = (GetComponent<AttributeManager>()).getAttribute(maxSpeedAttribute);
         acceleration = (GetComponent<AttributeManager>()).getAttribute(accelerationAttribute);
 
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError("Acceleration Attribute not found");
         }
         rb = GetComponent<Rigidbody2D>();
+        Debug.Log(rb);
         if (rb == null)
         {
             Debug.LogError("Rigidbody2D not found");
@@ -72,8 +74,11 @@ public class PlayerMovement : MonoBehaviour
         float forward = Input.GetAxis("Vertical");
         
         Debug.Log(rb.angularVelocity);
-        roll=rb.angularVelocity/100;
-        transform.rotation= Quaternion.Euler(transform.rotation.x,30,transform.rotation.z);
+        roll=Mathf.Clamp(rb.angularVelocity/2,-80,80);
+        
+        Vector3 localRot = body.transform.localEulerAngles;
+        localRot.y = roll-180;
+        body.localEulerAngles = localRot;
         //Debug.Log("Forward: " + forward);
         if (forward > 0f)
         {
@@ -87,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            // does stuff
             fireLight.intensity -= 0.2f;
             boosterLevel -= 0.05f;
             if (smoke.isPlaying)
@@ -124,4 +130,9 @@ public class PlayerMovement : MonoBehaviour
         v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)
     );
 }
+
+    public void goToHome()
+    {
+        this.transform.position = new Vector3(0, 0, transform.position.z);
+    }
 }
