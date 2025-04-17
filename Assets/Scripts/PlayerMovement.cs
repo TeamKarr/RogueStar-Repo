@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -19,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
     public ParticleSystem smoke;
     public Light fireLight;
+
+    public float someCoefficient=1f;
+    private float roll = 0f;
+
     void Start()
     {
 
@@ -42,15 +47,28 @@ public class PlayerMovement : MonoBehaviour
 
         // rotate ship
         Vector2 m = Camera.main.ScreenToWorldPoint( Input.mousePosition);
-        transform.Rotate(new Vector3(0,0,1), 1);
-        Vector2 direction = (m - (Vector2) transform.position ).normalized;
-        transform.up = direction;
+        //transform.Rotate(new Vector3(0,0,1), 1);
+
+        Vector2 direction = (m - (Vector2) transform.position).normalized;
+
+        Quaternion rotation = Quaternion.AngleAxis(90, transform.forward);
+
+        direction= rotate(direction, -Mathf.PI/2);
+        
+        //transform.up = direction;
+
+        rb.AddTorque( Vector2.Dot(transform.up, direction)*someCoefficient);
 
         // move ship
         float forward = Input.GetAxis("Vertical");
+        
+        Debug.Log(rb.angularVelocity);
+        roll=rb.angularVelocity/100;
+        transform.rotation= Quaternion.Euler(transform.rotation.x,30,transform.rotation.z);
         //Debug.Log("Forward: " + forward);
         if (forward > 0f)
         {
+            
             boosterLevel += 0.05f;
             fireLight.intensity += 0.2f;
             if (smoke.isPlaying == false)
@@ -91,4 +109,10 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
+    public static Vector2 rotate(Vector2 v, float delta) {
+    return new Vector2(
+        v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
+        v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)
+    );
+}
 }
