@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: da1fb38608a114fd9b2b01ee9d1fe36a
+guid: 19a873ff019bf0e45b9d2fbe6998cec6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7784617385231512251
-    second: smasher_0
+      213: -307300488587505061
+    second: smasher ship_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: smasher_0
+      name: smasher ship_0
       rect:
         serializedVersion: 2
-        x: 46
-        y: 57
-        width: 939
-        height: 953
+        x: 27
+        y: 0
+        width: 1998
+        height: 1999
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb2fd076444880c60800000000000000
-      internalID: 7784617385231512251
+      spriteID: b52107275df3cbbf0800000000000000
+      internalID: -307300488587505061
       vertices: []
       indices: 
       edges: []
@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      smasher ship_0: -307300488587505061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
