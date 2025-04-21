@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Attribute : MonoBehaviour
 {
-
+    /// This is the base class for all attributes
     public new string name;
     public string description;
     public float baseValue;
@@ -27,11 +27,17 @@ public class Attribute : MonoBehaviour
         
     }
     
+    [System.Serializable]
     public class AttributeModifier
     {
         public ModifierType type;
         public float value;
         public bool enabled = true;
+        public AttributeModifier(ModifierType type, float value)
+        {
+            this.type = type;
+            this.value = value;
+        }
     }
 
     public void addModifier(AttributeModifier m)
@@ -68,7 +74,7 @@ public class Attribute : MonoBehaviour
                         break;
                 }
         }
-        currentValue = baseValue * (baseMultiplier + baseAdder) * totalMultiplier;
+        currentValue = baseValue * baseMultiplier * totalMultiplier + baseAdder;
         Debug.Log("Updated Attribute: " + name + " Base Value: " + baseValue + " Base Multiplier: " + baseMultiplier + " Base Adder: " + baseAdder + " Total Multiplier: " + totalMultiplier + " Current Value: " + currentValue + " Modifiers: " + modifiers.Count);
         onValueChange.Invoke(currentValue);
     }
@@ -85,4 +91,19 @@ public class Attribute : MonoBehaviour
     }
 
     public enum ModifierType { add, multiply, multiplyBase }
+}
+
+
+[System.Serializable]
+public class ModifierHandler
+{
+    public string attribute;
+    public Attribute.AttributeModifier modifier;
+
+    public ModifierHandler(string attribute, Attribute.AttributeModifier modifier)
+    {
+        this.attribute = attribute;
+        this.modifier = modifier;
+    }
+
 }

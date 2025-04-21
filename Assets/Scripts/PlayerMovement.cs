@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         // move ship
         float forward = Input.GetAxis("Vertical");
         
-        Debug.Log(rb.angularVelocity);
+        // Debug.Log(rb.angularVelocity);
         roll=Mathf.Clamp(rb.angularVelocity/2,-80,80);
         
         Vector3 localRot = body.transform.localEulerAngles;
