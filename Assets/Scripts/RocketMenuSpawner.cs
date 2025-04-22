@@ -4,33 +4,35 @@ using UnityEngine;
 
 public class RocketMenuSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public GameObject rocketMenuPrefab;
     public float minDistance = 1.0f;
     public float maxDistance = 3.0f;
     public float minDelay = 1.0f;
     public float maxDelay = 3.0f;
+    public int maxRockets = 5;
+
+    private int currentRocketCount = 0;
+
     void Start()
     {
-        SpawnRocket();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
+        StartCoroutine(SpawnRocketsOverTime());
     }
 
     public void SpawnRocket()
     {
-        // using the camera's viewport to spawn a rocket at a random position, ensuring at least one coordinate is -0.1 or 1.1.
-        if (rocketMenuPrefab == null || Camera.main == null) return;
+        if (rocketMenuPrefab == null || Camera.main == null || currentRocketCount >= maxRockets) return;
 
         GameObject spawnedRocket = Instantiate(rocketMenuPrefab, genPosition(), Quaternion.identity);
         spawnedRocket.GetComponent<RocketMenuMovement>().targetPosition = genPosition();
         spawnedRocket.GetComponent<RocketMenuMovement>().StartMove();
+
+        currentRocketCount++;
+        spawnedRocket.GetComponent<RocketMenuMovement>().OnRocketDestroyed += () => currentRocketCount--;
+        // randomize acceleration and speed and max speed:
+        RocketMenuMovement rocketMovement = spawnedRocket.GetComponent<RocketMenuMovement>();
+        rocketMovement.acceleration = Random.Range(0.1f, 3.0f);
+        rocketMovement.speed = Random.Range(1f, 5.0f);
+        rocketMovement.maxSpeed = Random.Range(2.0f, 10.0f);
     }
 
     public Vector3 genPosition()
@@ -47,7 +49,15 @@ public class RocketMenuSpawner : MonoBehaviour
             randomY = Random.Range(0.1f, 0.9f);
         }
 
-
         return Camera.main.ViewportToWorldPoint(new Vector3(randomX, randomY, Random.Range(minDistance, maxDistance)));
+    }
+
+    private IEnumerator SpawnRocketsOverTime()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
+            SpawnRocket();
+        }
     }
 }

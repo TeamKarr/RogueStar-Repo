@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 localRot = body.transform.localEulerAngles;
         localRot.y = roll-180;
         body.localEulerAngles = localRot;
-        //Debug.Log("Forward: " + forward);
+        Debug.Log("Forward: " + forward);
         if (forward > 0f)
         {
             

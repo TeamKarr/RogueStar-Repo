@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RocketMenuMovement : MonoBehaviour
@@ -11,6 +13,7 @@ public class RocketMenuMovement : MonoBehaviour
     public float speed = 1.0f;
     public float acceleration = 0.5f;
     public float maxSpeed = 5.0f;
+    internal Func<int> OnRocketDestroyed;
 
     void Start()
     {
@@ -33,12 +36,12 @@ public class RocketMenuMovement : MonoBehaviour
 
     void Update()
     {
-        Vector3 toTarget = targetPosition - startPosition;
-        Vector3 toCurrent = transform.position - startPosition;
-
-        if (Vector3.Dot(toTarget.normalized, toCurrent) > 1.0f)
+        float toTarget = Vector3.Distance(startPosition, targetPosition);
+        float toCurrent = Vector3.Distance(startPosition, transform.position);
+        Debug.Log(toTarget + " " + toCurrent + " " + (toTarget < toCurrent));
+        if (toTarget < toCurrent)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 

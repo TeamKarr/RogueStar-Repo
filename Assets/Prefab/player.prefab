@@ -5151,6 +5151,7 @@ GameObject:
   - component: {fileID: 2975818757503801290}
   - component: {fileID: 6342558946373712119}
   - component: {fileID: 3299775382418252110}
+  - component: {fileID: 5952562441422333688}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -5457,6 +5458,28 @@ PolygonCollider2D:
       - {x: -1.3382456, y: -0.45631576}
       - {x: 1.3941288, y: -0.4004327}
   m_UseDelaunayMesh: 0
+--- !u!114 &5952562441422333688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665322699795123541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42fa3175419e64e7cb4a0922b7e5ba97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades: []
+  upgradeChoice1: {fileID: 0}
+  upgradeChoice2: {fileID: 0}
+  upgradeChoice3: {fileID: 0}
+  allUpgrades:
+  - {fileID: 11400000, guid: 6e5a98948176749409918fc3b97cf6e2, type: 2}
+  - {fileID: 11400000, guid: 376ed3c2e42934f509e70ddfacd2f9db, type: 2}
+  - {fileID: 11400000, guid: d14d46b3f0d394ec38c617823d276fb6, type: 2}
+  - {fileID: 11400000, guid: 3103803428fae47a3936a87e69dc0589, type: 2}
+  availableUpgrades: []
 --- !u!1 &6411349148181970278
 GameObject:
   m_ObjectHideFlags: 0
