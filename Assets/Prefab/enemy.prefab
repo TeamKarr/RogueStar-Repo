@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 4464812638528948624}
   - component: {fileID: 3380937852075468934}
   - component: {fileID: 5530629600370688912}
-  m_Layer: 0
+  - component: {fileID: -1462028353103332084}
+  m_Layer: 7
   m_Name: enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,6 +214,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.004895568, y: 0}
   m_Radius: 0.44778025
+--- !u!114 &-1462028353103332084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954963737137122683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75388997f8d4264a86b7441dc9ea74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1188943195016076753, guid: 4066bb3b241e88348b8efefaabb02be8, type: 3}
+  projectileHolder: {fileID: 0}
+  isPlayerControlled: 0
+  fireRate: 0.5
+  projectileSpread: 5
+  fireEffect: {fileID: 0}
+  spawnpoint: {fileID: 0}
 --- !u!1001 &2269460508460499145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,6 +293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -5117700066308340382, guid: d3a861cff422e7d419530b77d2158a40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -3272106112100924687, guid: d3a861cff422e7d419530b77d2158a40, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5770638
@@ -328,6 +352,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d3a861cff422e7d419530b77d2158a40, type: 3}
       propertyPath: m_Name
       value: small scout enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3a861cff422e7d419530b77d2158a40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: d3a861cff422e7d419530b77d2158a40, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8442510506162454399, guid: d3a861cff422e7d419530b77d2158a40, type: 3}
       propertyPath: m_Materials.Array.size

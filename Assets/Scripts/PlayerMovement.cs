@@ -67,9 +67,9 @@ public class PlayerMovement : MonoBehaviour
 
         // move ship
         float forward = Input.GetAxis("Vertical");
-        
-    
-        roll=Mathf.Clamp(rb.angularVelocity/AngularAcceleration*8,-1*maxRoll,maxRoll);
+        float horizontal = Input.GetAxis("Horizontal");
+
+        roll =Mathf.Clamp(rb.angularVelocity/AngularAcceleration*8,-1*maxRoll,maxRoll);
         
         Vector3 localRot = body.transform.localEulerAngles;
         localRot.y = roll-180;
@@ -108,7 +108,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
-
+        if (body.rotation.z > 135 || body.rotation.z < -135)
+        {
+            horizontal *= -1;
+        }
+        rb.AddForce(new Vector2(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
     }
     void FixedUpdate()
     {
