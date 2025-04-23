@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,9 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     public ParticleSystem smoke;
     public Light fireLight;
-
-    public float someCoefficient=1f;
+    private float lightIntensity = 1f;
+    public float AngularAcceleration=1f;
     private float roll = 0f;
+
+    public float maxRoll = 90f;
     public Transform body;
 
     void Start()
@@ -36,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(GetComponent<AttributeManager>());
         maxSpeed = (GetComponent<AttributeManager>()).getAttribute(maxSpeedAttribute);
         acceleration = (GetComponent<AttributeManager>()).getAttribute(accelerationAttribute);
-
+        lightIntensity = fireLight.intensity;
         if (maxSpeed == null)
         {
             Debug.LogError("Max Speed Attribute not found");
@@ -57,24 +60,16 @@ public class PlayerMovement : MonoBehaviour
     {
 
         // rotate ship
-        Vector2 m = Camera.main.ScreenToWorldPoint( Input.mousePosition);
-        //transform.Rotate(new Vector3(0,0,1), 1);
 
-        Vector2 direction = (m - (Vector2) transform.position).normalized;
-
-        Quaternion rotation = Quaternion.AngleAxis(90, transform.forward);
-
-        direction= rotate(direction, -Mathf.PI/2);
+        
         
         //transform.up = direction;
 
-        rb.AddTorque( Vector2.Dot(transform.up, direction)*someCoefficient);
-
         // move ship
         float forward = Input.GetAxis("Vertical");
-        
-        // Debug.Log(rb.angularVelocity);
-        roll=Mathf.Clamp(rb.angularVelocity/2,-80,80);
+        float horizontal = Input.GetAxis("Horizontal");
+
+        roll =Mathf.Clamp(rb.angularVelocity/AngularAcceleration*8,-1*maxRoll,maxRoll);
         
         Vector3 localRot = body.transform.localEulerAngles;
         localRot.y = roll-180;
@@ -99,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
                 smoke.Stop();
       
         }
-        fireLight.intensity = Mathf.Min(fireLight.intensity, 2.5f);
+        fireLight.intensity = Mathf.Min(fireLight.intensity, lightIntensity);
 
         fireLight.intensity = Mathf.Max(fireLight.intensity, 0);
 
@@ -113,7 +108,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
-
+        if (body.rotation.z > 135 || body.rotation.z < -135)
+        {
+            horizontal *= -1;
+        }
+        rb.AddForce(new Vector2(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
     }
     void FixedUpdate()
     {
@@ -123,6 +122,12 @@ public class PlayerMovement : MonoBehaviour
             // Clamp the velocity magnitude
             rb.velocity = rb.velocity.normalized * maxSpeed.getvalue();
         }
+         Vector2 m = Camera.main.ScreenToWorldPoint( Input.mousePosition);
+        Vector2 direction = (m - (Vector2) transform.position).normalized;
+
+        Quaternion rotation = Quaternion.AngleAxis(90, transform.forward);
+        direction= rotate(direction, -Mathf.PI/2);
+        rb.AddTorque( Vector2.Dot(transform.up, direction)*AngularAcceleration);
     }
     public static Vector2 rotate(Vector2 v, float delta) {
     return new Vector2(

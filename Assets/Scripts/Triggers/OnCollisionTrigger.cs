@@ -9,7 +9,7 @@ public class OnCollisionTrigger : MonoBehaviour
     // Start is called before the first frame update
 
     public bool useRadius = true;
-
+//reset
     [ConditionalProperty("useRadius")]
     public float radius = 1.0f;
     [ConditionalProperty("useRadius")]
