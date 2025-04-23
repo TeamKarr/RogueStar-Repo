@@ -15,7 +15,8 @@ public class Attribute : MonoBehaviour
 
     public UnityEvent<float> onValueChange;
 
-    public HashSet<AttributeModifier> modifiers = new ();
+    //[ReadOnly] public List<AttributeModifier> modif= new ();
+    [ReadOnly] public List<AttributeModifier> modifiers = new ();
 
     private void Start()
     {

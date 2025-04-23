@@ -5143,8 +5143,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6162464756207502486}
   - component: {fileID: 1878279409480359769}
-  - component: {fileID: 2392159705322647639}
   - component: {fileID: 8369431800573641515}
+  - component: {fileID: 2392159705322647639}
   - component: {fileID: 1247076163880487839}
   - component: {fileID: 3357581103418183002}
   - component: {fileID: 643044991468295282}
@@ -5231,6 +5231,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8369431800573641515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665322699795123541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43135b32f89adf43bbfc85845af7f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2392159705322647639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5250,18 +5262,7 @@ MonoBehaviour:
   onValueChange:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8369431800573641515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5665322699795123541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43135b32f89adf43bbfc85845af7f7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  modifiers: []
 --- !u!114 &1247076163880487839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5281,6 +5282,7 @@ MonoBehaviour:
   onValueChange:
     m_PersistentCalls:
       m_Calls: []
+  modifiers: []
 --- !u!114 &3357581103418183002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5312,6 +5314,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  modifiers: []
 --- !u!114 &643044991468295282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5326,11 +5329,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeedAttribute: MaxSpeed
   accelerationAttribute: Acceleration
+  rotationAttribute: RotationSpeed
   boosterObjects:
   - {fileID: 2273431420828081743}
   smoke: {fileID: 5710149699669412904}
   fireLight: {fileID: 8243627851316873365}
-  someCoefficient: 20
+  maxRoll: 90
   body: {fileID: 5183645478790984447}
 --- !u!114 &2975818757503801290
 MonoBehaviour:

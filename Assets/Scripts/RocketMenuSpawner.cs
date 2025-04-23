@@ -25,7 +25,6 @@ public class RocketMenuSpawner : MonoBehaviour
         GameObject spawnedRocket = Instantiate(rocketMenuPrefab, genPosition(), Quaternion.identity);
         spawnedRocket.GetComponent<RocketMenuMovement>().targetPosition = genPosition();
         spawnedRocket.GetComponent<RocketMenuMovement>().StartMove();
-
         currentRocketCount++;
         spawnedRocket.GetComponent<RocketMenuMovement>().OnRocketDestroyed += () => currentRocketCount--;
         // randomize acceleration and speed and max speed:
