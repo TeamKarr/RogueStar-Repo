@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4464812638528948624}
   - component: {fileID: 3380937852075468934}
   - component: {fileID: 5530629600370688912}
-  - component: {fileID: -1462028353103332084}
+  - component: {fileID: -647486573142469624}
   m_Layer: 7
   m_Name: enemy
   m_TagString: Untagged
@@ -214,7 +214,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.004895568, y: 0}
   m_Radius: 0.44778025
---- !u!114 &-1462028353103332084
+--- !u!114 &-647486573142469624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,11 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75388997f8d4264a86b7441dc9ea74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1188943195016076753, guid: 4066bb3b241e88348b8efefaabb02be8, type: 3}
+  projectilePrefab: {fileID: 0}
   projectileHolder: {fileID: 0}
   isPlayerControlled: 0
-  fireRate: 0.5
-  projectileSpread: 5
+  fireRate: 0.05
+  projectileSpread: 1
   fireEffect: {fileID: 0}
   spawnpoint: {fileID: 0}
 --- !u!1001 &2269460508460499145
