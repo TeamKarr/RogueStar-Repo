@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    public int TeamID = 0;
 
     public float health;
     public string maxHealthAttribute = "MaxHealth";
