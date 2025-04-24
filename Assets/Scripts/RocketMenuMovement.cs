@@ -38,7 +38,6 @@ public class RocketMenuMovement : MonoBehaviour
     {
         float toTarget = Vector3.Distance(startPosition, targetPosition);
         float toCurrent = Vector3.Distance(startPosition, transform.position);
-        Debug.Log(toTarget + " " + toCurrent + " " + (toTarget < toCurrent));
         if (toTarget < toCurrent)
         {
             Destroy(gameObject);

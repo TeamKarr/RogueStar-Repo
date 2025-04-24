@@ -26,13 +26,13 @@ public class Health : MonoBehaviour
         healthBar.SetValueWithoutNotify(health);
         updateHealthBar();
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void updateHealthBar()
@@ -42,6 +42,19 @@ public class Health : MonoBehaviour
             healthBar.value = health;
             Debug.Log("Updated health bar " + health);
         }
+    }
+
+    public void takeDamage(float damage, Collision2D collision)
+    {
+        // handel if player has shield
+        //if (GetComponent<Shield>() != null)
+        //{
+        //    GetComponent<Shield>().takeDamage(damage, collision);
+        //}
+
+
+        takeDamage(damage);
+
     }
 
     public void takeDamage(float damage)
@@ -91,5 +104,4 @@ public class Health : MonoBehaviour
 
     }
 
-    
 }
