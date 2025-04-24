@@ -66,8 +66,7 @@ public class PlayerMovement : MonoBehaviour
         //transform.up = direction;
 
         // move ship
-        float forward = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
+        
 
         roll =Mathf.Clamp(rb.angularVelocity/AngularAcceleration*8,-1*maxRoll,maxRoll);
         
@@ -75,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         localRot.y = roll-180;
         body.localEulerAngles = localRot;
         //Debug.Log("Forward: " + forward);
+        float forward = Input.GetAxis("Vertical");
         if (forward > 0f)
         {
             
@@ -107,15 +107,22 @@ public class PlayerMovement : MonoBehaviour
              booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
         }
 
-        rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
+        
+        
+        
+    }
+    void FixedUpdate()
+    {
+        float forward = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
         if (body.rotation.z > 135 || body.rotation.z < -135)
         {
             horizontal *= -1;
         }
-        rb.AddForce(new Vector2(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
-    }
-    void FixedUpdate()
-    {
+        rb.AddForce(new Vector2(horizontal * acceleration.getvalue()/5, 0), ForceMode2D.Force);
+        rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
+        
+        
         //Debug.Log("Speed: " + rb.velocity.magnitude + " max: " + maxSpeed.getvalue());
         if (rb.velocity.magnitude > maxSpeed.getvalue())
         {
