@@ -32,9 +32,6 @@ public class EnemyBrain : MonoBehaviour
             {
                 Debug.Log(state);
             }
-        } else
-        {
-            Debug.Log("did not find any states");
         }
         setState(DefaultState); // set default state
     }
