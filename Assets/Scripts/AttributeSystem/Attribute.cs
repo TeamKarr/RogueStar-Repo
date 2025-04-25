@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-[DynamicTitle("Attribute {0}: {1}", "name", "baseValue")]
 public class Attribute : MonoBehaviour
 {
     /// This is the base class for all attributes
