@@ -56,7 +56,6 @@ public class AttributeModifierManager : MonoBehaviour
     {
         foreach (ModifierHandler m in modifiers)
         {
-            Debug.Log("Disabled modifiers");
             m.modifier.enabled = false;
         }
     }

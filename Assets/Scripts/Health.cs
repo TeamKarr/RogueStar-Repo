@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-
     public float health;
     public string maxHealthAttribute = "MaxHealth";
 
@@ -23,7 +22,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthBar.SetValueWithoutNotify(health);
+        
         updateHealthBar();
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
 
@@ -40,7 +39,6 @@ public class Health : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.value = health;
-            Debug.Log("Updated health bar " + health);
         }
     }
 
@@ -65,12 +63,10 @@ public class Health : MonoBehaviour
             return;
         }
         health -= damage;
-        Debug.Log("Took Damage: " + damage + " Health: " + health + " Max Health: " + maxHealth.getvalue() + " Percentage: " + (health / maxHealth.getvalue()) * 100f + "%");
         onDamage.Invoke();
         if (health <= 0)
         {
             die();
-            health = 0;
         }
         updateHealthBar();
     }
@@ -97,9 +93,10 @@ public class Health : MonoBehaviour
 
     public void die()
     {
-        // do something when the object dies
-        Debug.Log("Died");
         isDead = true;
+        Destroy(this.gameObject);
+        // do something when the object dies
+        
         onDeath.Invoke();
 
     }

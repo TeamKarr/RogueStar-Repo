@@ -56,7 +56,7 @@ public class AttributeManager : MonoBehaviour
         foreach (Attribute a in attributeArray)
         {
             attributes.Add(a.name, a);
-            Debug.Log("Attributes: " + a.name);
+            //Debug.Log("Attributes: " + a.name);
         }
         
     }
