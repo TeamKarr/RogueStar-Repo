@@ -69,7 +69,6 @@ public class Attribute : MonoBehaviour
                 }
         }
         currentValue = baseValue * (baseMultiplier + baseAdder) * totalMultiplier;
-        Debug.Log("Updated Attribute: " + name + " Base Value: " + baseValue + " Base Multiplier: " + baseMultiplier + " Base Adder: " + baseAdder + " Total Multiplier: " + totalMultiplier + " Current Value: " + currentValue + " Modifiers: " + modifiers.Count);
         onValueChange.Invoke(currentValue);
     }
 
