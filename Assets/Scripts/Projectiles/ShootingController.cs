@@ -125,6 +125,7 @@ public class ShootingController : MonoBehaviour
             Vector3 pos = spawnpoint.position;
             // Create the projectile
             GameObject projectileGameObject = Instantiate(projectilePrefab, pos, transform.rotation, null);
+            projectileGameObject.GetComponent<Damage>().Fired = gameObject;
             // Account for spread
             Vector3 rotationEulerAngles = projectileGameObject.transform.rotation.eulerAngles;
             rotationEulerAngles.z += Random.Range(-projectileSpread, projectileSpread);

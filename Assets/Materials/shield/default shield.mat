@@ -114,9 +114,10 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _base_transparency: 0.09
-    - _thickness: 0.19
-    - _transparency: 2
+    - _base_electric_transprarency: 0.16
+    - _base_transparency: 0.18
+    - _thickness: 0.41
+    - _transparency: 2.31
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.23349057, g: 0.81158453, b: 0.9339623, a: 1}

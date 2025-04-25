@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: -647486573142469624}
   - component: {fileID: 2732600055422228077}
   - component: {fileID: 5015389633847579232}
-  - component: {fileID: 6569497163909528363}
+  - component: {fileID: 7577521516200684134}
+  - component: {fileID: 6707203939437637493}
   m_Layer: 7
   m_Name: enemy
   m_TagString: Untagged
@@ -56,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  speedAcceleration: 2
+  speedAcceleration: 1
   maxSpeed: 2
 --- !u!114 &2723021612278305573
 MonoBehaviour:
@@ -231,9 +232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 6087532128199826423, guid: 90d23ecc81df9e243a5b42caaf4d1b55, type: 3}
-  projectileHolder: {fileID: 0}
+  projectileHolder: {fileID: 7001449191915127260}
   isPlayerControlled: 0
-  fireRate: 0.5
+  fireRateAttribute: FiringRate
   projectileSpread: 5
   fireEffect: {fileID: 0}
   spawnpoint: {fileID: 7001449191915127260}
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b8e00cffadc284da3e27fc3858eb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 10
   maxHealthAttribute: MaxHealth
   onDeath:
     m_PersistentCalls:
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43135b32f89adf43bbfc85845af7f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6569497163909528363
+--- !u!114 &7577521516200684134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +289,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: MaxHealth
   description: 
-  baseValue: 25
+  baseValue: 10
+  currentValue: 0
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6707203939437637493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954963737137122683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: FiringRate
+  description: 
+  baseValue: 4
   currentValue: 0
   onValueChange:
     m_PersistentCalls:
