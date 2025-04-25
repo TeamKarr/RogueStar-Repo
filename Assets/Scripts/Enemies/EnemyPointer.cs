@@ -64,8 +64,8 @@ public class EnemyPointer : MonoBehaviour
         Vector3 pos = transform.position;
 
         // Get camera bounds in world units
-        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0, 0, pos.z - cam.transform.position.z));
-        Vector3 max = cam.ViewportToWorldPoint(new Vector3(1, 1, pos.z - cam.transform.position.z));
+        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0.025f, 0.025f, pos.z - cam.transform.position.z));
+        Vector3 max = cam.ViewportToWorldPoint(new Vector3(0.975f, 0.975f, pos.z - cam.transform.position.z));
 
         // Clamp position so it doesn't go out of bounds
         pos.x = Mathf.Clamp(pos.x, min.x + objectWidth, max.x - objectWidth);
@@ -85,5 +85,9 @@ public class EnemyPointer : MonoBehaviour
 
         // move pointer
         transform.position = Vector3.SmoothDamp(transform.position, targetObject.transform.position, ref velocity, smoothTime);
+
+        float distanceToCamera = Vector3.Distance(cam.transform.position, transform.position) - Camera.main.orthographicSize*20;
+        float scale = Mathf.Clamp(1 / distanceToCamera, 0.25f, 1f);
+        transform.localScale = new Vector3(scale, scale, 1f);
     }
 }
