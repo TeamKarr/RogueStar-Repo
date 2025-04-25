@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    
-
     public float health;
     public string maxHealthAttribute = "MaxHealth";
 
@@ -55,7 +53,7 @@ public class Health : MonoBehaviour
         onDamage.Invoke();
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+            die();
         }
         updateHealthBar();
     }
@@ -82,10 +80,10 @@ public class Health : MonoBehaviour
 
     public void die()
     {
+        isDead = true;
         Destroy(this.gameObject);
         // do something when the object dies
-        Debug.Log("Died");
-        isDead = true;
+        
         onDeath.Invoke();
 
     }

@@ -107,12 +107,8 @@ public class PlayerMovement : MonoBehaviour
              booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
         }
 
-        rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
-        if (body.rotation.z > 135 || body.rotation.z < -135)
-        {
-            horizontal *= -1;
-        }
-        rb.AddForce(new Vector2(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
+        rb.AddForce(new Vector3(0,acceleration.getvalue() * forward), ForceMode2D.Force);
+        rb.AddForce(new Vector3(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
     }
     void FixedUpdate()
     {
