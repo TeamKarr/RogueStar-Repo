@@ -5367,7 +5367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: MaxSpeed
   description: 
-  baseValue: 6
+  baseValue: 10
   currentValue: 0
   onValueChange:
     m_PersistentCalls:
@@ -5387,7 +5387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: RotationSpeed
   description: 
-  baseValue: 20
+  baseValue: 25
   currentValue: 0
   onValueChange:
     m_PersistentCalls:
@@ -5407,7 +5407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Acceleration
   description: 
-  baseValue: 8
+  baseValue: 20
   currentValue: 0
   onValueChange:
     m_PersistentCalls:

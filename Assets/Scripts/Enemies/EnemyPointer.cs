@@ -26,7 +26,6 @@ public class EnemyPointer : MonoBehaviour
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null)
         {
-            Debug.Log(objectWidth + " " + objectHeight);
             objectWidth = sr.bounds.extents.x;
             objectHeight = sr.bounds.extents.y;
         }

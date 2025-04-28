@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 public class Attribute : MonoBehaviour
@@ -11,6 +12,10 @@ public class Attribute : MonoBehaviour
     public new string name;
     public string description;
     public float baseValue;
+
+    float baseMultiplier = 1;
+    float baseAdder = 0;
+    float totalMultiplier = 1;
 
     [ReadOnly] public float currentValue = 0;
 
@@ -24,9 +29,18 @@ public class Attribute : MonoBehaviour
         updateValue();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        
+        //if (Input.GetKeyDown("q") == true)
+        //{
+        //    totalMultiplier = incM(totalMultiplier);
+        //    updateValue();
+        //}
+        //if (Input.GetKeyDown("z") == true)
+        //{
+        //    totalMultiplier = decM(totalMultiplier);
+        //    updateValue();
+        //}
     }
     
     [System.Serializable]
@@ -57,9 +71,7 @@ public class Attribute : MonoBehaviour
 
     public void updateValue()
     {
-        float baseMultiplier = 1;
-        float baseAdder = 0;
-        float totalMultiplier = 1;
+        
         foreach (AttributeModifier m in modifiers)
         {
             if (m.enabled)
@@ -77,7 +89,7 @@ public class Attribute : MonoBehaviour
                 }
         }
         currentValue = baseValue * baseMultiplier * totalMultiplier + baseAdder;
-        Debug.Log("Updated Attribute: " + name + " Base Value: " + baseValue + " Base Multiplier: " + baseMultiplier + " Base Adder: " + baseAdder + " Total Multiplier: " + totalMultiplier + " Current Value: " + currentValue + " Modifiers: " + modifiers.Count);
+        //Debug.Log("Updated Attribute: " + name + " Base Value: " + baseValue + " Base Multiplier: " + baseMultiplier + " Base Adder: " + baseAdder + " Total Multiplier: " + totalMultiplier + " Current Value: " + currentValue + " Modifiers: " + modifiers.Count);
         onValueChange.Invoke(currentValue);
     }
 
@@ -93,7 +105,16 @@ public class Attribute : MonoBehaviour
     }
 
     public enum ModifierType { add, multiply, multiplyBase }
+    //public float incM(float multiplier)
+    //{
+    //    return multiplier += 1;
+    //}
+    //public float decM(float multiplier)
+    //{
+    //    return multiplier -=1;
+    //}
 }
+
 
 
 [System.Serializable]
