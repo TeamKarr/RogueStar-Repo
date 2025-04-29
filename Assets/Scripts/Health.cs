@@ -14,6 +14,9 @@ public class Health : MonoBehaviour
     public UnityEvent onHeal;
 
     public Slider healthBar;
+    public Camera camera;
+    public Transform parent;
+    public Vector3 offset;
 
     Attribute maxHealth;
 
@@ -31,7 +34,8 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        healthBar.transform.rotation = camera.transform.rotation;
+        healthBar.transform.position = parent.position + offset;
     }
 
     public void updateHealthBar()
