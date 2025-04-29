@@ -59,7 +59,7 @@ public class Health : MonoBehaviour
     {
         if (isDead == true)
         {
-            Debug.Log("Already Dead, cannot take damage");
+            //Debug.Log("Already Dead, cannot take damage");
             return;
         }
         health -= damage;
