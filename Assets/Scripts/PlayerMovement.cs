@@ -67,35 +67,22 @@ public class PlayerMovement : MonoBehaviour
         body.localEulerAngles = localRot;
 
         // Handle booster effects
-        if (forward > 0f)
-        {
-            boosterLevel += 0.05f;
-            fireLight.intensity += 0.2f;
-            if (smoke.isPlaying == false)
-                smoke.Play();
-        }
-        else
-        {
-            fireLight.intensity -= 0.2f;
-            boosterLevel -= 0.05f;
-            if (smoke.isPlaying)
-                smoke.Stop();
-      
-        }
-        fireLight.intensity = Mathf.Min(fireLight.intensity, lightIntensity);
 
-        fireLight.intensity = Mathf.Max(fireLight.intensity, 0);
+        //switch (forward)
+        //{
+        //    case 1f:
+        //        if (transform.rotation == 90f)
+        //        {
+        //            BoosterEffects();
+        //        }
+        //        break;
+        //    default:
 
-        boosterLevel = Mathf.Min(boosterLevel, 1);
+        //        break;
+        //}
+        BoosterEffects();
 
-        boosterLevel = Mathf.Clamp(boosterLevel, 0, 1);
 
-        foreach (GameObject booster in boosterObjects)
-        {
-             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
-        }
-
-        
     }
     void FixedUpdate()
     {
@@ -103,10 +90,12 @@ public class PlayerMovement : MonoBehaviour
         float forward = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         // Move ship forward
-        rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
+        //rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
+        rb.AddForce(new Vector3(0, acceleration.getvalue() * forward), ForceMode2D.Force);
 
         // Allow for straffing
-        rb.AddForce(horizontal * transform.right * acceleration.getvalue() * 0.75f, ForceMode2D.Force);
+        //rb.AddForce(horizontal * transform.right * acceleration.getvalue() * 0.75f, ForceMode2D.Force);
+        rb.AddForce(new Vector3(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
 
         // Clamp the velocity magnitude
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed.getvalue());
@@ -129,5 +118,37 @@ public class PlayerMovement : MonoBehaviour
     public void goToHome()
     {
         this.transform.position = new Vector3(0, 0, transform.position.z);
+    }
+    public void BoosterEffects()
+    {
+        float forward = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        if (forward > 0f)
+        {
+            boosterLevel += 0.05f;
+            fireLight.intensity += 0.2f;
+            if (smoke.isPlaying == false)
+                smoke.Play();
+        }
+        else
+        {
+            fireLight.intensity -= 0.2f;
+            boosterLevel -= 0.05f;
+            if (smoke.isPlaying)
+                smoke.Stop();
+
+        }
+        fireLight.intensity = Mathf.Min(fireLight.intensity, lightIntensity);
+
+        fireLight.intensity = Mathf.Max(fireLight.intensity, 0);
+
+        boosterLevel = Mathf.Min(boosterLevel, 1);
+
+        boosterLevel = Mathf.Clamp(boosterLevel, 0, 1);
+
+        foreach (GameObject booster in boosterObjects)
+        {
+            booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
+        }
     }
 }
