@@ -16,12 +16,10 @@ public class LevelManager : MonoBehaviour
             var playerAttributes = player.GetComponent<AttributeManager>();
             if (playerAttributes != null)
             {
-                playerAttributes.getAttribute("MaxSpeed").setBaseValue(gameManager.MaxSpeed);
-                playerAttributes.getAttribute("Acceleration").setBaseValue(gameManager.Acceleration);
-                playerAttributes.getAttribute("RotationSpeed").setBaseValue(gameManager.RotationSpeed);
-                playerAttributes.getAttribute("Damage").setBaseValue(gameManager.Damage);
-                playerAttributes.getAttribute("FireRate").setBaseValue(gameManager.FireRate);
-                playerAttributes.getAttribute("MaxHealth").setBaseValue(gameManager.MaxHealth);
+                foreach (var item in gameManager.defaultAttributes.Keys)
+                {
+                    playerAttributes.getAttribute(item).setBaseValue(gameManager.defaultAttributes[item].amount);
+                }
             }
         }
     }

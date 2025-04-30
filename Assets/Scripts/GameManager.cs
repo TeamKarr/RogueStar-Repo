@@ -6,39 +6,38 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    // Player base attributes with max, upgrade amount, and max upgrades  
+    public class AttributeUpgrade
+    {
+        public float amount;
+        public float UpgradeAmount;
+        public int MaxUpgrades;
+    }
 
-    [Header("Health Attributes")]
-    public float MaxHealth = 100f;
-    public float MaxHealthUpgradeAmount = 10f;
-    public int MaxHealthMaxUpgrades = 7;
+    public class KeyValuePair<T, V>
+    {
+        public T Key;
+        public V Value;
+        public KeyValuePair(T key, V value)
+        {
+            Key = key;
+            Value = value;
+        }
+    }
 
-    [Header("Speed Attributes")]
-    public float MaxSpeed = 10f;
-    public float MaxSpeedUpgradeAmount = 1f;
-    public int MaxSpeedMaxUpgrades = 7;
+    [HideInInspector] public Dictionary<string, AttributeUpgrade> defaultAttributes;
 
-    [Header("Acceleration Attributes")]
-    public float Acceleration = 5f;
-    public float AccelerationUpgradeAmount = 0.5f;
-    public int AccelerationMaxUpgrades = 7;
-
-    [Header("Rotation Speed Attributes")]
-    public float RotationSpeed = 200f;
-    public float RotationSpeedUpgradeAmount = 20f;
-    public int RotationSpeedMaxUpgrades = 7;
-
-    [Header("Damage Attributes")]
-    public float Damage = 25f;
-    public float DamageUpgradeAmount = 5f;
-    public int DamageMaxUpgrades = 7;
-
-    [Header("Fire Rate Attributes")]
-    public float FireRate = 0.5f;
-    public float FireRateUpgradeAmount = -0.05f; // Negative to reduce fire rate  
-    public int FireRateMaxUpgrades = 7;
+    public List<KeyValuePair<string, AttributeUpgrade>> defaultAttributesList = new List<KeyValuePair<string, AttributeUpgrade>>
+       {
+           new("MaxHealth", new AttributeUpgrade { amount = 100f, UpgradeAmount = 10f, MaxUpgrades = 7 }),
+           new("MaxSpeed", new AttributeUpgrade { amount = 10f, UpgradeAmount = 1f, MaxUpgrades = 7 }),
+           new("Acceleration", new AttributeUpgrade { amount = 5f, UpgradeAmount = 0.5f, MaxUpgrades = 7 }),
+           new("RotationSpeed", new AttributeUpgrade { amount = 200f, UpgradeAmount = 20f, MaxUpgrades = 7 }),
+           new("Damage", new AttributeUpgrade { amount = 25f, UpgradeAmount = 5f, MaxUpgrades = 7 }),
+           new("FireRate", new AttributeUpgrade { amount = 0.5f, UpgradeAmount = 0.05f, MaxUpgrades = 7 }),
+       };
 
     public float Bloom = 5f;
+
 
     private void Awake()
     {
@@ -50,5 +49,17 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        InitializeAttributes();
     }
+
+    private void InitializeAttributes()
+    {
+        defaultAttributes = new Dictionary<string, AttributeUpgrade>();
+        foreach (var pair in defaultAttributesList)
+        {
+            defaultAttributes[pair.Key] = pair.Value;
+        }
+    }
+
 }
