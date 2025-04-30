@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     public UnityEvent onDamage;
     public UnityEvent onHeal;
 
-    
+
     public Canvas healthBarCanvas;
 
     [Header("For Enemy HealthBars")]
@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
     Attribute maxHealth;
 
     [ReadOnly] public bool isDead = false;
+    [HideInInspector] public Vector3 deathpos;
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +107,8 @@ public class Health : MonoBehaviour
     public void die()
     {
         isDead = true;
+        deathpos = this.transform.position;
+        Debug.Log(deathpos);
         Destroy(this.gameObject);
         // do something when the object dies
         

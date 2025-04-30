@@ -267,6 +267,7 @@ MonoBehaviour:
   camera: {fileID: 5894839916116547483, guid: 35691f86b2b654fd5baba9820d8c9115, type: 3}
   parent: {fileID: 6826225795661740455}
   offset: {x: 0, y: 1, z: 0}
+  xpOrb: {fileID: 4996632845696513583, guid: 236b8f04a4682420180eb1ee241996d2, type: 3}
   isDead: 0
 --- !u!114 &5015389633847579232
 MonoBehaviour:
