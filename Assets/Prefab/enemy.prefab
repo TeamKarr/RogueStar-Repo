@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5015389633847579232}
   - component: {fileID: 6569497163909528363}
   - component: {fileID: 3919092472368840260}
+  - component: {fileID: -3115014680231767419}
   m_Layer: 7
   m_Name: enemy
   m_TagString: Untagged
@@ -53,7 +54,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954963737137122683}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6f0ace9b554117459faafa58be2562f, type: 3}
   m_Name: 
@@ -228,7 +229,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954963737137122683}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f75388997f8d4264a86b7441dc9ea74e, type: 3}
   m_Name: 
@@ -256,7 +257,19 @@ MonoBehaviour:
   maxHealthAttribute: MaxHealth
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -3115014680231767419}
+        m_TargetAssemblyTypeName: OrbDropper, Assembly-CSharp
+        m_MethodName: SpawnOrb
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -267,8 +280,8 @@ MonoBehaviour:
   camera: {fileID: 5894839916116547483, guid: 35691f86b2b654fd5baba9820d8c9115, type: 3}
   parent: {fileID: 6826225795661740455}
   offset: {x: 0, y: 1, z: 0}
-  xpOrb: {fileID: 4996632845696513583, guid: 236b8f04a4682420180eb1ee241996d2, type: 3}
   isDead: 0
+  deathpos: {x: 0, y: 0, z: 0}
 --- !u!114 &5015389633847579232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +312,19 @@ MonoBehaviour:
   currentValue: 0
   onValueChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4575321445134843515, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   modifiers: []
 --- !u!114 &3919092472368840260
 MonoBehaviour:
@@ -314,6 +339,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPointer: {fileID: 5434439639528970373, guid: 42f17aaf3b033d44baaef419585b89d2, type: 3}
+--- !u!114 &-3115014680231767419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954963737137122683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c6f1b495a2c8f49a4cf340ccd69392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbPrefab: {fileID: 4996632845696513583, guid: 236b8f04a4682420180eb1ee241996d2, type: 3}
 --- !u!1 &3692751314469533588
 GameObject:
   m_ObjectHideFlags: 0

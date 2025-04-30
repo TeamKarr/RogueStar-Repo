@@ -33,9 +33,10 @@ public class Health : MonoBehaviour
         
         var healthBarCanvasInstance = Instantiate(healthBarCanvas, transform.position, Quaternion.identity, transform);
         healthBar = healthBarCanvasInstance.GetComponentInChildren<Slider>();
-        updateHealthBar();
+        
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
-
+        healthBar.maxValue = maxHealth.getvalue();
+        updateHealthBar();
     }
 
     // Update is called once per frame
@@ -108,11 +109,10 @@ public class Health : MonoBehaviour
     {
         isDead = true;
         deathpos = this.transform.position;
-        Debug.Log(deathpos);
+        onDeath.Invoke();
         Destroy(this.gameObject);
         // do something when the object dies
         
-        onDeath.Invoke();
 
     }
 
