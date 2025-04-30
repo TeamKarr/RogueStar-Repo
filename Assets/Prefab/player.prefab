@@ -5261,6 +5261,7 @@ GameObject:
   - component: {fileID: 6342558946373712119}
   - component: {fileID: 3299775382418252110}
   - component: {fileID: 5952562441422333688}
+  - component: {fileID: -5261344469354425820}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -5520,8 +5521,12 @@ MonoBehaviour:
   onHeal:
     m_PersistentCalls:
       m_Calls: []
-  healthBar: {fileID: 0}
+  healthBarCanvas: {fileID: 0}
+  camera: {fileID: 0}
+  parent: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   isDead: 0
+  deathpos: {x: 0, y: 0, z: 0}
 --- !u!50 &6342558946373712119
 Rigidbody2D:
   serializedVersion: 4
@@ -5623,6 +5628,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d14d46b3f0d394ec38c617823d276fb6, type: 2}
   - {fileID: 11400000, guid: 3103803428fae47a3936a87e69dc0589, type: 2}
   availableUpgrades: []
+--- !u!114 &-5261344469354425820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665322699795123541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa3a6b321e55438f85ccdef0b438974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expValue: 0
+  ExpBar: {fileID: 0}
 --- !u!1 &6411349148181970278
 GameObject:
   m_ObjectHideFlags: 0

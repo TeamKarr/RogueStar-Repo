@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+public class PlayerExperience : MonoBehaviour
+{
+    [HideInInspector] public float expValue = 0;
+    public Slider ExpBar;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public void ExpGain(float exp)
+    {
+        expValue += exp;
+        if (expValue >= ExpBar.value)
+        {
+            
+        }
+        updateExpBar();
+    }
+    public void updateExpBar()
+    {
+        Debug.Log("Update Ran");
+        if (ExpBar != null)
+        {
+            Debug.Log("If Statement Ran");
+            ExpBar.value = expValue;
+        }
+    }
+}

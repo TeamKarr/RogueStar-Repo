@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbPrefab: {fileID: 4996632845696513583, guid: 236b8f04a4682420180eb1ee241996d2, type: 3}
+  dropNum: 5
 --- !u!1 &3692751314469533588
 GameObject:
   m_ObjectHideFlags: 0
