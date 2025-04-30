@@ -13,8 +13,12 @@ public class Health : MonoBehaviour
     public UnityEvent onDamage;
     public UnityEvent onHeal;
 
-    public Slider healthBar;
-    public Camera camera;
+    
+    public Canvas healthBarCanvas;
+
+    [Header("For Enemy HealthBars")]
+    private Slider healthBar;
+    public new Camera camera;
     public Transform parent;
     public Vector3 offset;
 
@@ -26,6 +30,8 @@ public class Health : MonoBehaviour
     void Start()
     {
         
+        var healthBarCanvasInstance = Instantiate(healthBarCanvas, transform.position, Quaternion.identity, transform);
+        healthBar = healthBarCanvasInstance.GetComponentInChildren<Slider>();
         updateHealthBar();
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
 
@@ -34,8 +40,10 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthBar.transform.rotation = camera.transform.rotation;
-        healthBar.transform.position = parent.position + offset;
+        if (this.gameObject.layer == 7)
+        {
+            healthBar.transform.SetPositionAndRotation(parent.position + offset, camera.transform.rotation);
+        }
     }
 
     public void updateHealthBar()

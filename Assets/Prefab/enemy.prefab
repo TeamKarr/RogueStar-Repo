@@ -263,9 +263,8 @@ MonoBehaviour:
   onHeal:
     m_PersistentCalls:
       m_Calls: []
-  healthBar: {fileID: 6230447769967721051}
-  healthBarPrefab: {fileID: 4575321445134843515, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
-  camera: {fileID: 0}
+  healthBarCanvas: {fileID: 7739726488088840786, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
+  camera: {fileID: 5894839916116547483, guid: 35691f86b2b654fd5baba9820d8c9115, type: 3}
   parent: {fileID: 6826225795661740455}
   offset: {x: 0, y: 1, z: 0}
   isDead: 0
@@ -631,17 +630,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
---- !u!114 &6230447769967721051 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 512454715167273808, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
-  m_PrefabInstance: {fileID: 5866613501602564363}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &7419409717002723300 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4007478224032323311, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
