@@ -90,12 +90,12 @@ public class PlayerMovement : MonoBehaviour
         float forward = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         // Move ship forward
-        //rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
-        rb.AddForce(new Vector3(0, acceleration.getvalue() * forward), ForceMode2D.Force);
+        rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
+        // rb.AddForce(new Vector3(0, acceleration.getvalue() * forward), ForceMode2D.Force);
 
         // Allow for straffing
-        //rb.AddForce(horizontal * transform.right * acceleration.getvalue() * 0.75f, ForceMode2D.Force);
-        rb.AddForce(new Vector3(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
+        rb.AddForce(horizontal * transform.right * acceleration.getvalue() * 0.75f, ForceMode2D.Force);
+        // rb.AddForce(new Vector3(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
 
         // Clamp the velocity magnitude
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed.getvalue());

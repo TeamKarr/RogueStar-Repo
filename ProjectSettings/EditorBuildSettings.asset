@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu/MainMenu.unity
     guid: 978cc16024fde7048be188738ceb7432
+  - enabled: 1
+    path: Assets/Scenes/Menu/SpaceStation.unity
+    guid: a6af4c1572824a8489c7a24f317a684c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

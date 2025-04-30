@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ed20acd15a7e4498ed1da0398dab85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 5665322699795123541, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+  Player: {fileID: 0}
 --- !u!114 &8229771810588377107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6087532128199826423, guid: 90d23ecc81df9e243a5b42caaf4d1b55, type: 3}
   projectileHolder: {fileID: 0}
   isPlayerControlled: 0
-  fireRate: 0.1
+  fireRate: 1
   projectileSpread: 5
   fireEffect: {fileID: 0}
   spawnpoint: {fileID: 8790946509010151331}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 2794451649818954329}
   - component: {fileID: 4401623433711042743}
   - component: {fileID: 2893620215804938079}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6735175656144830213}
   - component: {fileID: 6230447769967721051}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: EnemyHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433659485547730728}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 1422823650460106650}
   - component: {fileID: 3509142469855242361}
   - component: {fileID: 701344553377320357}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 4180305680600630105}
   - component: {fileID: 1646243837802919756}
   - component: {fileID: 8946344250882538788}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: EnemyHealthBarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
