@@ -1687,7 +1687,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -647486573142469624, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: fireRate
-      value: 0.25
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -647486573142469624, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: projectileHolder
@@ -1699,15 +1699,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 954963737137122683, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1422823650460106650, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1422823650460106650, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2723021612278305573, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: Player
@@ -1969,15 +1969,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 954963737137122683, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1422823650460106650, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1422823650460106650, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2723021612278305573, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: Player
@@ -2474,7 +2474,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -647486573142469624, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: fireRate
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -647486573142469624, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: projectileHolder
@@ -2486,15 +2486,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 954963737137122683, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1422823650460106650, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1422823650460106650, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2723021612278305573, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: Player
