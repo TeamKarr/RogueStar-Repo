@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Experience
   description: 
-  baseValue: 2
+  baseValue: 1
   currentValue: 0
   onValueChange:
     m_PersistentCalls:

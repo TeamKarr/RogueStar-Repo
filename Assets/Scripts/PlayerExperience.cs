@@ -22,9 +22,9 @@ public class PlayerExperience : MonoBehaviour
     public void ExpGain(float exp)
     {
         expValue += exp;
-        if (expValue >= ExpBar.value)
+        if (expValue >= ExpBar.maxValue)
         {
-            
+            expValue = 0;
         }
         updateExpBar();
     }

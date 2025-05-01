@@ -12,7 +12,7 @@ public class Damage : MonoBehaviour
     public string damgageAttribute = "Damage";
     Attribute damage;
 
-    [ReadOnly] public GameObject Fired;
+    [HideInInspector] public GameObject Fired;
 
     void Start()
     {
