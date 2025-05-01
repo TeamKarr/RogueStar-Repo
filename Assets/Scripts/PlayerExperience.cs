@@ -30,10 +30,8 @@ public class PlayerExperience : MonoBehaviour
     }
     public void updateExpBar()
     {
-        Debug.Log("Update Ran");
         if (ExpBar != null)
         {
-            Debug.Log("If Statement Ran");
             ExpBar.value = expValue;
         }
     }

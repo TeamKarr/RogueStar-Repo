@@ -30,10 +30,14 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        var healthBarCanvasInstance = Instantiate(healthBarCanvas, transform.position, Quaternion.identity, transform);
-        healthBar = healthBarCanvasInstance.GetComponentInChildren<Slider>();
-        
+        if (this.gameObject.layer == 7)
+        {
+            var healthBarCanvasInstance = Instantiate(healthBarCanvas, transform.position, Quaternion.identity, transform);
+            healthBar = healthBarCanvasInstance.GetComponentInChildren<Slider>();
+        } else if (this.gameObject.layer == 3)
+        {
+            healthBar = healthBarCanvas.GetComponentInChildren<Slider>();
+        }
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
         healthBar.maxValue = maxHealth.getvalue();
         updateHealthBar();
