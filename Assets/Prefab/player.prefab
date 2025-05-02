@@ -5255,6 +5255,7 @@ GameObject:
   - component: {fileID: 1247076163880487839}
   - component: {fileID: 3357581103418183002}
   - component: {fileID: -3454645552028240605}
+  - component: {fileID: -3794250959344058710}
   - component: {fileID: 643044991468295282}
   - component: {fileID: -3630723181897511699}
   - component: {fileID: 2975818757503801290}
@@ -5433,6 +5434,26 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   modifiers: []
+--- !u!114 &-3794250959344058710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665322699795123541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: FiringRate
+  description: 
+  baseValue: 0.25
+  currentValue: 0
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  modifiers: []
 --- !u!114 &643044991468295282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5454,6 +5475,7 @@ MonoBehaviour:
   fireLight: {fileID: 8243627851316873365}
   maxRoll: 90
   body: {fileID: 5183645478790984447}
+  barrelRolling: 0
 --- !u!114 &-3630723181897511699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5469,7 +5491,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6087532128199826423, guid: 6d32b673c1d4aea4eb888e0acfa1d6f2, type: 3}
   projectileHolder: {fileID: 0}
   isPlayerControlled: 1
-  fireRate: 0.2
+  fireRateAttribute: FiringRate
   projectileSpread: 3
   fireEffect: {fileID: 0}
   spawnpoint: {fileID: 2791220415459445235}
@@ -5521,6 +5543,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   healthBar: {fileID: 0}
+  camera: {fileID: 0}
+  parent: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   isDead: 0
 --- !u!50 &6342558946373712119
 Rigidbody2D:

@@ -7,8 +7,12 @@ public class MenuManager : MonoBehaviour
 {
 
     public GameObject nav;
+    public GameObject navSene;
     public GameObject mech;
+    public GameObject mechSene;
     public GameObject launch;
+    public GameObject launchSene;
+
 
     public Button navButton;
     public Button mechButton;
@@ -23,8 +27,11 @@ public class MenuManager : MonoBehaviour
     public void goToNav()
     {
         nav.SetActive(true);
+        navSene.SetActive(true);
         mech.SetActive(false);
+        mechSene.SetActive(false);
         launch.SetActive(false);
+        launchSene.SetActive(false);
         navButton.interactable = false;
         mechButton.interactable = true;
         launchButton.interactable = true;
@@ -32,16 +39,22 @@ public class MenuManager : MonoBehaviour
     public void goToMech()
     {
         nav.SetActive(false);
+        navSene.SetActive(false);
         mech.SetActive(true);
+        mechSene.SetActive(true);
         launch.SetActive(false);
+        launchSene.SetActive(false);
         navButton.interactable = true;
         mechButton.interactable = false;
         launchButton.interactable = true;
     }
     public void goToLaunch() {
         nav.SetActive(false);
+        navSene.SetActive(false);
         mech.SetActive(false);
+        mechSene.SetActive(false);
         launch.SetActive(true);
+        launchSene.SetActive(true);
         navButton.interactable = true;
         mechButton.interactable = true;
         launchButton.interactable = false;

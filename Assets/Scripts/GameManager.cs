@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
            new("Acceleration", new AttributeUpgrade { amount = 5f, UpgradeAmount = 0.5f, MaxUpgrades = 7, Cost = 10, CostIncrease = 1 }),
            new("RotationSpeed", new AttributeUpgrade { amount = 200f, UpgradeAmount = 20f, MaxUpgrades = 7, Cost = 10, CostIncrease = 1 }),
            new("Damage", new AttributeUpgrade { amount = 25f, UpgradeAmount = 5f, MaxUpgrades = 7, Cost = 10, CostIncrease = 1 }),
-           new("FireRate", new AttributeUpgrade { amount = 0.5f, UpgradeAmount = 0.5f, MaxUpgrades = 7, Cost = 10, CostIncrease = 1 }),
+           new("FiringRate", new AttributeUpgrade { amount = 0.5f, UpgradeAmount = 0.5f, MaxUpgrades = 7, Cost = 10, CostIncrease = 1 }),
        };
 
     public void addGold(int value)
@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         InitializeAttributes();
+        OnGoldChange.Invoke(matter);
     }
 
     private void InitializeAttributes()

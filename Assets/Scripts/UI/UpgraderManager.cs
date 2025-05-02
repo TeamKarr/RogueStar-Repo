@@ -21,11 +21,17 @@ public class UpgraderManager : MonoBehaviour
 
     public string upgradeName;
 
+    public bool hasRun = false;
+
+
+
     public void Start()
     {
+        hasRun = true;
         //float amount = manager.GetAttribute(upgradeName);\
-        Debug.Log(manager);
+        Debug.Log("upgradename" + upgradeName);
         upgrade = manager.defaultAttributes[upgradeName];
+        Debug.Log(upgradeName + "  " + upgrade + " ---------------------");
         titleText = title.text;
         slider.minValue = upgrade.amount;
         slider.maxValue = upgrade.amount + upgrade.UpgradeAmount*upgrade.MaxUpgrades;
@@ -36,7 +42,7 @@ public class UpgraderManager : MonoBehaviour
 
     public void updateDisplay()
     {
-        Debug.Log("updated amount");
+        Debug.Log("updated amount " + upgradeName + hasRun);
         slider.value = upgrade.amount;
         title.text = titleText + " " + upgrade.amount.ToString("F1");
         buttonLabel.text = "UPGRADE\n(" + upgrade.Cost.ToString("F1") + " M)";
