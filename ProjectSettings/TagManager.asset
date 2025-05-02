@@ -14,7 +14,11 @@ TagManager:
   - Bullet
   - Enemy
   - Pointers
+<<<<<<< HEAD
   - Experience
+=======
+  - Health Bar
+>>>>>>> 1f1e4e88150517b9a889e724b2b3970c1d31b527
   - 
   - 
   - 

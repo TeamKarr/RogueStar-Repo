@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private float roll = 0f;
     public float maxRoll = 90f;
     public Transform body;
+    public bool barrelRolling = false;
 
     void Start()
     {
@@ -58,11 +59,16 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         // Apply roll to the body
-        roll =Mathf.Clamp(rb.angularVelocity/rotationSpeed.getvalue()*8,-1*maxRoll,maxRoll);
+        if (!barrelRolling)
+        {
+            roll = Mathf.Clamp(rb.angularVelocity / rotationSpeed.getvalue() * 8, -1 * maxRoll, maxRoll);
+
+            Vector3 localRot = body.transform.localEulerAngles;
+            localRot.y = roll - 180;
+            body.localEulerAngles = localRot;
+        }
+
         
-        Vector3 localRot = body.transform.localEulerAngles;
-        localRot.y = roll-180;
-        body.localEulerAngles = localRot;
 
         // Handle booster effects
 
@@ -82,29 +88,40 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    public void launchBarrel()
+    {
+
+    }
+
     void FixedUpdate()
     {
         // Manage physics and movement of the ship
         float forward = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         // Move ship forward
-        //rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
-        rb.AddForce(new Vector3(0, acceleration.getvalue() * forward), ForceMode2D.Force);
+        rb.AddForce(transform.up * acceleration.getvalue() * forward, ForceMode2D.Force);
+        // rb.AddForce(new Vector3(0, acceleration.getvalue() * forward), ForceMode2D.Force);
 
         // Allow for straffing
-        //rb.AddForce(horizontal * transform.right * acceleration.getvalue() * 0.75f, ForceMode2D.Force);
-        rb.AddForce(new Vector3(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
+        if (!barrelRolling)
+            rb.AddForce(horizontal * transform.right * acceleration.getvalue() * 0.75f, ForceMode2D.Force);
+        // rb.AddForce(new Vector3(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
 
         // Clamp the velocity magnitude
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed.getvalue());
 
         // Rotate ship towards the mouse
-        Vector2 m = Camera.main.ScreenToWorldPoint( Input.mousePosition);
-        Vector2 direction = (m - (Vector2) transform.position).normalized;
+        if (!barrelRolling)
+        {
+            Vector2 m = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = (m - (Vector2)transform.position).normalized;
 
-        Quaternion rotation = Quaternion.AngleAxis(90, transform.forward);
-        direction= rotate(direction, -Mathf.PI/2);
-        rb.AddTorque( Vector2.Dot(transform.up, direction)*rotationSpeed.getvalue());
+            Quaternion rotation = Quaternion.AngleAxis(90, transform.forward);
+            direction = rotate(direction, -Mathf.PI / 2);
+            rb.AddTorque(Vector2.Dot(transform.up, direction) * rotationSpeed.getvalue());
+        }
+        
     }
     public static Vector2 rotate(Vector2 v, float delta) {
     return new Vector2(
