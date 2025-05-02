@@ -24,7 +24,7 @@ public class UpgraderManager : MonoBehaviour
     public void Start()
     {
         //float amount = manager.GetAttribute(upgradeName);\
-        Debug.Log(manager);
+        //Debug.Log(manager);
         upgrade = manager.defaultAttributes[upgradeName];
         titleText = title.text;
         slider.minValue = upgrade.amount;
@@ -36,7 +36,7 @@ public class UpgraderManager : MonoBehaviour
 
     public void updateDisplay()
     {
-        Debug.Log("updated amount");
+        //Debug.Log("updated amount");
         slider.value = upgrade.amount;
         title.text = titleText + " " + upgrade.amount.ToString("F1");
         buttonLabel.text = "UPGRADE\n(" + upgrade.Cost.ToString("F1") + " M)";

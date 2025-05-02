@@ -86,7 +86,7 @@ public class EnemyPointer : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, targetObject.transform.position, ref velocity, smoothTime);
 
         float distanceToCamera = Vector3.Distance(targetObject.transform.position, transform.position);
-        float scale = Mathf.Clamp(1 / distanceToCamera, 0.25f, 1f);
+        float scale = Mathf.Clamp(1 / distanceToCamera, 0.25f, .75f);
         transform.localScale = new Vector3(scale, scale, 1f);
     }
 }
