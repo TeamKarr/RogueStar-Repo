@@ -19,7 +19,10 @@ public class ShootingController : MonoBehaviour
 
     [Header("Firing Settings")]
     [Tooltip("The minimum time between projectiles being fired.")]
-    public float fireRate = 0.05f;
+    // public float fireRate = 0.05f;
+
+    private Attribute fireRate;
+    public string fireRateAttribute = "FiringRate";
 
     [Tooltip("The maximum diference between the direction the" +
         " shooting controller is facing and the direction projectiles are launched.")]
@@ -45,11 +48,20 @@ public class ShootingController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        ProcessInput();
+    }
+
+    public void Start()
+    {
+        fireRate = GetComponent<AttributeManager>().getAttribute(fireRateAttribute);
+    }
+
+    private void LateUpdate()
+    {
         if (!isPlayerControlled)
         {
             Fire();
         }
-        ProcessInput();
     }
 
     /// <summary>
@@ -82,7 +94,7 @@ public class ShootingController : MonoBehaviour
     public void Fire()
     {
         // If the cooldown is over fire a projectile
-        if ((Time.timeSinceLevelLoad - lastFired) > fireRate)
+        if ((Time.timeSinceLevelLoad - lastFired) > fireRate.getvalue())
         {
             // Launches a projectile
             SpawnProjectile();

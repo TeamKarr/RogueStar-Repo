@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 2232919402581065499}
   - component: {fileID: -6307687198541728734}
   - component: {fileID: 3308303311655514990}
-  - component: {fileID: -9055958019197429885}
-  - component: {fileID: -4992609127235807410}
+  - component: {fileID: -5440415569044717737}
+  - component: {fileID: 6322189467440805725}
   m_Layer: 6
   m_Name: Player_Bullet
   m_TagString: Untagged
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd8ed0746ef8324aa9b33326bd46bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 30
+  projectileSpeed: 40
 --- !u!114 &-7673024671074650330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,8 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyChildrenOnDeath: 1
   damgageAttribute: Damage
-  Fired: {fileID: 1083855880979234737, guid: bda6ecc773533c24f853ddec1fc18aa5, type: 3}
---- !u!114 &-9055958019197429885
+  Fired: {fileID: 0}
+--- !u!114 &-5440415569044717737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,7 +304,7 @@ MonoBehaviour:
   onValueChange:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &-4992609127235807410
+--- !u!114 &6322189467440805725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
