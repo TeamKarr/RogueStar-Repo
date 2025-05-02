@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 6569497163909528363}
   - component: {fileID: 3919092472368840260}
   - component: {fileID: -3115014680231767419}
+  - component: {fileID: 2801183546610307828}
   m_Layer: 7
   m_Name: enemy
   m_TagString: Untagged
@@ -353,6 +354,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbPrefab: {fileID: 4996632845696513583, guid: 236b8f04a4682420180eb1ee241996d2, type: 3}
   dropNum: 5
+--- !u!114 &2801183546610307828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954963737137122683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Damage
+  description: 
+  baseValue: 1
+  currentValue: 0
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4575321445134843515, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  modifiers: []
 --- !u!1 &3692751314469533588
 GameObject:
   m_ObjectHideFlags: 0

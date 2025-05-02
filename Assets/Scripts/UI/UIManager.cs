@@ -19,6 +19,10 @@ public class UIManager : MonoBehaviour
     }
 
     public void CloseAll(){
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         gameWindPanel.SetActive(false);
@@ -28,7 +32,7 @@ public class UIManager : MonoBehaviour
     public void ShowUpgradePanel()
     {
         CloseAll();
-
+        Time.timeScale = 0;
         // call upgradeManagerForPlayer to set the upgrade choices
         upgradeManagerForPlayer.SetUpgradeChoices();
 

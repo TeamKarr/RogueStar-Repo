@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject player;
 
-    void Awake()
+    void Start()
     {
         var gameManager = FindFirstObjectByType<GameManager>();
         if (gameManager != null)

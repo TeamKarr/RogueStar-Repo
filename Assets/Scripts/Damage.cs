@@ -16,7 +16,7 @@ public class Damage : MonoBehaviour
 
     void Start()
     {
-        damage = (GetComponent<AttributeManager>()).getAttribute(damgageAttribute);
+        damage = (Fired.GetComponent<AttributeManager>()).getAttribute(damgageAttribute);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

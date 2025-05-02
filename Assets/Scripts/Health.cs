@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
     public float health;
     public string maxHealthAttribute = "MaxHealth";
+    
 
     public UnityEvent onDeath;
     public UnityEvent onDamage;
@@ -36,7 +37,8 @@ public class Health : MonoBehaviour
             healthBar = healthBarCanvasInstance.GetComponentInChildren<Slider>();
         } else if (this.gameObject.layer == 3)
         {
-            healthBar = healthBarCanvas.GetComponentInChildren<Slider>();
+            Transform childTransform = healthBarCanvas.transform.Find("PlayerHealthBar");
+            healthBar = childTransform.GetComponent<Slider>();
         }
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
         healthBar.maxValue = maxHealth.getvalue();

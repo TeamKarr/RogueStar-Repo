@@ -5428,7 +5428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Damage
   description: 
-  baseValue: 1
+  baseValue: 5
   currentValue: 0
   onValueChange:
     m_PersistentCalls:
@@ -5455,6 +5455,7 @@ MonoBehaviour:
   fireLight: {fileID: 8243627851316873365}
   maxRoll: 90
   body: {fileID: 5183645478790984447}
+  barrelRolling: 0
 --- !u!114 &-3630723181897511699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5642,6 +5643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expValue: 0
   ExpBar: {fileID: 0}
+  UImanager: {fileID: 0}
 --- !u!1 &6411349148181970278
 GameObject:
   m_ObjectHideFlags: 0

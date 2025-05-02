@@ -8,6 +8,8 @@ public class PlayerExperience : MonoBehaviour
 {
     [HideInInspector] public float expValue = 0;
     public Slider ExpBar;
+
+    public UIManager UImanager;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class PlayerExperience : MonoBehaviour
         expValue += exp;
         if (expValue >= ExpBar.maxValue)
         {
+            UImanager.ShowUpgradePanel();
             expValue = 0;
         }
         updateExpBar();

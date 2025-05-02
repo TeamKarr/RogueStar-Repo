@@ -1731,15 +1731,15 @@ MonoBehaviour:
   defaultAttributesList:
   - Key: MaxHealth
     Value:
-      amount: 100
-      UpgradeAmount: 10
+      amount: 20
+      UpgradeAmount: 5
       MaxUpgrades: 7
       Cost: 10
       CostIncrease: 1
   - Key: MaxSpeed
     Value:
       amount: 10
-      UpgradeAmount: 1
+      UpgradeAmount: 2
       MaxUpgrades: 7
       Cost: 10
       CostIncrease: 1
@@ -1759,8 +1759,8 @@ MonoBehaviour:
       CostIncrease: 2
   - Key: Damage
     Value:
-      amount: 25
-      UpgradeAmount: 5
+      amount: 5
+      UpgradeAmount: 3
       MaxUpgrades: 7
       Cost: 10
       CostIncrease: 0
