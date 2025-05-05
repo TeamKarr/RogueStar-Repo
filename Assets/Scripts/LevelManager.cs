@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,9 +9,16 @@ public class LevelManager : MonoBehaviour
 
     public GameObject player;
 
-    void Awake()
+    public int Matter;
+    public int Score;
+
+    public string StationScene;
+
+    private GameManager gameManager;
+
+    void Start()
     {
-        var gameManager = FindFirstObjectByType<GameManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
         if (gameManager != null)
         {
             var playerAttributes = player.GetComponent<AttributeManager>();
@@ -23,6 +31,25 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
+
+    public void returnToStation(bool shouldSave)
+    {
+        if (shouldSave)
+        {
+            gameManager.addMatter(Matter);
+            gameManager.addScore(Score);
+        }
+        
+
+        SceneManager.LoadScene(StationScene);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(StationScene));
+    }
+
+
+
+
+
+
 
 
 }

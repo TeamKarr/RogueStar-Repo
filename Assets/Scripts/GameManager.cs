@@ -10,7 +10,21 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent<float> OnGoldChange = new();
 
-    public int Score = 0;
+    public int score = 0;
+
+    public int Score
+    {
+        get { return matter; }
+        set
+        {
+            matter = value;
+            if (matter < 0)
+            {
+                matter = 0;
+            }
+            OnGoldChange.Invoke(matter);
+        }
+    }
 
     public int matter = 0;
     public int Matter
@@ -65,9 +79,14 @@ public class GameManager : MonoBehaviour
            new("FiringRate", new AttributeUpgrade { amount = 0.5f, UpgradeAmount = 0.5f, MaxUpgrades = 7, Cost = 10, CostIncrease = 1 }),
        };
 
-    public void addGold(int value)
+    public void addMatter(int value)
     {
         Matter += value;
+    }
+
+    internal void addScore(int score)
+    {
+        Score += score;
     }
 
     private void Awake()
@@ -99,4 +118,5 @@ public class GameManager : MonoBehaviour
         OnGoldChange.Invoke(matter);
     }
 
+    
 }

@@ -14,7 +14,8 @@ public class Health : MonoBehaviour
     public UnityEvent onHeal;
 
     public Slider healthBar;
-    public Camera camera;
+    public bool isPlayer = false;
+    //public Camera camera;
     public Transform parent;
     public Vector3 offset;
 
@@ -34,7 +35,15 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthBar.transform.rotation = camera.transform.rotation;
+        if (isPlayer)
+        {
+            return;
+        }
+        if (parent == null)
+        {
+            parent = this.transform;
+        }
+        healthBar.transform.rotation = Camera.main.transform.rotation;
         healthBar.transform.position = parent.position + offset;
     }
 
