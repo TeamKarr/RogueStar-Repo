@@ -33,14 +33,18 @@ public class Health : MonoBehaviour
     {
         if (this.gameObject.layer == 7)
         {
+            
             var healthBarCanvasInstance = Instantiate(healthBarCanvas, transform.position, Quaternion.identity, transform);
+            
             healthBar = healthBarCanvasInstance.GetComponentInChildren<Slider>();
         } else if (this.gameObject.layer == 3)
         {
             Transform childTransform = healthBarCanvas.transform.Find("PlayerHealthBar");
             healthBar = childTransform.GetComponent<Slider>();
         }
+        
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
+        
         healthBar.maxValue = maxHealth.getvalue();
         updateHealthBar();
     }

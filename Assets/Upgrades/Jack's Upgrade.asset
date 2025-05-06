@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6af5f84f8ab524274ab6f0a902c29883, type: 3}
-  m_Name: NewUpgrade
+  m_Name: Jack's Upgrade
   m_EditorClassIdentifier: 
-  Title: Simple Upgrade
-  Description: Referbish your ship
+  Title: blah blah
+  Description: This does something
   modifierLabels:
-  - +Makes you look cooler
+  - -Lower DMG
   AttributeModifiers: []
-  weight: 5
+  weight: 1
