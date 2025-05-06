@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      combustion roud_0: 2609862889620869993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

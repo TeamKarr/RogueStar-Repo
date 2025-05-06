@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] boosterObjects;
     private float boosterLevel = 0f;
 
-
+    public float rollAmplifier=16f;
 
     public ParticleSystem smoke;
     public Light fireLight;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         // move ship
         
 
-        roll =Mathf.Clamp(rb.angularVelocity/AngularAcceleration*8,-1*maxRoll,maxRoll);
+        roll =Mathf.Clamp(rb.angularVelocity/AngularAcceleration*rollAmplifier,-1*maxRoll,maxRoll);
         
         Vector3 localRot = body.transform.localEulerAngles;
         localRot.y = roll-180;
