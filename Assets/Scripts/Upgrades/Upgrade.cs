@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
+using System;
 
 [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Upgrades/Simple Upgrade")]
 public class Upgrade : ScriptableObject
@@ -10,6 +12,9 @@ public class Upgrade : ScriptableObject
     public string Description;
     public string[] modifierLabels;
     public ModifierHandler[] AttributeModifiers;
+
+    [SerializeField]
+    public UnityEngine.Object[] Components;
 
     public float weight = 1;
  
@@ -56,7 +61,7 @@ public class Upgrade : ScriptableObject
 
     
 
-    void Enable()
+    void Enable(GameObject player)
     {
         foreach (ModifierHandler m in AttributeModifiers)
         {
@@ -64,11 +69,38 @@ public class Upgrade : ScriptableObject
         }
     }
 
+
     void Disable()
     {
         foreach (ModifierHandler m in AttributeModifiers)
         {
             m.modifier.enabled = false;
+        }
+
+    }
+
+    public void Initialise(GameObject player)
+    {
+
+        foreach (UnityEngine.Object c in Components)
+        {
+            Component cp = player.AddComponent(c.GetType());
+        }
+        foreach (var modifier in AttributeModifiers)
+        {
+            player.GetComponent<AttributeManager>().getAttribute(modifier.attribute).addModifier(modifier.modifier);
+        }
+    }
+
+    public void Remove(GameObject player)
+    {
+        foreach (var modifier in AttributeModifiers)
+        {
+            player.GetComponent<AttributeManager>().getAttribute(modifier.attribute).removeModifier(modifier.modifier);
+        }
+        foreach (UnityEngine.Object c in Components)
+        {
+            Destroy(player.GetComponent(c.GetType()));
         }
     }
 

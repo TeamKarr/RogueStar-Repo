@@ -18,19 +18,13 @@ public class UpgradeManager : MonoBehaviour
     public void addUpgrade(Upgrade upgrade)
     {
         upgrades.Add(upgrade);
-        foreach (var modifier in upgrade.AttributeModifiers)
-        {
-            attributeManager.getAttribute(modifier.attribute).addModifier(modifier.modifier);
-        }
+        upgrade.Initialise(gameObject);
     }
 
     public void removeUpgrade(Upgrade upgrade)
     {
         upgrades.Remove(upgrade);
-        foreach (var modifier in upgrade.AttributeModifiers)
-        {
-            attributeManager.getAttribute(modifier.attribute).removeModifier(modifier.modifier);
-        }
+        
     }
 
     public List<Upgrade> allUpgrades = new();

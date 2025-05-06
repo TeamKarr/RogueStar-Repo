@@ -4,7 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class cameraPosition : MonoBehaviour
+public class CameraPosition : MonoBehaviour
 {
     // Start is called before the first frame update
 

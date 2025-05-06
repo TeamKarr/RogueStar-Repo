@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameStartManager : MonoBehaviour
 {
+
+    public string selectedLevelName;
     // Start is called before the first frame update
-
-    public string selectedLevelName; 
-
-    public void StartLevel(){
+    public void StartLevel()
+    {
         SceneManager.LoadScene(selectedLevelName);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(selectedLevelName));
     }
+
 }

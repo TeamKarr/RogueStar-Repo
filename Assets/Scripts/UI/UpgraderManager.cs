@@ -13,7 +13,7 @@ public class UpgraderManager : MonoBehaviour
     public TextMeshProUGUI buttonLabel;
     public Button button;
 
-    public GameManager manager;
+    private GameManager manager;
 
     private AttributeUpgrade upgrade;
 
@@ -27,6 +27,9 @@ public class UpgraderManager : MonoBehaviour
 
     public void Start()
     {
+
+        manager = FindAnyObjectByType<GameManager>();
+
         hasRun = true;
         //float amount = manager.GetAttribute(upgradeName);\
         Debug.Log("upgradename" + upgradeName);

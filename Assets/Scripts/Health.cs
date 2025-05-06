@@ -43,8 +43,9 @@ public class Health : MonoBehaviour
         {
             parent = this.transform;
         }
-        healthBar.transform.rotation = Camera.main.transform.rotation;
-        healthBar.transform.position = parent.position + offset;
+        //Debug.Log(Camera.main);
+        //healthBar.transform.rotation = Camera.main.transform.rotation;
+        //healthBar.transform.position = parent.position + offset;
     }
 
     public void updateHealthBar()
@@ -107,10 +108,18 @@ public class Health : MonoBehaviour
     public void die()
     {
         isDead = true;
-        Destroy(this.gameObject);
         // do something when the object dies
         
         onDeath.Invoke();
+
+        if (isPlayer)
+        {
+            gameObject.SetActive(false);
+        } else
+        {
+            Destroy(this.gameObject);
+        }
+        
 
     }
 

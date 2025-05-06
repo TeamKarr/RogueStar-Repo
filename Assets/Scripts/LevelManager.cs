@@ -30,6 +30,9 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+
+        FindFirstObjectByType<UIManager>().CloseAll();
+
     }
 
     public void returnToStation(bool shouldSave)
