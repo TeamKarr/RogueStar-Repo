@@ -86,6 +86,11 @@ public class Upgrade : ScriptableObject
         foreach (UnityEngine.Object c in Components)
         {
             Component cp = player.AddComponent(((MonoScript)c).GetClass());
+            //if (cp is UpgradeBehavior ub)
+            //{
+            //    ub.Start();
+            //}
+            
         }
         foreach (var modifier in AttributeModifiers)
         {

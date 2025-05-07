@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 
 public class UpgradeManager : MonoBehaviour
 {
-
-    public List<Upgrade> upgrades = new();
+    
+    [ReadOnly] public List<Upgrade> upgrades = new();
 
     private AttributeManager attributeManager;
 
@@ -27,7 +28,8 @@ public class UpgradeManager : MonoBehaviour
         
     }
 
-    public List<Upgrade> allUpgrades = new();
+    public string upgradePath = "Assets/Upgrades";
+    [ReadOnly] public List<Upgrade> allUpgrades = new();
     [ReadOnly] public List<Upgrade> availableUpgrades;
     private List<float> culmitiveWeights = new();
 
@@ -54,20 +56,46 @@ public class UpgradeManager : MonoBehaviour
         return availableUpgrades[index];
     }
 
-    // Use this for initialization
-    void Start()
+
+    [ContextMenu("Load Upgrades")]
+    void LoadAllUpgrades()
     {
-        culmitiveWeights.Add(0);
-        attributeManager = GetComponent<AttributeManager>();
-        
-        foreach (var upgrade in allUpgrades)
+        if (!System.IO.Directory.Exists(upgradePath))
         {
-            availableUpgrades.Add(upgrade);
-            culmitiveWeights.Add(culmitiveWeights.Last()+upgrade.weight);
+            Debug.LogError("Upgrade path does not exist");
+            return;
         }
-        culmitiveWeights.RemoveAt(0);
-        Debug.Log(culmitiveWeights);
+
+        allUpgrades.Clear();
+
+        string[] guids = 
+             AssetDatabase.FindAssets("t:Upgrade", new[] { upgradePath });
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            Upgrade upgrade = AssetDatabase.LoadAssetAtPath<Upgrade>(path);
+            if (upgrade != null)
+            {
+                allUpgrades.Add(upgrade);
+            }
+        }
     }
+
+
+        // Use this for initialization
+        void Start()
+        {
+            culmitiveWeights.Add(0);
+            attributeManager = GetComponent<AttributeManager>();
+        
+            foreach (var upgrade in allUpgrades)
+            {
+                availableUpgrades.Add(upgrade);
+                culmitiveWeights.Add(culmitiveWeights.Last()+upgrade.weight);
+            }
+            culmitiveWeights.RemoveAt(0);
+            Debug.Log(culmitiveWeights);
+        }
 
     // Update is called once per frame
     void Update()
