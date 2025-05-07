@@ -120,11 +120,10 @@ public class Health : MonoBehaviour
         isDead = true;
         deathpos = this.transform.position;
         onDeath.Invoke();
-        Destroy(this.gameObject);
         // do something when the object dies
         
 
-        if (isPlayer)
+        if (this.gameObject.layer == 3)
         {
             gameObject.SetActive(false);
         } else
