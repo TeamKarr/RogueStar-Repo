@@ -31,6 +31,5 @@ MonoBehaviour:
       type: 2
       value: 0.75
       enabled: 1
-  Components:
-  - {fileID: 11500000, guid: b31b9a0c135bd8c4c823d90a729a3963, type: 3}
+  Components: []
   weight: 1

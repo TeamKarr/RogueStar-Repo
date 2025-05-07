@@ -32,9 +32,9 @@ public class UpgraderManager : MonoBehaviour
 
         hasRun = true;
         //float amount = manager.GetAttribute(upgradeName);\
-        Debug.Log("upgradename" + upgradeName);
+        //Debug.Log("upgradename" + upgradeName);
         upgrade = manager.defaultAttributes[upgradeName];
-        Debug.Log(upgradeName + "  " + upgrade + " ---------------------");
+        //Debug.Log(upgradeName + "  " + upgrade + " ---------------------");
         titleText = title.text;
         slider.minValue = upgrade.amount;
         slider.maxValue = upgrade.amount + upgrade.UpgradeAmount*upgrade.MaxUpgrades;

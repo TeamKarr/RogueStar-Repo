@@ -26,13 +26,13 @@ public class EnemyBrain : MonoBehaviour
     {
         
         states = GetComponents<State>();
-        if (states != null)
-        {
-            foreach (var state in states)
-            {
-                Debug.Log(state);
-            }
-        }
+        //if (states != null)
+        //{
+        //    foreach (var state in states)
+        //    {
+        //        Debug.Log(state);
+        //    }
+        //}
         setState(DefaultState); // set default state
     }
 
