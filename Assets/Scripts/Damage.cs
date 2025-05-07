@@ -12,11 +12,11 @@ public class Damage : MonoBehaviour
     public string damgageAttribute = "Damage";
     Attribute damage;
 
-    [ReadOnly] public GameObject Fired;
+    [HideInInspector] public GameObject Fired;
 
     void Start()
     {
-        damage = (GetComponent<AttributeManager>()).getAttribute(damgageAttribute);
+        damage = (Fired.GetComponent<AttributeManager>()).getAttribute(damgageAttribute);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

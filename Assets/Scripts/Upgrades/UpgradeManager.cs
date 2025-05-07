@@ -59,6 +59,7 @@ public class UpgradeManager : MonoBehaviour
     {
         culmitiveWeights.Add(0);
         attributeManager = GetComponent<AttributeManager>();
+        
         foreach (var upgrade in allUpgrades)
         {
             availableUpgrades.Add(upgrade);

@@ -40,13 +40,11 @@ public class PlayerMovement : MonoBehaviour
         {
             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
         }
-        Debug.Log(GetComponent<AttributeManager>());
         maxSpeed = (GetComponent<AttributeManager>()).getAttribute(maxSpeedAttribute);
         acceleration = (GetComponent<AttributeManager>()).getAttribute(accelerationAttribute);
         rotationSpeed = (GetComponent<AttributeManager>()).getAttribute(rotationAttribute);
         lightIntensity = fireLight.intensity;
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log(rb);
         if (rb == null)
         {
             Debug.LogError("Rigidbody2D not found");

@@ -8,44 +8,54 @@ public class Health : MonoBehaviour
 {
     public float health;
     public string maxHealthAttribute = "MaxHealth";
+    
 
     public UnityEvent onDeath;
     public UnityEvent onDamage;
     public UnityEvent onHeal;
 
-    public Slider healthBar;
-    public bool isPlayer = false;
-    //public Camera camera;
+
+    public Canvas healthBarCanvas;
+
+    [Header("For Enemy HealthBars")]
+    private Slider healthBar;
+    public new Camera camera;
     public Transform parent;
     public Vector3 offset;
 
     Attribute maxHealth;
 
     [ReadOnly] public bool isDead = false;
+    [HideInInspector] public Vector3 deathpos;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (this.gameObject.layer == 7)
+        {
+            
+            var healthBarCanvasInstance = Instantiate(healthBarCanvas, transform.position, Quaternion.identity, transform);
+            
+            healthBar = healthBarCanvasInstance.GetComponentInChildren<Slider>();
+        } else if (this.gameObject.layer == 3)
+        {
+            Transform childTransform = healthBarCanvas.transform.Find("PlayerHealthBar");
+            healthBar = childTransform.GetComponent<Slider>();
+        }
         
-        updateHealthBar();
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
-
+        
+        healthBar.maxValue = maxHealth.getvalue();
+        updateHealthBar();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isPlayer)
+        if (this.gameObject.layer == 7)
         {
-            return;
+            healthBar.transform.SetPositionAndRotation(parent.position + offset, camera.transform.rotation);
         }
-        if (parent == null)
-        {
-            parent = this.transform;
-        }
-        //Debug.Log(Camera.main);
-        //healthBar.transform.rotation = Camera.main.transform.rotation;
-        //healthBar.transform.position = parent.position + offset;
     }
 
     public void updateHealthBar()
@@ -108,9 +118,11 @@ public class Health : MonoBehaviour
     public void die()
     {
         isDead = true;
+        deathpos = this.transform.position;
+        onDeath.Invoke();
+        Destroy(this.gameObject);
         // do something when the object dies
         
-        onDeath.Invoke();
 
         if (isPlayer)
         {

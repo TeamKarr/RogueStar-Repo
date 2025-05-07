@@ -45,7 +45,7 @@ public class UpgraderManager : MonoBehaviour
 
     public void updateDisplay()
     {
-        Debug.Log("updated amount " + upgradeName + hasRun);
+        //Debug.Log("updated amount");
         slider.value = upgrade.amount;
         title.text = titleText + " " + upgrade.amount.ToString("F1");
         buttonLabel.text = "UPGRADE\n(" + upgrade.Cost.ToString("F1") + " M)";
