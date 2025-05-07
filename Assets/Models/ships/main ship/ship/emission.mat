@@ -121,7 +121,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _invert: 0
-    - _strength: 0.92
+    - _strength: 0.26
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.9245283, g: 0.89873284, b: 0.6236205, a: 1}

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      albedo_0: -5062943152077355963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -2919,8 +2919,8 @@ Transform:
   m_GameObject: {fileID: 1126450557}
   serializedVersion: 2
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0.026343921, y: -0.87, z: -0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0.32, y: -11.32, z: -0}
+  m_LocalScale: {x: 1.7132726, y: 1.7132726, z: 1.7132726}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1980589755}
@@ -2973,7 +2973,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 12.75, y: 12.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -7949,7 +7949,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300198286}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!4 &1300198291
 Transform:
   m_ObjectHideFlags: 0
@@ -8183,10 +8183,10 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 883152503}
-        m_TargetAssemblyTypeName: KeyboardTriggers, Assembly-CSharp
-        m_MethodName: Log
-        m_Mode: 5
+      - m_Target: {fileID: 1662387515}
+        m_TargetAssemblyTypeName: ShieldUpgrade, Assembly-CSharp
+        m_MethodName: damage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8839,6 +8839,8 @@ GameObject:
   - component: {fileID: 1662387503}
   - component: {fileID: 1662387511}
   - component: {fileID: 1662387513}
+  - component: {fileID: 1662387514}
+  - component: {fileID: 1662387515}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -9147,12 +9149,53 @@ MonoBehaviour:
       m_Calls: []
   onDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1662387515}
+        m_TargetAssemblyTypeName: ShieldUpgrade, Assembly-CSharp
+        m_MethodName: damage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHeal:
     m_PersistentCalls:
       m_Calls: []
   healthBar: {fileID: 0}
   isDead: 0
+--- !u!114 &1662387514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662387502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40789efc5fdaaea4995d3a4d1331b2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameModelContainer: {fileID: 0}
+  shieldVisual: 1
+  shieldMaterial: {fileID: 2100000, guid: 09f25580fec38455f8b0e17ce49c096e, type: 2}
+  noShieldMaterial: {fileID: 2100000, guid: eca012ff8d9f89940b720555dc10f9bc, type: 2}
+--- !u!114 &1662387515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662387502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13782b85dd5b29c4baf7125f1f430e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shield: {fileID: 0}
 --- !u!1001 &1798765922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9445,6 +9488,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a92ae37dba678be4684de07ba31bfbd0, type: 3}
       propertyPath: m_Name
       value: main ships
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a92ae37dba678be4684de07ba31bfbd0, type: 3}
+      propertyPath: m_TagString
+      value: Player Model
       objectReference: {fileID: 0}
     - target: {fileID: 4418473098069316928, guid: a92ae37dba678be4684de07ba31bfbd0, type: 3}
       propertyPath: m_LocalRotation.w
