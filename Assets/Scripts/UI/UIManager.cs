@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,6 +13,8 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gameWindPanel;
 
+    public TextMeshProUGUI upgradeHUD;
+
     public UpgradeManager upgradeManagerForPlayer;
 
     private bool isPausable = true;
@@ -19,6 +22,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        upgradeHUDText = upgradeHUD.text;
         var root = GetComponent<UIDocument>().rootVisualElement;
         //root.RegisterCallback<KeyDownEvent>(OnKeyDown, TrickleDown.TrickleDown);
 
@@ -37,6 +41,7 @@ public class UIManager : MonoBehaviour
 
         if (shouldUnPause)
         {
+            HideUpgrades();
             WaitForSeconds wait = new WaitForSeconds(0.1f);
             unpause();
         }
@@ -60,6 +65,7 @@ public class UIManager : MonoBehaviour
     {
         CloseAll(false);
         pause();
+        ShowUpgrades();
         isPausable = false;
 
         // call upgradeManagerForPlayer to set the upgrade choices
@@ -89,6 +95,7 @@ public class UIManager : MonoBehaviour
     {
         CloseAll(false);
         pause();
+        ShowUpgrades();
         pausePanel.SetActive(true);
     }
 
@@ -96,6 +103,7 @@ public class UIManager : MonoBehaviour
     {
         CloseAll(false);
         pause();
+        ShowUpgrades();
         isPausable = false;
         gameOverPanel.SetActive(true);
     }
@@ -104,8 +112,25 @@ public class UIManager : MonoBehaviour
     {
         CloseAll(false);
         pause();
+        ShowUpgrades();
         isPausable = false;
         gameWindPanel.SetActive(true);
+    }
+
+    private string upgradeHUDText;
+    public void ShowUpgrades()
+    {
+        upgradeHUD.text = upgradeHUDText;
+        foreach (var upgrade in upgradeManagerForPlayer.upgrades)
+        {
+            upgradeHUD.text += "\n" + upgrade.name;
+        }
+        upgradeHUD.gameObject.SetActive(true);
+    }
+
+    public void HideUpgrades()
+    {
+        upgradeHUD.gameObject.SetActive(false);
     }
 
     //public void OnKeyDown(KeyDownEvent ev)

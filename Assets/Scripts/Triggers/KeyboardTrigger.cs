@@ -12,7 +12,7 @@ public class KeyboardTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("hi");
+
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class KeyboardTrigger : MonoBehaviour
     {
         if (Input.GetKeyDown(key))
         {
-            Debug.Log("Key Pressed: " + key);
+            //Debug.Log("Key Pressed: " + key);
             onkeyPressed?.Invoke();
         }
     }

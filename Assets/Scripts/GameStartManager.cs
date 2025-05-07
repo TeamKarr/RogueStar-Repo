@@ -12,7 +12,7 @@ public class GameStartManager : MonoBehaviour
     public void StartLevel()
     {
         SceneManager.LoadScene(selectedLevelName);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(selectedLevelName));
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName(selectedLevelName));
     }
 
 }

@@ -3913,7 +3913,6 @@ GameObject:
   - component: {fileID: 1629455230}
   - component: {fileID: 1629455229}
   - component: {fileID: 1629455228}
-  - component: {fileID: 1629455227}
   m_Layer: 0
   m_Name: Overlay Camera
   m_TagString: Untagged
@@ -3921,22 +3920,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1629455227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629455226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195e8b26aa41b06438a0f0cd65381623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  useMousePos: 1
-  maxDistanceFromTarget: 5
-  freeCameraMouseTracking: 0.5
 --- !u!114 &1629455228
 MonoBehaviour:
   m_ObjectHideFlags: 0

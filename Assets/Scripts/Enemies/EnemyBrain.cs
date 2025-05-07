@@ -51,7 +51,7 @@ public class EnemyBrain : MonoBehaviour
         if (i >= 0 && i < states.Length)
         {
             CurrentState = i;
-            Debug.Log(i + states[i].GetType().ToString());
+            //Debug.Log(i + states[i].GetType().ToString());
             CurrentStateLabel = states[i].GetType().ToString();
         }
             

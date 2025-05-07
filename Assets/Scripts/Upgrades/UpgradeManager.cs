@@ -50,7 +50,7 @@ public class UpgradeManager : MonoBehaviour
         int index = culmitiveWeights.BinarySearch(value);
         if (index < 0)
             index = ~index;
-        Debug.Log(index);
+        //Debug.Log(index);
         return availableUpgrades[index];
     }
 

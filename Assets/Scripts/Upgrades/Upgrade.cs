@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
 using System;
+using UnityEditor;
 
 [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Upgrades/Simple Upgrade")]
 public class Upgrade : ScriptableObject
@@ -84,7 +85,7 @@ public class Upgrade : ScriptableObject
 
         foreach (UnityEngine.Object c in Components)
         {
-            Component cp = player.AddComponent(c.GetType());
+            Component cp = player.AddComponent(((MonoScript)c).GetClass());
         }
         foreach (var modifier in AttributeModifiers)
         {
