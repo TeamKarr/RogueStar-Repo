@@ -660,9 +660,21 @@ PrefabInstance:
       propertyPath: UImanager
       value: 
       objectReference: {fileID: 592973029}
+    - target: {fileID: -3794250959344058710, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      propertyPath: baseValue
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: -3630723181897511699, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       propertyPath: fireRate
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -3454645552028240605, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      propertyPath: baseValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 899567835742019540, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2975818757503801290, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       propertyPath: healthBarCanvas
@@ -686,8 +698,16 @@ PrefabInstance:
       objectReference: {fileID: 893677373}
     - target: {fileID: 5952562441422333688, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       propertyPath: allUpgrades.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5952562441422333688, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      propertyPath: 'allUpgrades.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 01b7199a1a85b15448be75533138bd44, type: 2}
+    - target: {fileID: 5952562441422333688, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      propertyPath: 'allUpgrades.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: dbe78dd90b738a04397ca247936ad3cb, type: 2}
     - target: {fileID: 5952562441422333688, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       propertyPath: 'allUpgrades.Array.data[4]'
       value: 
@@ -732,6 +752,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8336435593347346231, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -739,6 +763,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5665322699795123541, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1077984965}
+    - targetCorrespondingSourceObject: {fileID: 5665322699795123541, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1077984977}
+    - targetCorrespondingSourceObject: {fileID: 5665322699795123541, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1077984978}
+    - targetCorrespondingSourceObject: {fileID: 5665322699795123541, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1077984979}
   m_SourcePrefab: {fileID: 100100000, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
 --- !u!114 &369224485 stripped
 MonoBehaviour:
@@ -1501,7 +1534,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7932153381428475760, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 954963737137122683, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1855173225}
   m_SourcePrefab: {fileID: 100100000, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
 --- !u!1001 &863623764
 PrefabInstance:
@@ -2212,6 +2248,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d9fc8bb5e2bcd4683b990d332aa8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1077984977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077984925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa3a6b321e55438f85ccdef0b438974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expValue: 0
+  ExpBar: {fileID: 1891968495}
+  UImanager: {fileID: 592973029}
+--- !u!114 &1077984978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077984925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Piercing
+  description: 
+  baseValue: 0
+  currentValue: 0
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  modifiers: []
+--- !u!114 &1077984979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077984925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Bullet Speed
+  description: 
+  baseValue: 30
+  currentValue: 0
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  modifiers: []
 --- !u!1001 &1096308378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3204,6 +3295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6043622597788980748, guid: dd3b68c0c5f217340950fd8286c82c30, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3469,11 +3564,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6043622597788980748, guid: dd3b68c0c5f217340950fd8286c82c30, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd3b68c0c5f217340950fd8286c82c30, type: 3}
+--- !u!1 &1855173210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 954963737137122683, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
+  m_PrefabInstance: {fileID: 798290889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1855173225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855173210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Bullet Speed
+  description: 
+  baseValue: 3
+  currentValue: 0
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4575321445134843515, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  modifiers: []
 --- !u!1 &1891968493
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,7 +3645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 12, y: 386}
+  m_AnchoredPosition: {x: 12, y: 476}
   m_SizeDelta: {x: 329.8445, y: 33.9216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891968495
@@ -3563,9 +3699,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1077984925}
         m_TargetAssemblyTypeName: PlayerExperience, Assembly-CSharp
-        m_MethodName: updateExpBar
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3709,6 +3845,10 @@ PrefabInstance:
     - target: {fileID: 6043622597788980748, guid: dd3b68c0c5f217340950fd8286c82c30, type: 3}
       propertyPath: m_Name
       value: Square (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043622597788980748, guid: dd3b68c0c5f217340950fd8286c82c30, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3966,6 +4106,10 @@ PrefabInstance:
     - target: {fileID: 6043622597788980748, guid: dd3b68c0c5f217340950fd8286c82c30, type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 6043622597788980748, guid: dd3b68c0c5f217340950fd8286c82c30, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd8ed0746ef8324aa9b33326bd46bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 40
+  projectileSpeed: 3
 --- !u!114 &-7673024671074650330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyChildrenOnDeath: 1
   damgageAttribute: Damage
+  pierceAttribute: Piercing
   Fired: {fileID: 0}
 --- !u!114 &-5440415569044717737
 MonoBehaviour:
@@ -292,7 +293,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6087532128199826423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
   m_Name: 
@@ -304,6 +305,7 @@ MonoBehaviour:
   onValueChange:
     m_PersistentCalls:
       m_Calls: []
+  modifiers: []
 --- !u!114 &6322189467440805725
 MonoBehaviour:
   m_ObjectHideFlags: 0

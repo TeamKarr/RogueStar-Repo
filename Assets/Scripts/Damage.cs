@@ -12,11 +12,19 @@ public class Damage : MonoBehaviour
     public string damgageAttribute = "Damage";
     Attribute damage;
 
+    public string pierceAttribute = "Piercing";
+    Attribute pierce;
+    private int collided = 0;
+
+    
+
     [HideInInspector] public GameObject Fired;
 
     void Start()
     {
         damage = (Fired.GetComponent<AttributeManager>()).getAttribute(damgageAttribute);
+        pierce = (Fired.GetComponent<AttributeManager>()).getAttribute(pierceAttribute);
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -26,8 +34,23 @@ public class Damage : MonoBehaviour
             if (Fired.layer != collision.gameObject.layer)
             {
                 collidedHealth.takeDamage(damage.getvalue());
+                collided++;
+            }
+            if (collision.gameObject.layer == 9)
+            {
+                Destroy(this.gameObject);
+            } else if (pierce.getvalue() > 0)
+            {
+                for (int i = 0; i < pierce.getvalue(); i++)
+                {
+                    if (collided > pierce.getvalue())
+                    {
+                        Destroy(this.gameObject);
+                    }
+                }
             }
             Destroy(this.gameObject);
+
         }
         else
         {

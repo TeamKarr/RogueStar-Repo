@@ -7,22 +7,21 @@ using UnityEngine;
 /// </summary>
 public class Projectile : MonoBehaviour
 {
-    [Tooltip("The distance this projectile will move each second.")]
-    public float projectileSpeed = 3.0f;
+    
+    private Rigidbody2D rb;
 
-    /// <summary>
-    /// Description:
-    /// Standard Unity function called once per frame
-    /// Inputs: 
-    /// none
-    /// Returns: 
-    /// void (no return)
-    /// </summary>
-    private void Update()
+    public string bulletSpeedAttribute = "Bullet Speed";
+    Attribute bulletSpeed;
+
+    [HideInInspector] public GameObject Fired;
+
+    void Start()
     {
-        MoveProjectile();
+        bulletSpeed = (Fired.GetComponent<AttributeManager>()).getAttribute(bulletSpeedAttribute);
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = transform.up* bulletSpeed.getvalue();
     }
-
+        
     /// <summary>
     /// Description:
     /// Move the projectile in the direction it is heading
@@ -31,9 +30,5 @@ public class Projectile : MonoBehaviour
     /// Returns: 
     /// void (no return)
     /// </summary>
-    private void MoveProjectile()
-    {
-        // move the transform
-        transform.position = transform.position + transform.up * projectileSpeed * Time.deltaTime;
-    }
+    
 }

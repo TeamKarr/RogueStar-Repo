@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af5f84f8ab524274ab6f0a902c29883, type: 3}
   m_Name: SuperSpeed
   m_EditorClassIdentifier: 
-  Title: 
-  Description: 
-  modifierLabels: []
-  AttributeModifiers: []
+  Title: Speedy
+  Description: Get Fast
+  modifierLabels:
+  - +5 Max Speed
+  AttributeModifiers:
+  - attribute: MaxSpeed
+    modifier:
+      type: 0
+      value: 5
+      enabled: 1
   Components: []
   weight: 1
