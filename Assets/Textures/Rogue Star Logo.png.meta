@@ -1,0 +1,339 @@
+fileFormatVersion: 2
+guid: 3127dd3b545324c4b9b9b004c9769464
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7797433277732047559
+    second: Rogue Star Logo_0
+  - first:
+      213: 7141956556517449965
+    second: Rogue Star Logo_1
+  - first:
+      213: -7427149991204427601
+    second: Rogue Star Logo_2
+  - first:
+      213: -6144562946056696697
+    second: Rogue Star Logo_3
+  - first:
+      213: -1073458564301221998
+    second: Rogue Star Logo_4
+  - first:
+      213: -3368926983857857092
+    second: Rogue Star Logo_5
+  - first:
+      213: -7362834451158437131
+    second: Rogue Star Logo_6
+  - first:
+      213: 8990128195669399322
+    second: Rogue Star Logo_7
+  - first:
+      213: 3013687581640200054
+    second: Rogue Star Logo_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rogue Star Logo_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 179
+        width: 1942
+        height: 549
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ca4707e04c063c60800000000000000
+      internalID: 7797433277732047559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue Star Logo_1
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 0
+        width: 162
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de0ae7006a35d1360800000000000000
+      internalID: 7141956556517449965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue Star Logo_2
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 33
+        width: 166
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa8e6b80f667de890800000000000000
+      internalID: -7427149991204427601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue Star Logo_3
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 2
+        width: 135
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c434c4e802abaa0800000000000000
+      internalID: -6144562946056696697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue Star Logo_4
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 2
+        width: 133
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f89b98f1f4a11f0800000000000000
+      internalID: -1073458564301221998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue Star Logo_5
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 2
+        width: 249
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd9cece1ca2f31d0800000000000000
+      internalID: -3368926983857857092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue Star Logo_6
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 2
+        width: 168
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f271be9315f1d990800000000000000
+      internalID: -7362834451158437131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue Star Logo_7
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 2
+        width: 57
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17191456f953cc70800000000000000
+      internalID: 8990128195669399322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue Star Logo_8
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 2
+        width: 251
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f8ba763e4c2d920800000000000000
+      internalID: 3013687581640200054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Rogue Star Logo_0: 7797433277732047559
+      Rogue Star Logo_1: 7141956556517449965
+      Rogue Star Logo_2: -7427149991204427601
+      Rogue Star Logo_3: -6144562946056696697
+      Rogue Star Logo_4: -1073458564301221998
+      Rogue Star Logo_5: -3368926983857857092
+      Rogue Star Logo_6: -7362834451158437131
+      Rogue Star Logo_7: 8990128195669399322
+      Rogue Star Logo_8: 3013687581640200054
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -5543,11 +5543,12 @@ MonoBehaviour:
   onHeal:
     m_PersistentCalls:
       m_Calls: []
-  healthBar: {fileID: 0}
-  isPlayer: 0
+  healthBarCanvas: {fileID: 0}
+  camera: {fileID: 0}
   parent: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   isDead: 0
+  deathpos: {x: 0, y: 0, z: 0}
 --- !u!50 &6342558946373712119
 Rigidbody2D:
   serializedVersion: 4
@@ -5643,11 +5644,10 @@ MonoBehaviour:
   upgradeChoice1: {fileID: 0}
   upgradeChoice2: {fileID: 0}
   upgradeChoice3: {fileID: 0}
+  upgradePath: Assets/Upgrades
   allUpgrades:
-  - {fileID: 11400000, guid: 6e5a98948176749409918fc3b97cf6e2, type: 2}
-  - {fileID: 11400000, guid: 376ed3c2e42934f509e70ddfacd2f9db, type: 2}
-  - {fileID: 11400000, guid: d14d46b3f0d394ec38c617823d276fb6, type: 2}
-  - {fileID: 11400000, guid: 3103803428fae47a3936a87e69dc0589, type: 2}
+  - {fileID: 11400000, guid: 01b7199a1a85b15448be75533138bd44, type: 2}
+  - {fileID: 11400000, guid: dbe78dd90b738a04397ca247936ad3cb, type: 2}
   availableUpgrades: []
 --- !u!1 &6411349148181970278
 GameObject:

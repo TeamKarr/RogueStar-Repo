@@ -84,15 +84,16 @@ public class PlayerMovement : MonoBehaviour
 
         //        break;
         //}
-        BoosterEffects();
+
+        BoosterEffects(forward > 0);
 
 
     }
 
-    public void launchBarrel()
-    {
+    //public void launchBarrel()
+    //{
 
-    }
+    //}
 
     void FixedUpdate()
     {
@@ -134,11 +135,9 @@ public class PlayerMovement : MonoBehaviour
     {
         this.transform.position = new Vector3(0, 0, transform.position.z);
     }
-    public void BoosterEffects()
+    public void BoosterEffects(bool apply)
     {
-        float forward = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
-        if (forward > 0f)
+        if (apply)
         {
             boosterLevel += 0.05f;
             fireLight.intensity += 0.2f;

@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShortBurnUpgrade : MonoBehaviour
 {
     float cooldown = 1f;
     private float lastUsed = Mathf.NegativeInfinity;
-    private float speed = 50f;
+    private float power = 20f;
     private Rigidbody2D rb;
     private Transform body;
+
+    public UnityEvent afterDash;
+
+    private PlayerMovement playerMovement;
     
     void Start()
     {
         Debug.Log("Short Burn Upgrade Started");
         rb = GetComponent<Rigidbody2D>();
         body = transform.Find("main ships");
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
 
@@ -38,14 +44,20 @@ public class ShortBurnUpgrade : MonoBehaviour
             Debug.Log("Time passed");
             this.GetComponent<PlayerMovement>().enabled = false;
             Vector2 startVelo = rb.velocity;
-            rb.velocity = transform.up * speed;
-            //Debug.Log(rb.velocity);
-            float rolls = 2*360; // 2 rotations
-            Vector3 localRot = body.transform.localEulerAngles;
-            float roll = localRot.y;
-            float elapsedTime = 0f;
+            rb.velocity = transform.up * power;
+            //rb.AddForce(transform.up * power, ForceMode2D.Impulse);
 
-            float totalTime = 0.25f;
+            playerMovement.BoosterEffects(true);
+
+            yield return new WaitForSeconds(0.25f);
+
+            //Debug.Log(rb.velocity);
+            //float rolls = 2*360; // 2 rotations
+            //Vector3 localRot = body.transform.localEulerAngles;
+            //float roll = localRot.y;
+            //float elapsedTime = 0f;
+
+            //float totalTime = 0.25f;
 
             //while (elapsedTime < totalTime)
             //{
@@ -63,7 +75,8 @@ public class ShortBurnUpgrade : MonoBehaviour
             // Restart the cooldown
             lastUsed = Time.timeSinceLevelLoad;
             this.GetComponent<PlayerMovement>().enabled = enabled;
-            yield return null;
+            afterDash.Invoke();
+            //yield return null;
 
         }
     }

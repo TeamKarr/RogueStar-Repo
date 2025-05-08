@@ -229,7 +229,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -316,3 +316,4 @@ MonoBehaviour:
   onValueChange:
     m_PersistentCalls:
       m_Calls: []
+  modifiers: []
