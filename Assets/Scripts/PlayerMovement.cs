@@ -15,24 +15,29 @@ public class PlayerMovement : MonoBehaviour
     public string maxSpeedAttribute = "MaxSpeed";
     public string accelerationAttribute = "Acceleration";
 
-    public GameObject[] boosterObjects;
+    private GameObject[] boosterObjects;
     private float boosterLevel = 0f;
 
     public float rollAmplifier=16f;
 
-    public ParticleSystem smoke;
+    private ParticleSystem[] boosterParticles;
     public Light fireLight;
     private float lightIntensity = 1f;
+
     public float AngularAcceleration=1f;
+
     private float roll = 0f;
 
     public float maxRoll = 90f;
-    public Transform body;
+    private Transform body;
 
     void Start()
     {
+        body=GetComponent<ShipParts>().ship.transform;
+        boosterObjects = GetComponent<ShipParts>().boosterObjects.ToArray();
+        boosterParticles = GetComponent<ShipParts>().boosterParticles.ToArray();
 
-        foreach(GameObject booster in boosterObjects)
+        foreach (GameObject booster in boosterObjects)
         {
             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
             Debug.Log(booster);
@@ -76,13 +81,14 @@ public class PlayerMovement : MonoBehaviour
         body.localEulerAngles = localRot;
         //Debug.Log("Forward: " + forward);
         float forward = Input.GetAxis("Vertical");
+        foreach(ParticleSystem particles in boosterParticles)
         if (forward > 0f)
         {
             
             boosterLevel += 0.05f;
             fireLight.intensity += 0.2f;
-            if (smoke.isPlaying == false)
-                smoke.Play();
+            if (particles.isPlaying == false)
+                    particles.Play();
             
 
         }
@@ -91,8 +97,8 @@ public class PlayerMovement : MonoBehaviour
             // does stuff
             fireLight.intensity -= 0.2f;
             boosterLevel -= 0.05f;
-            if (smoke.isPlaying)
-                smoke.Stop();
+            if (particles.isPlaying)
+                    particles.Stop();
       
         }
         fireLight.intensity = Mathf.Min(fireLight.intensity, lightIntensity);

@@ -989,8 +989,8 @@ GameObject:
   m_Component:
   - component: {fileID: 442943766}
   m_Layer: 3
-  m_Name: booster
-  m_TagString: Untagged
+  m_Name: boosterL
+  m_TagString: booster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2992,7 +2992,7 @@ GameObject:
   - component: {fileID: 1288128670}
   m_Layer: 3
   m_Name: smoke (1)
-  m_TagString: Untagged
+  m_TagString: boosterParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3005,12 +3005,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288128668}
   serializedVersion: 2
-  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -1.3773134, z: -2.2800007}
-  m_LocalScale: {x: 0.40084213, y: 0.400842, z: 0.40084207}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: -0.005888641, y: 0.381127, z: 0.5096472}
+  m_LocalScale: {x: 0.08960001, y: 0.089599974, z: 0.08959999}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1980589755}
+  m_Father: {fileID: 1381894832}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &1288128670
 ParticleSystemRenderer:
@@ -8215,6 +8215,7 @@ Transform:
   m_Children:
   - {fileID: 1980589755}
   - {fileID: 442943766}
+  - {fileID: 1288128669}
   - {fileID: 1600684973}
   - {fileID: 1591438760}
   m_Father: {fileID: 0}
@@ -8796,8 +8797,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1600684973}
   m_Layer: 3
-  m_Name: booster (1)
-  m_TagString: Untagged
+  m_Name: boosterR
+  m_TagString: booster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8833,6 +8834,7 @@ GameObject:
   - component: {fileID: 1662387508}
   - component: {fileID: 1662387512}
   - component: {fileID: 1662387507}
+  - component: {fileID: 1662387516}
   - component: {fileID: 1662387505}
   - component: {fileID: 1381894824}
   - component: {fileID: 1662387504}
@@ -8930,7 +8932,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -8948,15 +8950,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeedAttribute: MaxSpeed
   accelerationAttribute: Acceleration
-  boosterObjects:
-  - {fileID: 442943765}
-  - {fileID: 1600684972}
   rollAmplifier: 16
-  smoke: {fileID: 1288128671}
   fireLight: {fileID: 1072621718}
   AngularAcceleration: 32
   maxRoll: 90
-  body: {fileID: 1980589755}
 --- !u!114 &1662387506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9180,9 +9177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameModelContainer: {fileID: 0}
-  shieldVisual: 1
-  shieldMaterial: {fileID: 2100000, guid: 09f25580fec38455f8b0e17ce49c096e, type: 2}
-  noShieldMaterial: {fileID: 2100000, guid: eca012ff8d9f89940b720555dc10f9bc, type: 2}
 --- !u!114 &1662387515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9195,7 +9189,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13782b85dd5b29c4baf7125f1f430e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shield: {fileID: 0}
+--- !u!114 &1662387516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662387502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc075bf4bc3a420449ad780e2f5f85da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 2078617927}
+  shieldMaterial: {fileID: 2100000, guid: 09f25580fec38455f8b0e17ce49c096e, type: 2}
+  boosterObjects: []
+  boosterParticles: []
 --- !u!1001 &1798765922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9534,9 +9543,6 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 1308281577}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a92ae37dba678be4684de07ba31bfbd0, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 1288128669}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a92ae37dba678be4684de07ba31bfbd0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1072621716}
     m_AddedComponents: []
@@ -9732,6 +9738,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &2078617927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a92ae37dba678be4684de07ba31bfbd0, type: 3}
+  m_PrefabInstance: {fileID: 1980589754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103178973
 GameObject:
   m_ObjectHideFlags: 0
