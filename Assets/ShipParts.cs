@@ -11,6 +11,8 @@ public class ShipParts : MonoBehaviour
     public List<ParticleSystem> boosterParticles = new List<ParticleSystem>();
     void Start()
     {
+        ran = true;
+        Debug.Log("ship parts");
         Transform t = this.transform;
         for (int i = 0; i < t.childCount; i++)
         {
@@ -23,6 +25,14 @@ public class ShipParts : MonoBehaviour
                 boosterParticles.Add(t.GetChild(i).GetComponent<ParticleSystem>());
             }
 
+        }
+
+    }
+    bool ran = false;
+    public void initialize (){
+        if (!ran){
+            Start();
+            
         }
     }
 

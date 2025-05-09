@@ -33,14 +33,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        GetComponent<ShipParts>().initialize();
         body=GetComponent<ShipParts>().ship.transform;
         boosterObjects = GetComponent<ShipParts>().boosterObjects.ToArray();
         boosterParticles = GetComponent<ShipParts>().boosterParticles.ToArray();
-
+        Debug.Log("player movement");
         foreach (GameObject booster in boosterObjects)
         {
             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
-            Debug.Log(booster);
+            
         }
         Debug.Log(GetComponent<AttributeManager>());
         maxSpeed = (GetComponent<AttributeManager>()).getAttribute(maxSpeedAttribute);
