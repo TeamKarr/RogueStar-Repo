@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent<float> OnGoldChange = new();
 
-    public int score = 0;
 
+    // Game Values
+    public int score = 0;
     public int Score
     {
         get { return matter; }
@@ -41,12 +42,20 @@ public class GameManager : MonoBehaviour
             OnGoldChange.Invoke(matter);
         }
     }
+    public void addMatter(int value)
+    {
+        Matter += value;
+    }
 
-    
+    internal void addScore(int score)
+    {
+        Score += score;
+    }
 
-
+    // Visual Settings
     public float Bloom = 5f;
 
+    // Player Upgrade
     [Serializable]
     public class AttributeUpgrade
     {
@@ -80,16 +89,6 @@ public class GameManager : MonoBehaviour
            new("FiringRate", new AttributeUpgrade { amount = 0.5f, UpgradeAmount = 0.5f, MaxUpgrades = 7, Cost = 10, CostIncrease = 1 }),
        };
 
-    public void addMatter(int value)
-    {
-        Matter += value;
-    }
-
-    internal void addScore(int score)
-    {
-        Score += score;
-    }
-
     private void Awake()
     {
         if (Instance != null)
@@ -116,7 +115,6 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-
         OnGoldChange.Invoke(matter);
     }
 

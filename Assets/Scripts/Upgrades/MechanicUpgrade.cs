@@ -4,46 +4,36 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 
-public class UpgradeManager : MonoBehaviour
+public class MechanicUpgrade : MonoBehaviour
 {
     
-    [ReadOnly] public List<Upgrade> upgrades = new();
+    [ReadOnly] public List<Upgrade> activeUpgrades = new();
+
+    public string upgradePath = "Assets/Upgrades";
+    [ReadOnly] public List<Upgrade> loadedUpgrades = new();
+    [ReadOnly] public List<Upgrade> availableUpgrades;
+
+    private List<float> culmitiveWeights = new();
 
     private AttributeManager attributeManager;
 
-    public UpgradeChoice upgradeChoice1;
-    public UpgradeChoice upgradeChoice2;
-    public UpgradeChoice upgradeChoice3;
-
-
     public void addUpgrade(Upgrade upgrade)
     {
-        upgrades.Add(upgrade);
+        activeUpgrades.Add(upgrade);
         upgrade.Initialise(gameObject);
     }
 
     public void removeUpgrade(Upgrade upgrade)
     {
-        upgrades.Remove(upgrade);
-        
+        activeUpgrades.Remove(upgrade);   
     }
 
-    public string upgradePath = "Assets/Upgrades";
-    [ReadOnly] public List<Upgrade> allUpgrades = new();
-    [ReadOnly] public List<Upgrade> availableUpgrades;
-    private List<float> culmitiveWeights = new();
-
-
-    public void SetUpgradeChoices()
+    public (Upgrade, Upgrade, Upgrade) GetUpgradeChoices()
     {
-        
         var upgrade1 = getRandomUpgrade();
         var upgrade2 = getRandomUpgrade();
         var upgrade3 = getRandomUpgrade();
-        upgradeChoice1.SetUpgrade(upgrade1);
-        upgradeChoice2.SetUpgrade(upgrade2);
-        upgradeChoice3.SetUpgrade(upgrade3);
-        
+        return (upgrade1, upgrade2, upgrade3);
     }
 
     Upgrade getRandomUpgrade(){
@@ -66,7 +56,7 @@ public class UpgradeManager : MonoBehaviour
             return;
         }
 
-        allUpgrades.Clear();
+        loadedUpgrades.Clear();
 
         string[] guids = 
              AssetDatabase.FindAssets("t:Upgrade", new[] { upgradePath });
@@ -76,30 +66,23 @@ public class UpgradeManager : MonoBehaviour
             Upgrade upgrade = AssetDatabase.LoadAssetAtPath<Upgrade>(path);
             if (upgrade != null)
             {
-                allUpgrades.Add(upgrade);
+                loadedUpgrades.Add(upgrade);
             }
         }
     }
 
-
-        // Use this for initialization
-        void Start()
-        {
-            culmitiveWeights.Add(0);
-            attributeManager = GetComponent<AttributeManager>();
-        
-            foreach (var upgrade in allUpgrades)
-            {
-                availableUpgrades.Add(upgrade);
-                culmitiveWeights.Add(culmitiveWeights.Last()+upgrade.weight);
-            }
-            culmitiveWeights.RemoveAt(0);
-            Debug.Log(culmitiveWeights);
-        }
-
-    // Update is called once per frame
-    void Update()
+    // Use this for initialization
+    void Start()
     {
-
+        culmitiveWeights.Add(0);
+        attributeManager = GetComponent<AttributeManager>();
+        
+        foreach (var upgrade in loadedUpgrades)
+        {
+            availableUpgrades.Add(upgrade);
+            culmitiveWeights.Add(culmitiveWeights.Last()+upgrade.weight);
+        }
+        culmitiveWeights.RemoveAt(0);
+        //Debug.Log(culmitiveWeights);
     }
 }

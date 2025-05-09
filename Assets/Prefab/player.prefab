@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5183645478790984447
 Transform:
   m_ObjectHideFlags: 0
@@ -5251,17 +5251,13 @@ GameObject:
   - component: {fileID: 6162464756207502486}
   - component: {fileID: 1878279409480359769}
   - component: {fileID: 8369431800573641515}
-  - component: {fileID: 2392159705322647639}
-  - component: {fileID: 1247076163880487839}
-  - component: {fileID: 3357581103418183002}
-  - component: {fileID: -3454645552028240605}
-  - component: {fileID: -3794250959344058710}
   - component: {fileID: 643044991468295282}
   - component: {fileID: -3630723181897511699}
   - component: {fileID: 2975818757503801290}
+  - component: {fileID: 4467547643530720443}
+  - component: {fileID: 5952562441422333688}
   - component: {fileID: 6342558946373712119}
   - component: {fileID: 3299775382418252110}
-  - component: {fileID: 5952562441422333688}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -5355,106 +5351,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43135b32f89adf43bbfc85845af7f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2392159705322647639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5665322699795123541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: MaxSpeed
-  description: 
-  baseValue: 10
-  currentValue: 0
-  onValueChange:
-    m_PersistentCalls:
-      m_Calls: []
-  modifiers: []
---- !u!114 &1247076163880487839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5665322699795123541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: RotationSpeed
-  description: 
-  baseValue: 25
-  currentValue: 0
-  onValueChange:
-    m_PersistentCalls:
-      m_Calls: []
-  modifiers: []
---- !u!114 &3357581103418183002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5665322699795123541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Acceleration
-  description: 
-  baseValue: 20
-  currentValue: 0
-  onValueChange:
-    m_PersistentCalls:
-      m_Calls: []
-  modifiers: []
---- !u!114 &-3454645552028240605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5665322699795123541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Damage
-  description: 
-  baseValue: 1
-  currentValue: 0
-  onValueChange:
-    m_PersistentCalls:
-      m_Calls: []
-  modifiers: []
---- !u!114 &-3794250959344058710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5665322699795123541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: FiringRate
-  description: 
-  baseValue: 0.25
-  currentValue: 0
-  onValueChange:
-    m_PersistentCalls:
-      m_Calls: []
-  modifiers: []
+  Attributes:
+  - name: MaxSpeed
+    baseValue: 10
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: RotationSpeed
+    baseValue: 25
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: Acceleration
+    baseValue: 16
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: Damage
+    baseValue: 5
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: FiringRate
+    baseValue: 0.25
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: MaxHealth
+    baseValue: 20
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+            m_MethodName: set_maxValue
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    modifiers: []
 --- !u!114 &643044991468295282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5489,7 +5452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75388997f8d4264a86b7441dc9ea74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6087532128199826423, guid: 6d32b673c1d4aea4eb888e0acfa1d6f2, type: 3}
+  projectilePrefab: {fileID: 4746056962134362206, guid: d3f3a187e0d29374c90daeaf5c8ec6c1, type: 3}
   projectileHolder: {fileID: 0}
   isPlayerControlled: 1
   fireRateAttribute: FiringRate
@@ -5514,15 +5477,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: KeyboardTriggers, Assembly-CSharp
-        m_MethodName: Log
-        m_Mode: 5
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowGameOverPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Died
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onDamage:
@@ -5549,6 +5512,37 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   isDead: 0
   deathpos: {x: 0, y: 0, z: 0}
+--- !u!114 &4467547643530720443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665322699795123541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa3a6b321e55438f85ccdef0b438974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expValue: 0
+  ExpBar: {fileID: 0}
+  manager: {fileID: 0}
+--- !u!114 &5952562441422333688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665322699795123541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42fa3175419e64e7cb4a0922b7e5ba97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeUpgrades: []
+  upgradePath: Assets/Upgrades
+  loadedUpgrades: []
+  availableUpgrades: []
 --- !u!50 &6342558946373712119
 Rigidbody2D:
   serializedVersion: 4
@@ -5562,7 +5556,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 5
-  m_LinearDrag: 0
+  m_LinearDrag: 0.1
   m_AngularDrag: 3
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -5628,27 +5622,6 @@ PolygonCollider2D:
       - {x: -1.4088596, y: -0.4052016}
       - {x: 1.4098139, y: -0.41648}
   m_UseDelaunayMesh: 0
---- !u!114 &5952562441422333688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5665322699795123541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42fa3175419e64e7cb4a0922b7e5ba97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgrades: []
-  upgradeChoice1: {fileID: 0}
-  upgradeChoice2: {fileID: 0}
-  upgradeChoice3: {fileID: 0}
-  upgradePath: Assets/Upgrades
-  allUpgrades:
-  - {fileID: 11400000, guid: 01b7199a1a85b15448be75533138bd44, type: 2}
-  - {fileID: 11400000, guid: dbe78dd90b738a04397ca247936ad3cb, type: 2}
-  availableUpgrades: []
 --- !u!1 &6411349148181970278
 GameObject:
   m_ObjectHideFlags: 0
@@ -5943,7 +5916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4801894907119048588, guid: f3687b6e21b392e4ebaa7545ff8d180f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5325525617765436726, guid: f3687b6e21b392e4ebaa7545ff8d180f, type: 3}
       propertyPath: m_LocalPosition.x

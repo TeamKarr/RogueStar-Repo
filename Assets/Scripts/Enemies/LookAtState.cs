@@ -11,9 +11,9 @@ public class LookAt : EnemyBrain.State
         transform.up = direction;
     }
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame

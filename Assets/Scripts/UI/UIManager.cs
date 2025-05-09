@@ -10,13 +10,12 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gameWindPanel;
 
-    public UpgradeManager upgradeManagerForPlayer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Upgrade Choices")]
+    public UpgradeChoice upgradeChoice1;
+    public UpgradeChoice upgradeChoice2;
+    public UpgradeChoice upgradeChoice3;
+    [Header("Upgrade Manager")]
+    public MechanicUpgrade manager;
 
     public void CloseAll(){
         if (Time.timeScale == 0)
@@ -34,15 +33,13 @@ public class UIManager : MonoBehaviour
         CloseAll();
         Time.timeScale = 0;
         // call upgradeManagerForPlayer to set the upgrade choices
-        upgradeManagerForPlayer.SetUpgradeChoices();
 
+        (Upgrade, Upgrade, Upgrade) choices = manager.GetUpgradeChoices();
+        
+        upgradeChoice1.SetUpgrade(choices.Item1);
+        upgradeChoice2.SetUpgrade(choices.Item2);
+        upgradeChoice3.SetUpgrade(choices.Item3);
 
         upgradePanel.SetActive(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

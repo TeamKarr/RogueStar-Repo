@@ -76,10 +76,14 @@ public class EnemyBrain : MonoBehaviour
 
     public abstract class State : MonoBehaviour
     {
-        public GameObject Player;
+        internal GameObject Player;
 
         public abstract void Action(); // ran everytick when in this state;
 
+        public virtual void Start()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
 
     }
 

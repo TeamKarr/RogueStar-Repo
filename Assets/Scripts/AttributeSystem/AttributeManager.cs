@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.AnimatedValues;
 using UnityEngine;
+using static GameManager;
 using static UnityEditor.VersionControl.Asset;
 
 public class AttributeManager : MonoBehaviour
@@ -13,59 +14,24 @@ public class AttributeManager : MonoBehaviour
 
     private Dictionary<string,Attribute> attributes = new Dictionary<string, Attribute>();
 
-    private bool hasChecked = false;
-
-    //public bool boolean(string name)
-    //{
-    //    foreach (var b in booleans)
-    //    {
-    //        if (b.Item1 == name)
-    //        {
-    //            return b.Item2;
-    //        }
-    //    }
-    //    return false;
-    //}
-
-    //public bool toggle(string name)
-    //{
-    //    for (int i = 0; i < booleans.Count; i++)
-    //    {
-    //        if (booleans[i].Item1 == name)
-    //        {
-    //            booleans[i].Item2 = !b.Item2;
-    //            return b.Item2;
-    //        }
-    //    }
-    //}
+    public List<Attribute> Attributes = new List<Attribute>();
 
     public Attribute getAttribute(string name)
     {
-        if (!hasChecked)
-        {
-            Start();
-        }
         return attributes[name];
     }
 
     void Start()
     {
-        if (hasChecked) return;
-        hasChecked = true;
-        var attributeArray = GetComponents<Attribute>();
-        foreach (Attribute a in attributeArray)
-        {
-            attributes.Add(a.name, a);
-        }
-        
+        InitializeAttributes();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void InitializeAttributes()
     {
-        
+        attributes = new Dictionary<string, Attribute>();
+        foreach (var a in Attributes)
+        {
+            attributes[a.name] = a;
+        }
     }
-
-    
 
 }
