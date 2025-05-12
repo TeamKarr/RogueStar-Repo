@@ -10,12 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6af5f84f8ab524274ab6f0a902c29883, type: 3}
-  m_Name: ShortBurn
+  m_Name: VoidShot
   m_EditorClassIdentifier: 
-  Title: Short Burn
-  Description: Click Shift to Dash
+  Title: Void Shot
+  Description: Turns your bullets into black holes that suck enemies in and deal
+    huge amounts of damage
   modifierLabels: []
-  AttributeModifiers: []
-  Components:
-  - {fileID: 11500000, guid: e8d9fc8bb5e2bcd4683b990d332aa8fa, type: 3}
+  AttributeModifiers:
+  - attribute: Damage
+    modifier:
+      type: 1
+      value: 2
+      enabled: 1
+  Components: []
   weight: 1

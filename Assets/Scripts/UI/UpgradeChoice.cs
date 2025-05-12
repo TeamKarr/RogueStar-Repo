@@ -21,20 +21,29 @@ public class UpgradeChoice : MonoBehaviour
 
     public void SetUpgrade(Upgrade upgrade)
     {
+        Debug.Log("started SetUpgrade function");
         this.upgrade = upgrade;
+        Debug.Log("upgrade = upgrade ");
         upgradeName.text = upgrade.Title;
+        Debug.Log("text = text");
         upgradeDescription.text = upgrade.Description;
+        Debug.Log("desc = desc");
         // upgradeIcon.sprite = upgrade;
         var upgradeLabels = "";
         foreach (var label in upgrade.ModifierLabels)
         {
+            if (label == null || label == "")
+                continue;
             upgradeLabels += label[0] == '+' 
             ? $"<color=#00DD00>{label.Substring(1)}</color>\n" // Green for '+'
             : label[0] == '-' 
             ? $"<color=#DD0000>{label.Substring(1)}</color>\n" // Red for '-'
             : $"{label}\n"; // Default color for others
+            
         }
+        Debug.Log("finsihed foreach");
         upgradeActions.text = upgradeLabels;
+        Debug.Log("finished function");
 
     }
 

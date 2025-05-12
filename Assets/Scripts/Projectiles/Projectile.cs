@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
 
     public string bulletSpeedAttribute = "Bullet Speed";
-    Attribute bulletSpeed;
+    [HideInInspector]public Attribute bulletSpeed;
 
     [HideInInspector] public GameObject Fired;
 

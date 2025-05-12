@@ -35,9 +35,9 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         // call upgradeManagerForPlayer to set the upgrade choices
         upgradeManagerForPlayer.SetUpgradeChoices();
-
-
+        Debug.Log("ran upgrade choices");
         upgradePanel.SetActive(true);
+        Debug.Log("set panel to active");
     }
 
     // Update is called once per frame

@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Piercing Bullets
   Description: Allows your bullets to go through enemies
-  modifierLabels:
-  - 
+  modifierLabels: []
   AttributeModifiers:
   - attribute: Piercing
     modifier:

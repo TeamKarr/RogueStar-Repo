@@ -36,14 +36,16 @@ public class UpgradeManager : MonoBehaviour
 
     public void SetUpgradeChoices()
     {
-        
         var upgrade1 = getRandomUpgrade();
         var upgrade2 = getRandomUpgrade();
         var upgrade3 = getRandomUpgrade();
+        Debug.Log("Started upgrade setup");
         upgradeChoice1.SetUpgrade(upgrade1);
+        Debug.Log("set upgrade 1");
         upgradeChoice2.SetUpgrade(upgrade2);
+        Debug.Log("set upgrade 2");
         upgradeChoice3.SetUpgrade(upgrade3);
-        
+        Debug.Log("finished upgrades");
     }
 
     Upgrade getRandomUpgrade(){
