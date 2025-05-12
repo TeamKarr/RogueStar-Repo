@@ -15,9 +15,15 @@ public class OrbitState : EnemyBrain.State
     public bool orientTowardsTarget = false;
 
     // Update is called once per frame
+    public float roll = 0f;
+    public float rollAmplifier;
+    public int maxRoll;
+
     
+    private float currentAngularVelocity = 0f;
     public override void Action()
     {
+
         Vector2 direction = (Player.transform.position - transform.position).normalized;
         if (orientTowardsTarget){
             
@@ -33,7 +39,25 @@ public class OrbitState : EnemyBrain.State
             rb.AddForce(rb.velocity.normalized*-1);
         }
         
+        Vector2 directionOfFlight = new Vector2(rb.velocity.x,rb.velocity.y).normalized;
+
+        roll = Mathf.Clamp(currentAngularVelocity*Time.deltaTime * rollAmplifier, -1 * maxRoll, maxRoll);
         
+        Vector3 localRot = transform.localEulerAngles;
+        localRot.y = roll - 180;
+        this.transform.up = directionOfFlight;
+        transform.Rotate(Vector3.up, roll, Space.Self);
+        Debug.Log("roll:" + currentAngularVelocity);
+        currentAngularVelocity = Vector2.SignedAngle(transform.up, directionOfFlight);
+        
+        
+         
+    }
+    public void tooClose(float strength)
+    {
+        Vector2 direction = (Player.transform.position - transform.position).normalized;
+        rb.AddForce(-direction*strength);
+        Debug.Log("hit");
     }
      void Start()
     {
