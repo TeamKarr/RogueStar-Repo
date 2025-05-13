@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class VoidShot : MonoBehaviour
 {
-    private Rigidbody2D rb;
-
     public float pullStrength;
     public float pullRadius;
-    public int cooldown;
-
-    private Projectile projectileSpeed;
-    [HideInInspector] public GameObject Fired;
-    // Start is called before the first frame update
+    public float rotSpeed;
+    private Rigidbody2D rb;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.up * projectileSpeed.bulletSpeed.getvalue();
+        rb.angularVelocity = rotSpeed;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+           
     }
 }

@@ -125,7 +125,7 @@ public class ShootingController : MonoBehaviour
             Vector3 pos = spawnpoint.position;
             // Create the projectile
             GameObject projectileGameObject = Instantiate(projectilePrefab, pos, transform.rotation, null);
-            projectileGameObject.GetComponent<VoidShot>().Fired = gameObject;
+            
             projectileGameObject.GetComponent<Projectile>().Fired = gameObject;
             projectileGameObject.GetComponent<Damage>().Fired = gameObject;
             // Account for spread
