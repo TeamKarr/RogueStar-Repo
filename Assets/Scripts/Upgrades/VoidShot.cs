@@ -9,6 +9,7 @@ public class VoidShot : MonoBehaviour
     public float rotSpeed;
     private Rigidbody2D rb;
     
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,6 +19,11 @@ public class VoidShot : MonoBehaviour
 
     void Update()
     {
-           
+         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 }
