@@ -11,7 +11,7 @@ public class ShortBurnUpgrade : MonoBehaviour
     private Rigidbody2D rb;
     private Transform body;
 
-    public UnityEvent afterDash;
+    public UnityEvent afterDash = new UnityEvent();
 
     private PlayerMovement playerMovement;
     

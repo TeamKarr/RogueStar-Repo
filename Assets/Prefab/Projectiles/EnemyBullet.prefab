@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5385286782951099014, guid: 90174c2f03850fa4eae697a5ffacd8bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 9.717869
       objectReference: {fileID: 0}
     - target: {fileID: 5385286782951099014, guid: 90174c2f03850fa4eae697a5ffacd8bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.7836991
       objectReference: {fileID: 0}
     - target: {fileID: 5385286782951099014, guid: 90174c2f03850fa4eae697a5ffacd8bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 7029142268872824579, guid: 90174c2f03850fa4eae697a5ffacd8bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a1781c7069fe6e540a74528a08921549, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

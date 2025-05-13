@@ -40,9 +40,10 @@ public class PlayerMovement : MonoBehaviour
         {
             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
         }
-        maxSpeed = (GetComponent<AttributeManager>()).getAttribute(maxSpeedAttribute);
-        acceleration = (GetComponent<AttributeManager>()).getAttribute(accelerationAttribute);
-        rotationSpeed = (GetComponent<AttributeManager>()).getAttribute(rotationAttribute);
+        maxSpeed = GetComponent<AttributeManager>().getAttribute(maxSpeedAttribute);
+        Debug.Log(maxSpeed.getvalue());
+        acceleration = GetComponent<AttributeManager>().getAttribute(accelerationAttribute);
+        rotationSpeed = GetComponent<AttributeManager>().getAttribute(rotationAttribute);
         lightIntensity = fireLight.intensity;
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
@@ -65,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 localRot = body.transform.localEulerAngles;
             localRot.y = roll - 180;
-            body.localEulerAngles = localRot;
+            // body.localEulerAngles = localRot;
         }
 
         

@@ -21,7 +21,7 @@ public class AttributeManager : MonoBehaviour
         return attributes[name];
     }
 
-    void Start()
+    void Awake()
     {
         InitializeAttributes();
     }
@@ -31,6 +31,7 @@ public class AttributeManager : MonoBehaviour
         foreach (var a in Attributes)
         {
             attributes[a.name] = a;
+            a.updateValue();
         }
     }
 

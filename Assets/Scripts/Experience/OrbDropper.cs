@@ -21,8 +21,10 @@ public class OrbDropper : MonoBehaviour
 
     public void SpawnOrb()
     {
+        
         if (orbPrefab != null)
         {
+            Debug.Log("Spawned orbs");
             Vector3 pos = health.deathpos;
             // Create the projectile
             for (int i = 0; i < dropNum; i++)

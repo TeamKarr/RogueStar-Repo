@@ -2979,7 +2979,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   score: 0
-  selectedLevelName: JackMain
   matter: 0
   Bloom: 5
   defaultAttributesList:

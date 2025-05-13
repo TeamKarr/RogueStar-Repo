@@ -6,7 +6,7 @@ public class PhaseShiftUpgrade : MonoBehaviour
 {
     float cooldown = 1f;
     private float lastUsed = Mathf.NegativeInfinity;
-    private float duration = 10f;
+    private float duration = 3f;
     private Rigidbody2D rb;
 
     private Collider2D coll;
@@ -34,14 +34,33 @@ public class PhaseShiftUpgrade : MonoBehaviour
 
     IEnumerator Shift()
     {   
-        {
-            coll.enabled = false;
+        
            
+        int originalLayer = gameObject.layer;
 
-            yield return new WaitForSeconds(duration);
-
-            //coll.enabled = true;
-
+        // Disable collisions with all layers except border (layer 9)
+        Physics2D.IgnoreLayerCollision(originalLayer, originalLayer, true);
+        for (int i = 0; i < 32; i++)
+        {
+            if (i != 9) // Skip border layer
+            {
+            Physics2D.IgnoreLayerCollision(originalLayer, i, true);
+            }
         }
+
+        yield return new WaitForSeconds(duration);
+
+        // Restore collisions with all layers
+        for (int i = 0; i < 32; i++)
+        {
+            if (i != 9) // Skip border layer
+            {
+            Physics2D.IgnoreLayerCollision(originalLayer, i, false);
+            }
+        }
+        Physics2D.IgnoreLayerCollision(originalLayer, originalLayer, false);
+
+
+        
     }
 }

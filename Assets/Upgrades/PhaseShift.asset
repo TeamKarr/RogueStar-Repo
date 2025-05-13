@@ -16,5 +16,6 @@ MonoBehaviour:
   Description: After dashing your Invisible for 2 seconds
   modifierLabels: []
   AttributeModifiers: []
-  Components: []
+  Components:
+  - {fileID: 11500000, guid: 7feec32f90cf35340bfdd15c452bdb2c, type: 3}
   weight: 1

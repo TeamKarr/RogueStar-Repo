@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 6289780885008974411}
   - component: {fileID: -329913835613388216}
   - component: {fileID: -282887879590688671}
-  - component: {fileID: -1525599835802557364}
   - component: {fileID: 6108733426741207843}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Experience Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,26 +164,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43135b32f89adf43bbfc85845af7f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1525599835802557364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4996632845696513583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Experience
-  description: 
-  baseValue: 1
-  currentValue: 0
-  onValueChange:
-    m_PersistentCalls:
-      m_Calls: []
-  modifiers: []
+  Attributes:
+  - name: Experience
+    baseValue: 1
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
 --- !u!114 &6108733426741207843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,4 +188,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expAttribute: Experience
   maxSpeed: 0.5
-  player: {fileID: 5665322699795123541, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}

@@ -17,7 +17,7 @@ public class UpgradeChoice : MonoBehaviour
     
     public UnityEngine.UI.Image upgradeIcon;
 
-    public MechanicUpgrade upgradeManager;
+    public UpgradeManager upgradeManager;
 
     public void SetUpgrade(Upgrade upgrade)
     {
