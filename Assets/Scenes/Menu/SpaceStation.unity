@@ -4429,7 +4429,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1180980697}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: addGold
+        m_MethodName: addMatter
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5469,7 +5469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cad77ed15fe42638b626f9ff822b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedLevelName: JackMain
+  selectedLevelName: ExampleLevel
 --- !u!4 &2089452706
 Transform:
   m_ObjectHideFlags: 0

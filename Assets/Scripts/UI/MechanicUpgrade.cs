@@ -21,7 +21,7 @@ public class MechanicUpgrade : MonoBehaviour
 
     public string upgradeName;
 
-    public bool hasRun = false;
+    //public bool hasRun = false;
 
 
 
@@ -29,8 +29,8 @@ public class MechanicUpgrade : MonoBehaviour
     {
 
         manager = FindAnyObjectByType<GameManager>();
-
-        hasRun = true;
+        Debug.Log(manager);
+        //hasRun = true;
         //float amount = manager.GetAttribute(upgradeName);\
         //Debug.Log("upgradename" + upgradeName);
         upgrade = manager.defaultAttributes[upgradeName];

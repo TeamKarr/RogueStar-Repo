@@ -9,8 +9,8 @@ public class LevelManager : MonoBehaviour
 
     public GameObject player;
 
-    public int Matter;
-    public int Score;
+    public int Matter = 0;
+    public int Score = 0;
 
     public string StationScene;
 
@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
         
 
         SceneManager.LoadScene(StationScene);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(StationScene));
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName(StationScene));
     }
 
 

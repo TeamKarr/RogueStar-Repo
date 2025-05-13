@@ -30,8 +30,6 @@ public class PlayerMovement : MonoBehaviour
     public float AngularAcceleration=1f;
 
     private float roll = 0f;
-
-    private float roll = 0f;
     public float maxRoll = 90f;
     private Transform body;
 
@@ -67,14 +65,12 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         // Apply roll to the body
-        if (!barrelRolling)
-        {
-            roll = Mathf.Clamp(rb.angularVelocity / rotationSpeed.getvalue() * 8, -1 * maxRoll, maxRoll);
+        roll = Mathf.Clamp(rb.angularVelocity / rotationSpeed.getvalue() * 8, -1 * maxRoll, maxRoll);
 
-            Vector3 localRot = body.transform.localEulerAngles;
-            localRot.y = roll - 180;
-            // body.localEulerAngles = localRot;
-        }
+        Vector3 localRot = body.transform.localEulerAngles;
+        localRot.y = roll - 180;
+        // body.localEulerAngles = localRot;
+
 
         
 
@@ -113,31 +109,29 @@ public class PlayerMovement : MonoBehaviour
         // rb.AddForce(new Vector3(0, acceleration.getvalue() * forward), ForceMode2D.Force);
 
         // Allow for straffing
-        if (!barrelRolling)
-            rb.AddForce(horizontal * transform.right * acceleration.getvalue() * 0.75f, ForceMode2D.Force);
+        rb.AddForce(horizontal * transform.right * acceleration.getvalue() * 0.75f, ForceMode2D.Force);
         // rb.AddForce(new Vector3(horizontal * acceleration.getvalue(), 0), ForceMode2D.Force);
 
         // Clamp the velocity magnitude
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed.getvalue());
 
         // Rotate ship towards the mouse
-        if (!barrelRolling)
-        {
-            Vector2 m = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 direction = (m - (Vector2)transform.position).normalized;
+        
+        Vector2 m = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (m - (Vector2)transform.position).normalized;
 
-            Quaternion rotation = Quaternion.AngleAxis(90, transform.forward);
-            direction = rotate(direction, -Mathf.PI / 2);
-            rb.AddTorque(Vector2.Dot(transform.up, direction) * rotationSpeed.getvalue());
-        }
+        Quaternion rotation = Quaternion.AngleAxis(90, transform.forward);
+        direction = rotate(direction, -Mathf.PI / 2);
+        rb.AddTorque(Vector2.Dot(transform.up, direction) * rotationSpeed.getvalue());
+        
         
     }
     public static Vector2 rotate(Vector2 v, float delta) {
-    return new Vector2(
-        v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
-        v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)
-    );
-}
+        return new Vector2(
+            v.x * Mathf.Cos(delta) - v.y * Mathf.Sin(delta),
+            v.x * Mathf.Sin(delta) + v.y * Mathf.Cos(delta)
+        );
+    }
 
     public void goToHome()
     {
@@ -149,15 +143,18 @@ public class PlayerMovement : MonoBehaviour
         {
             boosterLevel += 0.05f;
             fireLight.intensity += 0.2f;
-            if (smoke.isPlaying == false)
-                smoke.Play();
+            
+            foreach (var smoke in boosterParticles)
+                if (smoke.isPlaying == false)
+                    smoke.Play();
         }
         else
         {
             fireLight.intensity -= 0.2f;
             boosterLevel -= 0.05f;
-            if (smoke.isPlaying)
-                smoke.Stop();
+            foreach (var smoke in boosterParticles)
+                if (smoke.isPlaying)
+                    smoke.Stop();
 
         }
         fireLight.intensity = Mathf.Min(fireLight.intensity, lightIntensity);
