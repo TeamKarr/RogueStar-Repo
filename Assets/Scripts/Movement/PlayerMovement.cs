@@ -18,27 +18,34 @@ public class PlayerMovement : MonoBehaviour
     public string accelerationAttribute = "Acceleration";
     public string rotationAttribute = "RotationSpeed";
 
-    [Header("Movement Visuals")]
-    public GameObject[] boosterObjects;
+    private GameObject[] boosterObjects;
     private float boosterLevel = 0f;
 
+    public float rollAmplifier=16f;
 
-
-    public ParticleSystem smoke;
+    private ParticleSystem[] boosterParticles;
     public Light fireLight;
     private float lightIntensity = 1f;
 
+    public float AngularAcceleration=1f;
+
+    private float roll = 0f;
+
     private float roll = 0f;
     public float maxRoll = 90f;
-    public Transform body;
-    public bool barrelRolling = false;
+    private Transform body;
 
     void Start()
     {
-
-        foreach(GameObject booster in boosterObjects)
+        GetComponent<ShipParts>().initialize();
+        body=GetComponent<ShipParts>().ship.transform;
+        boosterObjects = GetComponent<ShipParts>().boosterObjects.ToArray();
+        boosterParticles = GetComponent<ShipParts>().boosterParticles.ToArray();
+        Debug.Log("player movement");
+        foreach (GameObject booster in boosterObjects)
         {
             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
+            Debug.Log(booster);
         }
         maxSpeed = GetComponent<AttributeManager>().getAttribute(maxSpeedAttribute);
         Debug.Log(maxSpeed.getvalue());
@@ -71,17 +78,17 @@ public class PlayerMovement : MonoBehaviour
 
         
 
-        // Handle booster effects
-
-        //switch (forward)
+        //}
+        //else
         //{
-        //    case 1f:
-        //        if (transform.rotation == 90f)
-        //        {
-        //            BoosterEffects();
-        //        }
-        //        break;
-        //    default:
+        //    // does stuff
+        //    fireLight.intensity -= 0.2f;
+        //    boosterLevel -= 0.05f;
+        //    if (smoke.isPlaying)
+        //        smoke.Stop();
+      
+        //}
+        //fireLight.intensity = Mathf.Min(fireLight.intensity, lightIntensity);
 
         //        break;
         //}
