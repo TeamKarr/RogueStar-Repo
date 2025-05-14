@@ -10,6 +10,9 @@ public class ShieldUpgrade : MonoBehaviour
     private float strength = 10;
     void Start()
     {
+
+        GetComponent<Health>().onDamage.AddListener(damage);
+
         Transform t = this.transform;
 
         Shield = t.GetComponent<ShipParts>().shieldMaterial;
@@ -22,6 +25,7 @@ public class ShieldUpgrade : MonoBehaviour
     {
         if (strength > 0)
         {
+            Debug.Log("Shield damaged");
             StartCoroutine(visualDamage());
             strength--;
         }

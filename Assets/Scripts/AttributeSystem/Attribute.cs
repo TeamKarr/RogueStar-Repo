@@ -72,7 +72,7 @@ public class Attribute
                         baseMultiplier += m.value;
                         break;
                     case ModifierType.multiply:
-                        totalMultiplier += m.value;
+                        totalMultiplier *= m.value;
                         break;
                 }
         }

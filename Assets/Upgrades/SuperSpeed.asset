@@ -21,5 +21,10 @@ MonoBehaviour:
       type: 1
       value: 2
       enabled: 1
+  - attribute: Drag
+    modifier:
+      type: 1
+      value: 1.25
+      enabled: 1
   Components: []
   weight: 1

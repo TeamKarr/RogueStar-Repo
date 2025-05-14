@@ -39,8 +39,12 @@ public class LevelManager : MonoBehaviour
     {
         if (shouldSave)
         {
-            gameManager.addMatter(Matter);
-            gameManager.addScore(Score);
+            if (gameManager != null)
+            {
+                gameManager.addMatter(Matter);
+                gameManager.addScore(Score);
+            }
+            
         }
         
 

@@ -15,10 +15,14 @@ public class Damage : MonoBehaviour
 
     void Start()
     {
-        damage = (Fired.GetComponent<AttributeManager>()).getAttribute(damgageAttribute);
+        damage = Fired.GetComponent<AttributeManager>().getAttribute(damgageAttribute);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject == null){
+            Destroy(this.gameObject);
+            return;
+        }
         Health collidedHealth = collision.gameObject.GetComponent<Health>();
         if (collidedHealth != null)
         {
