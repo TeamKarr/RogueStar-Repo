@@ -46,6 +46,13 @@ public class EnemyBrain : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (states != null) {
+            states[CurrentState].FixedAction();
+        }
+    }
+
     public void setState(int i)
     {
         if (i >= 0 && i < states.Length)
@@ -80,7 +87,9 @@ public class EnemyBrain : MonoBehaviour
         public GameObject Player;
 
         public abstract void Action(); // ran everytick when in this state;
+        public virtual void FixedAction(){
 
+        }
 
     }
 

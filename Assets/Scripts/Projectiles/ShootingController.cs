@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Internal;
+using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
@@ -16,6 +19,9 @@ public class ShootingController : MonoBehaviour
     [Header("Input")]
     [Tooltip("Whether this shooting controller is controled by the player")]
     public bool isPlayerControlled = false;
+
+    public bool shootTowardsPlayer = false;
+    public GameObject player;
 
     [Header("Firing Settings")]
     [Tooltip("The minimum time between projectiles being fired.")]
@@ -93,14 +99,19 @@ public class ShootingController : MonoBehaviour
     /// </summary>
     public void Fire()
     {
+        float variance = 0f;
         // If the cooldown is over fire a projectile
-        if ((Time.timeSinceLevelLoad - lastFired) > fireRate.getvalue())
+        if(!isPlayerControlled){
+            variance = UnityEngine.Random.Range(-0.5f,0.5f);
+        }
+        if ((Time.timeSinceLevelLoad - lastFired) > fireRate.getvalue()+variance)
         {
             // Launches a projectile
             SpawnProjectile();
 
             if (fireEffect != null)
             {
+
                 Instantiate(fireEffect, transform.position, transform.rotation, null);
             }
 
@@ -124,11 +135,19 @@ public class ShootingController : MonoBehaviour
         {
             Vector3 pos = spawnpoint.position;
             // Create the projectile
+            Quaternion rotation;
+            if(shootTowardsPlayer){
+                Vector2 direction = player.transform.position - transform.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                rotation = Quaternion.Euler(0f, 0f, angle);
+            }else{
+                rotation = transform.rotation;
+            }
             GameObject projectileGameObject = Instantiate(projectilePrefab, pos, transform.rotation, null);
             projectileGameObject.GetComponent<Damage>().Fired = gameObject;
             // Account for spread
             Vector3 rotationEulerAngles = projectileGameObject.transform.rotation.eulerAngles;
-            rotationEulerAngles.z += Random.Range(-projectileSpread, projectileSpread);
+            rotationEulerAngles.z += UnityEngine.Random.Range(-projectileSpread, projectileSpread);
             projectileGameObject.transform.rotation = Quaternion.Euler(rotationEulerAngles);
 
             // Keep the heirarchy organized
