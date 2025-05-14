@@ -43,7 +43,6 @@ public class Damage : MonoBehaviour
             {
                 for (int i = 0; i < pierce.getvalue(); i++)
                 {
-                    Debug.Log(i +""+ pierce.getvalue());
                     if (collided > pierce.getvalue())
                     {
                         Destroy(this.gameObject);

@@ -5,9 +5,8 @@ using UnityEngine;
 public class VoidShot : MonoBehaviour
 {
     public float pullStrength;
-    public float pullRadius;
     public float rotSpeed;
-    private Rigidbody2D rb;
+    private Rigidbody2D rb, collidedrb;
     
     
     void Start()
@@ -22,8 +21,12 @@ public class VoidShot : MonoBehaviour
          
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collider2D collision)
     {
-        
+        Debug.Log("Trigger Entered");
+        Vector2 direction = (this.transform.position - collision.transform.position).normalized;
+        collidedrb = collision.GetComponent<Rigidbody2D>();
+        collidedrb.AddForce(direction * pullStrength, ForceMode2D.Force);
     }
+
 }
