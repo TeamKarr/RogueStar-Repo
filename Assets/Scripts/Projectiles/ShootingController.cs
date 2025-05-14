@@ -9,7 +9,7 @@ public class ShootingController : MonoBehaviour
 {
     [Header("GameObject/Component References")]
     [Tooltip("The projectile to be fired.")]
-    public GameObject projectilePrefab = null;
+    public GameObject[] projectilePrefab;
     [Tooltip("The transform in the heirarchy which holds projectiles if any")]
     public Transform projectileHolder = null;
 
@@ -37,6 +37,8 @@ public class ShootingController : MonoBehaviour
 
     [Header("Bullet Spawnpoint")]
     public Transform spawnpoint;
+
+
 
     /// <summary>
     /// Description:
@@ -119,12 +121,23 @@ public class ShootingController : MonoBehaviour
     /// </summary>
     public void SpawnProjectile()
     {
+        UpgradeManager upMan = GetComponent<UpgradeManager>();
+        GameObject proPref = projectilePrefab[0];
+        foreach (Upgrade upgrade in upMan.upgrades)
+        {
+            if (upgrade.Title.Equals("Void Shot"))
+            {
+                proPref = projectilePrefab[1];
+            }
+        }
+        
+
         // Check that the prefab is valid
-        if (projectilePrefab != null)
+        if (proPref != null)
         {
             Vector3 pos = spawnpoint.position;
             // Create the projectile
-            GameObject projectileGameObject = Instantiate(projectilePrefab, pos, transform.rotation, null);
+            GameObject projectileGameObject = Instantiate(proPref, pos, transform.rotation, null);
             
             projectileGameObject.GetComponent<Projectile>().Fired = gameObject;
             projectileGameObject.GetComponent<Damage>().Fired = gameObject;
