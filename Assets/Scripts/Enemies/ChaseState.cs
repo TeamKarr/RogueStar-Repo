@@ -8,16 +8,20 @@ public class ChaseState : EnemyBrain.State
     private Rigidbody2D rb;
     public float speedAcceleration = 2f;
     public float maxSpeed = 4f;
-
+    public float angularAcceleration = 1f;
     public override void Action()
     {
         // get pos of enemy and pos of player and 
         Vector2 direction = (Player.transform.position - transform.position).normalized;
-        this.transform.up = direction;
+        Vector2 currentDirection = transform.up;
+        float angle = Vector2.SignedAngle(currentDirection,direction);
+        rb.AddTorque(angle*angularAcceleration);
+
+        
         
        
         rb.AddForce(transform.up * speedAcceleration, ForceMode2D.Force);
-
+        
         if (rb.velocity.magnitude > maxSpeed)
         {
             // Clamp the velocity magnitude
@@ -29,7 +33,9 @@ public class ChaseState : EnemyBrain.State
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
+        rb.angularDrag = 10;
     }
 
     // Update is called once per frame
