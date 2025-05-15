@@ -9,8 +9,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public UnityEvent<float> OnGoldChange = new();
+    public UnityEvent<float> OnScoreChange = new();
+    public UnityEvent<float> OnMatterChange = new();
 
+
+    public ChapterManager currentChapter;
+    public int currentLevel = 0;
 
     // Game Values
     public int score = 0;
@@ -19,12 +23,12 @@ public class GameManager : MonoBehaviour
         get { return matter; }
         set
         {
-            matter = value;
-            if (matter < 0)
+            score = value;
+            if (score < 0)
             {
-                matter = 0;
+                score = 0;
             }
-            OnGoldChange.Invoke(matter);
+            OnScoreChange.Invoke(score);
         }
     }
 
@@ -39,7 +43,7 @@ public class GameManager : MonoBehaviour
             {
                 matter = 0;
             }
-            OnGoldChange.Invoke(matter);
+            OnMatterChange.Invoke(matter);
         }
     }
     public void addMatter(int value)
@@ -101,7 +105,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         InitializeAttributes();
-        OnGoldChange.Invoke(matter);
+        OnMatterChange.Invoke(matter);
     }
 
     private void InitializeAttributes()
@@ -115,12 +119,25 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        OnGoldChange.Invoke(matter);
+        OnMatterChange.Invoke(matter);
     }
 
-    
+    public void NextLevel()
+    {
+        currentLevel += 1;
+        if (currentLevel >= currentChapter.levels.Length)
+        {
+            
+        }
+        else
+        {
+            // save player;
+            //var player = GameObject.FindGameObjectWithTag("Player");
 
-   
+            //findFir
 
-
+            SceneManager.LoadScene(currentChapter.levels[currentLevel].name);
+            // keep player;
+        }
+    }
 }
