@@ -59,6 +59,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   speedAcceleration: 1
   maxSpeed: 2
+  angularAcceleration: 1
 --- !u!114 &2723021612278305573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,13 +232,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75388997f8d4264a86b7441dc9ea74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6087532128199826423, guid: 90d23ecc81df9e243a5b42caaf4d1b55, type: 3}
   projectileHolder: {fileID: 7001449191915127260}
   isPlayerControlled: 0
+  shootTowardsPlayer: 0
+  player: {fileID: 0}
   fireRateAttribute: FiringRate
   projectileSpread: 5
   fireEffect: {fileID: 0}
-  spawnpoint: {fileID: 7001449191915127260}
+  spawnpoints:
+  - {fileID: 7001449191915127260}
+  projectilePrefabs:
+  - {fileID: 6087532128199826423, guid: 90d23ecc81df9e243a5b42caaf4d1b55, type: 3}
 --- !u!114 &2732600055422228077
 MonoBehaviour:
   m_ObjectHideFlags: 0

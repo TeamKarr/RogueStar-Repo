@@ -11,7 +11,7 @@ public class Damage : MonoBehaviour
 
     public string damgageAttribute = "Damage";
     Attribute damage;
-
+    public GameObject sparks;
     [ReadOnly] public GameObject Fired;
 
     void Start()
@@ -21,16 +21,19 @@ public class Damage : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Health collidedHealth = collision.gameObject.GetComponent<Health>();
+        Instantiate(sparks, transform.position, transform.rotation, null);
         if (collidedHealth != null)
         {
             if (Fired.layer != collision.gameObject.layer)
             {
                 collidedHealth.takeDamage(damage.getvalue());
             }
+            
             Destroy(this.gameObject);
         }
         else
         {
+
             Destroy(this.gameObject);
         }
     }

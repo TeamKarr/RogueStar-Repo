@@ -16,11 +16,11 @@ GameObject:
   - component: {fileID: -7673024671074650330}
   - component: {fileID: 2232919402581065499}
   - component: {fileID: -6307687198541728734}
-  - component: {fileID: 3308303311655514990}
-  - component: {fileID: -5440415569044717737}
-  - component: {fileID: 6322189467440805725}
+  - component: {fileID: 4427360741470958747}
+  - component: {fileID: 906886280889508654}
+  - component: {fileID: 1307561034243636347}
   m_Layer: 6
-  m_Name: Player_Bullet
+  m_Name: Enemy_Bullet_medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,8 +35,8 @@ Transform:
   m_GameObject: {fileID: 6087532128199826423}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.199, y: 1.278, z: 0}
-  m_LocalScale: {x: 0.06944782, y: 0.131841, z: 0.19}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.20960377, y: 0.30100122, z: 0.6185396}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78aad6d9dcc1b6945bf4b9f2ec8b9fca, type: 2}
+  - {fileID: 2100000, guid: a1781c7069fe6e540a74528a08921549, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,8 +105,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.36862746, g: 1, b: 0, a: 1}
-  m_Intensity: 10
+  m_Color: {r: 1, g: 0.07450981, b: 0.07450981, a: 1}
+  m_Intensity: 19.4
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd8ed0746ef8324aa9b33326bd46bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 40
+  projectileSpeed: 20
 --- !u!114 &-7673024671074650330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -265,12 +265,24 @@ Rigidbody2D:
     m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 192
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3308303311655514990
+--- !u!114 &4427360741470958747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087532128199826423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43135b32f89adf43bbfc85845af7f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &906886280889508654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,7 +298,7 @@ MonoBehaviour:
   damgageAttribute: Damage
   sparks: {fileID: 4587441541339043836, guid: d08ac2f352b4f58469ca57cdf44abf1f, type: 3}
   Fired: {fileID: 0}
---- !u!114 &-5440415569044717737
+--- !u!114 &1307561034243636347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,20 +312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Damage
   description: 
-  baseValue: 5
+  baseValue: 1
   currentValue: 0
   onValueChange:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6322189467440805725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6087532128199826423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43135b32f89adf43bbfc85845af7f7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

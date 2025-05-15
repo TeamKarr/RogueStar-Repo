@@ -10,13 +10,10 @@ using UnityEngine;
 /// </summary>
 public class ShootingController : MonoBehaviour
 {
-    [Header("GameObject/Component References")]
-    [Tooltip("The projectile to be fired.")]
-    public GameObject projectilePrefab = null;
-    [Tooltip("The transform in the heirarchy which holds projectiles if any")]
-    public Transform projectileHolder = null;
-
-    [Header("Input")]
+    
+    
+    
+    
     [Tooltip("Whether this shooting controller is controled by the player")]
     public bool isPlayerControlled = false;
 
@@ -41,8 +38,11 @@ public class ShootingController : MonoBehaviour
     [Tooltip("The effect to create when this fires")]
     public GameObject fireEffect;
 
-    [Header("Bullet Spawnpoint")]
-    public Transform spawnpoint;
+    [Header("Bullet Spawnpoints")]
+    public Transform[] spawnpoints;
+    [Header("GameObject/Component References same order as spawn point")]
+    [Tooltip("The projectile to be fired.")]
+    public GameObject[] projectilePrefabs;
 
     /// <summary>
     /// Description:
@@ -101,22 +101,26 @@ public class ShootingController : MonoBehaviour
     {
         float variance = 0f;
         // If the cooldown is over fire a projectile
-        if(!isPlayerControlled){
-            variance = UnityEngine.Random.Range(-0.5f,0.5f);
-        }
-        if ((Time.timeSinceLevelLoad - lastFired) > fireRate.getvalue()+variance)
+        for (int i = 0; i < spawnpoints.Length; i++)
         {
-            // Launches a projectile
-            SpawnProjectile();
-
-            if (fireEffect != null)
+            if (!isPlayerControlled)
             {
-
-                Instantiate(fireEffect, transform.position, transform.rotation, null);
+                variance = UnityEngine.Random.Range(-0.5f, 0.5f);
             }
+            if ((Time.timeSinceLevelLoad - lastFired) > fireRate.getvalue() + variance)
+            {
+                // Launches a projectile
+                SpawnProjectile(projectilePrefabs[i],spawnpoints[i]);
 
-            // Restart the cooldown
-            lastFired = Time.timeSinceLevelLoad;
+                if (fireEffect != null)
+                {
+
+                    Instantiate(fireEffect, transform.position, transform.rotation, null);
+                }
+
+                // Restart the cooldown
+                lastFired = Time.timeSinceLevelLoad;
+            }
         }
     }
 
@@ -128,12 +132,13 @@ public class ShootingController : MonoBehaviour
     /// Returns: 
     /// void (no return)
     /// </summary>
-    public void SpawnProjectile()
+    public void SpawnProjectile(GameObject _projectilePrefab, Transform _spawnPoint)
     {
+
         // Check that the prefab is valid
-        if (projectilePrefab != null)
+        if (_projectilePrefab != null)
         {
-            Vector3 pos = spawnpoint.position;
+            Vector3 pos = _spawnPoint.position;
             // Create the projectile
             Quaternion rotation;
             if(shootTowardsPlayer){
@@ -143,7 +148,7 @@ public class ShootingController : MonoBehaviour
             }else{
                 rotation = transform.rotation;
             }
-            GameObject projectileGameObject = Instantiate(projectilePrefab, pos, transform.rotation, null);
+            GameObject projectileGameObject = Instantiate(_projectilePrefab, pos, transform.rotation, null);
             projectileGameObject.GetComponent<Damage>().Fired = gameObject;
             // Account for spread
             Vector3 rotationEulerAngles = projectileGameObject.transform.rotation.eulerAngles;
@@ -151,10 +156,7 @@ public class ShootingController : MonoBehaviour
             projectileGameObject.transform.rotation = Quaternion.Euler(rotationEulerAngles);
 
             // Keep the heirarchy organized
-            if (projectileHolder != null)
-            {
-                projectileGameObject.transform.SetParent(projectileHolder);
-            }
+           
         }
     }
 }

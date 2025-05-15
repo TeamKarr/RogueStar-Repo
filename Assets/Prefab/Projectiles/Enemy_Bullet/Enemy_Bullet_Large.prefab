@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 906886280889508654}
   - component: {fileID: 1307561034243636347}
   m_Layer: 6
-  m_Name: Enemy_Bullet
+  m_Name: Enemy_Bullet_Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,9 +35,9 @@ Transform:
   m_GameObject: {fileID: 6087532128199826423}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.199, y: 1.278, z: 0}
-  m_LocalScale: {x: 0.06944782, y: 0.131841, z: 0.19}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6440952, y: 0.42773354, z: 2.343402}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,8 +106,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0.07450981, b: 0.07450981, a: 1}
-  m_Intensity: 34.33
-  m_Range: 3
+  m_Intensity: 15.51
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -296,6 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyChildrenOnDeath: 1
   damgageAttribute: Damage
+  sparks: {fileID: 4587441541339043836, guid: d08ac2f352b4f58469ca57cdf44abf1f, type: 3}
   Fired: {fileID: 0}
 --- !u!114 &1307561034243636347
 MonoBehaviour:
@@ -311,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Damage
   description: 
-  baseValue: 1
+  baseValue: 10
   currentValue: 0
   onValueChange:
     m_PersistentCalls:
