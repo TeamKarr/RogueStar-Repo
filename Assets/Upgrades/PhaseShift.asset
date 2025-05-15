@@ -18,4 +18,7 @@ MonoBehaviour:
   AttributeModifiers: []
   Components:
   - {fileID: 11500000, guid: 7feec32f90cf35340bfdd15c452bdb2c, type: 3}
+  requirements:
+  - {fileID: 11400000, guid: 01b7199a1a85b15448be75533138bd44, type: 2}
+  conflicts: []
   weight: 1

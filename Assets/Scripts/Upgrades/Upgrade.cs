@@ -16,6 +16,9 @@ public class Upgrade : ScriptableObject
     [SerializeField]
     public UnityEngine.Object[] Components;
 
+
+    public Upgrade[] requirements;
+    public Upgrade[] conflicts;
     public float weight = 1;
  
     public string[] ModifierLabels
