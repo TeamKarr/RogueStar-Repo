@@ -13,9 +13,7 @@ public class Attribute : MonoBehaviour
     public string description;
     public float baseValue;
 
-    float baseMultiplier = 1;
-    float baseAdder = 0;
-    float totalMultiplier = 1;
+   
 
     [ReadOnly] public float currentValue = 0;
 
@@ -71,7 +69,9 @@ public class Attribute : MonoBehaviour
 
     public void updateValue()
     {
-        
+        float baseMultiplier = 1;
+        float baseAdder = 0;
+        float totalMultiplier = 1;
         foreach (AttributeModifier m in modifiers)
         {
             if (m.enabled)

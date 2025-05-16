@@ -30,12 +30,12 @@ MonoBehaviour:
   - attribute: Bullet Speed
     modifier:
       type: 1
-      value: -0.75
+      value: -0.9
       enabled: 1
   - attribute: Piercing
     modifier:
-      type: 0
-      value: 2
+      type: 1
+      value: 1.5
       enabled: 1
   Components: []
   weight: 1

@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226916998573fd14192b6a4435706830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullStrength: 5
-  rotSpeed: 360
+  pullStrength: 10
+  rotSpeed: 450
 --- !u!50 &7273931381394933783
 Rigidbody2D:
   serializedVersion: 4
@@ -322,4 +322,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 2.5
+  m_Radius: 5
