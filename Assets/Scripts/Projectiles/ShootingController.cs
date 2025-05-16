@@ -123,11 +123,13 @@ public class ShootingController : MonoBehaviour
     {
         UpgradeManager upMan = GetComponent<UpgradeManager>();
         GameObject proPref = projectilePrefab[0];
-        foreach (Upgrade upgrade in upMan.upgrades)
-        {
-            if (upgrade.Title.Equals("Void Shot"))
+        if (upMan != null) {
+            foreach (Upgrade upgrade in upMan.upgrades)
             {
-                proPref = projectilePrefab[1];
+                if (upgrade.Title.Equals("Void Shot"))
+                {
+                    proPref = projectilePrefab[1];
+                }
             }
         }
         

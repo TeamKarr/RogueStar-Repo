@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 3919092472368840260}
   - component: {fileID: -3115014680231767419}
   - component: {fileID: 2801183546610307828}
+  - component: {fileID: -2714483350633814753}
+  - component: {fileID: -4001456391520358312}
   m_Layer: 7
   m_Name: enemy
   m_TagString: Untagged
@@ -385,6 +387,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  modifiers: []
+--- !u!114 &-2714483350633814753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954963737137122683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: FiringRate
+  description: 
+  baseValue: 1
+  currentValue: 0.05
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  modifiers: []
+--- !u!114 &-4001456391520358312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954963737137122683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Bullet Speed
+  description: 
+  baseValue: 20
+  currentValue: 0
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
   modifiers: []
 --- !u!1 &3692751314469533588
 GameObject:
