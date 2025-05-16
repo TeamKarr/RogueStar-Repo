@@ -101,8 +101,7 @@ public class ShootingController : MonoBehaviour
     {
         float variance = 0f;
         // If the cooldown is over fire a projectile
-        for (int i = 0; i < spawnpoints.Length; i++)
-        {
+        
             if (!isPlayerControlled)
             {
                 variance = UnityEngine.Random.Range(-0.5f, 0.5f);
@@ -110,8 +109,10 @@ public class ShootingController : MonoBehaviour
             if ((Time.timeSinceLevelLoad - lastFired) > fireRate.getvalue() + variance)
             {
                 // Launches a projectile
+                for (int i = 0; i < spawnpoints.Length; i++)
+                {
                 SpawnProjectile(projectilePrefabs[i],spawnpoints[i]);
-
+                }
                 if (fireEffect != null)
                 {
 
@@ -121,7 +122,7 @@ public class ShootingController : MonoBehaviour
                 // Restart the cooldown
                 lastFired = Time.timeSinceLevelLoad;
             }
-        }
+        
     }
 
     /// <summary>
@@ -148,7 +149,7 @@ public class ShootingController : MonoBehaviour
             }else{
                 rotation = transform.rotation;
             }
-            GameObject projectileGameObject = Instantiate(_projectilePrefab, pos, transform.rotation, null);
+            GameObject projectileGameObject = Instantiate(_projectilePrefab, pos, _spawnPoint.rotation, null);
             projectileGameObject.GetComponent<Damage>().Fired = gameObject;
             // Account for spread
             Vector3 rotationEulerAngles = projectileGameObject.transform.rotation.eulerAngles;

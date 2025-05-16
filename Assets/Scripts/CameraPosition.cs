@@ -25,6 +25,7 @@ public class cameraPosition : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if(player==null)return;
         float z = transform.position.z;
         Vector3 m = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 t = player.transform.position;

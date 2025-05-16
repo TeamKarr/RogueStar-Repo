@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError("Acceleration Attribute not found");
         }
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log(rb);
+       
         if (rb == null)
         {
             Debug.LogError("Rigidbody2D not found");
@@ -75,11 +75,11 @@ public class PlayerMovement : MonoBehaviour
         // move ship
         
 
-        roll =Mathf.Clamp(rb.angularVelocity/AngularAcceleration*rollAmplifier,-1*maxRoll,maxRoll);
+        // roll =Mathf.Clamp(rb.angularVelocity/AngularAcceleration*rollAmplifier,-1*maxRoll,maxRoll);
         
-        Vector3 localRot = body.transform.localEulerAngles;
-        localRot.y = roll-180;
-        body.localEulerAngles = localRot;
+        // Vector3 localRot = body.transform.localEulerAngles;
+        // localRot.y = roll-180;
+        // body.localEulerAngles = localRot;
         //Debug.Log("Forward: " + forward);
         float forward = Input.GetAxis("Vertical");
         foreach(ParticleSystem particles in boosterParticles)
