@@ -72,6 +72,8 @@ public class UIManager : MonoBehaviour
     {
         CloseAll();
         pause();
+        ShowUpgrades();
+        isPausable = false;
         // call upgradeManagerForPlayer to set the upgrade choices
 
         (Upgrade, Upgrade, Upgrade) choices = manager.GetUpgradeChoices();

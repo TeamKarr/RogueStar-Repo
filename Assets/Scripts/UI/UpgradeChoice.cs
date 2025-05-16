@@ -19,13 +19,16 @@ public class UpgradeChoice : MonoBehaviour
 
     public UpgradeManager upgradeManager;
 
+    private Button button;
+
     public void SetUpgrade(Upgrade upgrade)
     {
         this.upgrade = upgrade;
-        upgradeName.text = upgrade.Title;
-        upgradeDescription.text = upgrade.Description;
+        upgradeName.text = upgrade?.Title ?? "--";
+        upgradeDescription.text = upgrade?.Description ?? "";
         // upgradeIcon.sprite = upgrade;
         var upgradeLabels = "";
+        if (upgrade != null)
         foreach (var label in upgrade.ModifierLabels)
         {
             upgradeLabels += label[0] == '+' 
@@ -36,6 +39,9 @@ public class UpgradeChoice : MonoBehaviour
         }
         upgradeActions.text = upgradeLabels;
 
+
+        GetComponent<Button>().interactable = upgrade != null;
+
     }
 
     public void AddUpgrade(){
@@ -45,8 +51,9 @@ public class UpgradeChoice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetUpgrade(upgrade);
+        
     }
+
 
     // Update is called once per frame
     void Update()

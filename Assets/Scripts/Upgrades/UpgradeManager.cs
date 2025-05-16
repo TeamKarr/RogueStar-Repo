@@ -35,13 +35,10 @@ public class UpgradeManager : MonoBehaviour
 
     public (Upgrade, Upgrade, Upgrade) GetUpgradeChoices()
     {
-        var upgrade1 = getRandomUpgrade();
-        var upgrade2 = getRandomUpgrade();
-        var upgrade3 = getRandomUpgrade();
 
-        //pickRandom(availableUpgrades, availableUpgrades.Select(a => a.weight).ToList<>);
+        var upgrades = pickRandom<Upgrade>(availableUpgrades, availableUpgrades.Select(a => a.weight).ToList(), 3);
 
-        return (upgrade1, upgrade2, upgrade3);
+        return (upgrades[0], upgrades[1], upgrades[2]);
     }
 
     Upgrade getRandomUpgrade(){
@@ -115,7 +112,7 @@ public class UpgradeManager : MonoBehaviour
     }
 
 
-    public static List<T> pickRandom<T>(List<T> list, List<float> weights, int count = 1)
+    public static List<T> pickRandom<T>(List<T> list, List<float> weights, int count = 1) where T : class
     {
         List<T> selectedItems = new();
         List<T> copy = new(list);
@@ -123,6 +120,10 @@ public class UpgradeManager : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
+            if (copy.Count == 0)
+            {
+                selectedItems.Add(null);
+            }
             float totalWeight = weightCopy.Sum();
             float randomValue = Random.Range(0f, totalWeight);
 
@@ -133,8 +134,8 @@ public class UpgradeManager : MonoBehaviour
                 if (randomValue <= currentWeight)
                 {
                     selectedItems.Add(copy[j]);
-                    copy.Remove(j);
-                    weightCopy.Remove(j);
+                    copy.RemoveAt(j);
+                    weightCopy.RemoveAt(j);
                     break;
                 }
             }

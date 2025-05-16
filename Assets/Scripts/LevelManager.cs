@@ -86,7 +86,7 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                GameManager.NextLevel();
+                //GameManager.NextLevel();
             }
 
         }
