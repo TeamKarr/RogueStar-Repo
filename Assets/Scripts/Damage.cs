@@ -26,10 +26,11 @@ public class Damage : MonoBehaviour
         Health collidedHealth = collision.gameObject.GetComponent<Health>();
         if (collidedHealth != null)
         {
-            if (Fired.layer != collision.gameObject.layer)
-            {
-                collidedHealth.takeDamage(damage.getvalue());
-            }
+            if (Fired != null)
+                if (Fired.layer != collision.gameObject.layer)
+                {
+                    collidedHealth.takeDamage(damage.getvalue());
+                }
             Destroy(this.gameObject);
         }
         else

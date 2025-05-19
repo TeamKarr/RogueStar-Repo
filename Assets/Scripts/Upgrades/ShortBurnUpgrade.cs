@@ -40,44 +40,44 @@ public class ShortBurnUpgrade : MonoBehaviour
     IEnumerator shortBurn()
     {
         
-        {
-            Debug.Log("Time passed");
-            this.GetComponent<PlayerMovement>().enabled = false;
-            Vector2 startVelo = rb.velocity;
-            rb.velocity = transform.up * power;
-            //rb.AddForce(transform.up * power, ForceMode2D.Impulse);
+        
+        Debug.Log("Time passed");
+        this.GetComponent<PlayerMovement>().enabled = false;
+        Vector2 startVelo = rb.velocity;
+        rb.velocity = transform.up * power;
+        //rb.AddForce(transform.up * power, ForceMode2D.Impulse);
 
-            playerMovement.BoosterEffects(true);
+        playerMovement.BoosterEffects(true);
 
-            yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.25f);
 
-            //Debug.Log(rb.velocity);
-            //float rolls = 2*360; // 2 rotations
-            //Vector3 localRot = body.transform.localEulerAngles;
-            //float roll = localRot.y;
-            //float elapsedTime = 0f;
+        //Debug.Log(rb.velocity);
+        //float rolls = 2*360; // 2 rotations
+        //Vector3 localRot = body.transform.localEulerAngles;
+        //float roll = localRot.y;
+        //float elapsedTime = 0f;
 
-            //float totalTime = 0.25f;
+        //float totalTime = 0.25f;
 
-            //while (elapsedTime < totalTime)
-            //{
-            //    localRot = body.transform.localEulerAngles;
-            //    roll += rolls / totalTime;
-            //    localRot.y = roll;
-            //    body.localEulerAngles = localRot;
-            //    totalTime += Time.deltaTime;
-            //}
+        //while (elapsedTime < totalTime)
+        //{
+        //    localRot = body.transform.localEulerAngles;
+        //    roll += rolls / totalTime;
+        //    localRot.y = roll;
+        //    body.localEulerAngles = localRot;
+        //    totalTime += Time.deltaTime;
+        //}
 
-            //shipModel.transform.Rotate
+        //shipModel.transform.Rotate
 
 
-            //rb.velocity = startVelo;
-            // Restart the cooldown
-            lastUsed = Time.timeSinceLevelLoad;
-            this.GetComponent<PlayerMovement>().enabled = enabled;
-            afterDash.Invoke();
-            //yield return null;
+        //rb.velocity = startVelo;
+        // Restart the cooldown
+        lastUsed = Time.timeSinceLevelLoad;
+        this.GetComponent<PlayerMovement>().enabled = enabled;
+        afterDash.Invoke();
+        //yield return null;
 
-        }
+        
     }
 }

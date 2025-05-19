@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 4464812638528948624}
   m_Layer: 7
   m_Name: enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
           m_Calls: []
     modifiers: []
   - name: FiringRate
-    baseValue: 1
+    baseValue: 5
     details:
       description: 
       currentValue: 0

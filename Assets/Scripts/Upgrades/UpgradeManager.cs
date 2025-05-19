@@ -35,42 +35,9 @@ public class UpgradeManager : MonoBehaviour
 
     public (Upgrade, Upgrade, Upgrade) GetUpgradeChoices()
     {
-
         var upgrades = pickRandom<Upgrade>(availableUpgrades, availableUpgrades.Select(a => a.weight).ToList(), 3);
-
         return (upgrades[0], upgrades[1], upgrades[2]);
     }
-
-    Upgrade getRandomUpgrade(){
-
-        //if (culmitiveWeights.Count == 0)
-        //{
-        //    GenerateCulmitiveWeights();
-        //}
-
-        // pick a random upgrade from the available upgrades using the float in the tuple as the weight:
-        var value = Random.Range(0,culmitiveWeights.Last());
-        int index = culmitiveWeights.BinarySearch(value);
-        if (index < 0)
-            index = ~index;
-        //Debug.Log(index);
-
-        // refresh available upgrades
-        Debug.Log(culmitiveWeights);
-        Debug.Log(index);
-        return availableUpgrades[index];
-    }
-
-    //private void GenerateCulmitiveWeights()
-    //{
-    //    //culmitiveWeights.Clear();
-    //    //culmitiveWeights.Add(0);
-    //    foreach (var upgrade in availableUpgrades)
-    //    {
-    //        culmitiveWeights.Add(culmitiveWeights.LastOrDefault()+upgrade.weight);
-    //    }
-        
-    //}
 
     [ContextMenu("Load Upgrades")]
     void LoadAllUpgrades()
@@ -97,18 +64,16 @@ public class UpgradeManager : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
-        //culmitiveWeights = new();
         attributeManager = GetComponent<AttributeManager>();
         
         foreach (var upgrade in loadedUpgrades)
         {
+            Debug.Log(upgrade.name);
             if (upgrade.requirements.Length == 0)
                 availableUpgrades.Add(upgrade);
         }
-        // culmitiveWeights.RemoveAt(0);
-        //Debug.Log(culmitiveWeights);
     }
 
 
@@ -140,7 +105,6 @@ public class UpgradeManager : MonoBehaviour
                 }
             }
         }
-
         return selectedItems;
     } 
 }

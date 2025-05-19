@@ -635,7 +635,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225492536}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &225492540
 Camera:
   m_ObjectHideFlags: 0
@@ -1421,17 +1421,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1092309084673293887, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
   m_PrefabInstance: {fileID: 571419891}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &571419893 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 29025446350091922, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
-  m_PrefabInstance: {fileID: 571419891}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ec369101247ba4ba53bc76c871e88b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &586098572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fbe4ca1cbe99e0043a3422dfa753e185, type: 3}
@@ -1917,17 +1906,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1092309084673293887, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
   m_PrefabInstance: {fileID: 711955463}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &711955465 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 29025446350091922, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
-  m_PrefabInstance: {fileID: 711955463}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ec369101247ba4ba53bc76c871e88b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &729436658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cc8a9b967f2c7b341ab9bec5e433741d, type: 3}
@@ -2402,17 +2380,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1092309084673293887, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
   m_PrefabInstance: {fileID: 931633828}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &931633830 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 29025446350091922, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
-  m_PrefabInstance: {fileID: 931633828}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ec369101247ba4ba53bc76c871e88b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1009804425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,93 +2858,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ace9b81e5e32447b67e969566ddd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnGoldChange:
+  OnScoreChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 711955465}
-        m_TargetAssemblyTypeName: UpgraderManager, Assembly-CSharp
-        m_MethodName: updateDisplay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1934319202}
-        m_TargetAssemblyTypeName: UpgraderManager, Assembly-CSharp
-        m_MethodName: updateDisplay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 931633830}
-        m_TargetAssemblyTypeName: UpgraderManager, Assembly-CSharp
-        m_MethodName: updateDisplay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 571419893}
-        m_TargetAssemblyTypeName: UpgraderManager, Assembly-CSharp
-        m_MethodName: updateDisplay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 9016828543528190875}
-        m_TargetAssemblyTypeName: UpgraderManager, Assembly-CSharp
-        m_MethodName: updateDisplay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1795193231}
-        m_TargetAssemblyTypeName: UpgraderManager, Assembly-CSharp
-        m_MethodName: updateDisplay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 691999208}
-        m_TargetAssemblyTypeName: UpdateLabel, Assembly-CSharp
-        m_MethodName: updateToValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  OnMatterChange:
+    m_PersistentCalls:
+      m_Calls: []
+  currentChapter: {fileID: 11400000, guid: c6d2f501e0b098f4c878c6b59fcd4f54, type: 2}
+  currentLevel: 0
   score: 0
   matter: 0
   Bloom: 5
@@ -3670,7 +3558,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292885894}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1292885898
 Camera:
   m_ObjectHideFlags: 0
@@ -4927,17 +4815,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1092309084673293887, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
   m_PrefabInstance: {fileID: 1405475513}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1795193231 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 29025446350091922, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
-  m_PrefabInstance: {fileID: 1405475513}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ec369101247ba4ba53bc76c871e88b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1880348019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5340,17 +5217,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1092309084673293887, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
   m_PrefabInstance: {fileID: 1934319200}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1934319202 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 29025446350091922, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
-  m_PrefabInstance: {fileID: 1934319200}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ec369101247ba4ba53bc76c871e88b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1940649838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5779,17 +5645,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
---- !u!114 &9016828543528190875 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 29025446350091922, guid: f9c2d803cedda3349921d1a363af1bd5, type: 3}
-  m_PrefabInstance: {fileID: 9016828543528190874}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ec369101247ba4ba53bc76c871e88b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

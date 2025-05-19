@@ -34,6 +34,7 @@ public class OnCollisionTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null) return;
         if (useRadius)
         {
             //Debug.Log(Vector2.Distance(this.transform.position, player.position) > radius);
@@ -53,7 +54,7 @@ public class OnCollisionTrigger : MonoBehaviour
                     entered = true;
                 }
             }
-            
+
 
         }
     }

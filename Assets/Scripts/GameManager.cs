@@ -122,22 +122,29 @@ public class GameManager : MonoBehaviour
         OnMatterChange.Invoke(matter);
     }
 
-    public void NextLevel()
+    public bool NextLevel()
     {
-        currentLevel += 1;
+        currentLevel++;
         if (currentLevel >= currentChapter.levels.Length)
         {
-            
+            Debug.Log("No more levels in this chapter");
+            return false;
         }
         else
         {
-            // save player;
-            //var player = GameObject.FindGameObjectWithTag("Player");
-
-            //findFir
-
+            Debug.Log("Current Level: " + currentLevel);
             SceneManager.LoadScene(currentChapter.levels[currentLevel].name);
-            // keep player;
+            var player = GameObject.FindGameObjectWithTag("Player");
+            var spawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
+            if (spawn != null)
+            {
+                player.transform.position = spawn.transform.position;
+            }
+            else
+            {
+                Debug.LogError("Spawn point not found");
+            }
+            return true;
         }
     }
 }

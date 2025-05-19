@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public float health;
+    private float savedMaxHealth;
     public string maxHealthAttribute = "MaxHealth";
     
 
@@ -42,11 +43,24 @@ public class Health : MonoBehaviour
             Transform childTransform = healthBarCanvas.transform.Find("PlayerHealthBar");
             healthBar = childTransform.GetComponent<Slider>();
         }
-        
+        savedMaxHealth = health;
         maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
+        UpdateMaxHealth();
         
         healthBar.maxValue = maxHealth.getvalue();
         updateHealthBar();
+    }
+
+    public void UpdateMaxHealth()
+    {
+
+        var healthRatio = health / savedMaxHealth;
+
+        savedMaxHealth = maxHealth.getvalue();
+
+        health = savedMaxHealth * healthRatio;
+
+        healthBar.maxValue = savedMaxHealth;
     }
 
     // Update is called once per frame

@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     public UpgradeChoice upgradeChoice2;
     public UpgradeChoice upgradeChoice3;
     [Header("Upgrade Manager")]
-    public UpgradeManager manager;
+    private UpgradeManager manager;
     public TextMeshProUGUI upgradeHUD;
 
     
@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("Player").GetComponent<UpgradeManager>();
         upgradeHUDText = upgradeHUD.text;
         var root = GetComponent<UIDocument>().rootVisualElement;
         //root.RegisterCallback<KeyDownEvent>(OnKeyDown, TrickleDown.TrickleDown);

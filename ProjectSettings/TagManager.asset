@@ -7,6 +7,9 @@ TagManager:
   - Player Model
   - booster
   - boosterParticle
+  - Enemy
+  - Boss
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
