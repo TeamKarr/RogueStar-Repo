@@ -8,10 +8,11 @@ public class OrbitState : EnemyBrain.State
 {
     // Start is called before the first frame update
     private Rigidbody2D rb;
-    public float orbitDistance = 5f;
-    public float orbitSpeed = 2f;
-    public float tangentialForceMultiplier = 10f;
-    public float radialForceMultiplier = 5f;
+    public float strength = 10f;
+    public float orbitRadius = 3f;
+    public float orbitSpeed = 2f; // in units per second along the orbit
+    public float correctionForce = 10f; // force to keep enemy on orbit
+    public float damping = 0.95f; // damp velocity error to avoid jitter
 
 
     public bool orientTowardsTarget = false;
@@ -25,33 +26,33 @@ public class OrbitState : EnemyBrain.State
 
     
     private float currentAngularVelocity = 0f;
+    public float distanceToCreep=10f;
 
     public override void FixedAction(){
-        Vector2 toPlayer = (Vector2)Player.transform.position - (Vector2)transform.position;
-        float distance = toPlayer.magnitude;
-        Vector2 toPlayerDir = toPlayer.normalized;
+        Vector2 toPlayer = (Vector2)(Player.transform.position - transform.position);
+        float currentDistance = toPlayer.magnitude;
+        Vector2 directionToPlayer = toPlayer.normalized;
 
-        // ---------- TANGENTIAL FORCE ----------
-        // Get perpendicular direction to orbit around player
-        Vector2 tangent = new Vector2(-toPlayerDir.y, toPlayerDir.x);
+        // --- 1. Maintain Radius (Radial Correction) ---
+        float radialError = currentDistance - orbitRadius;
+        Vector2 radialCorrection = directionToPlayer * (radialError * correctionForce);
+        rb.AddForce(radialCorrection);
 
-        // Desired tangential velocity
-        Vector2 desiredVelocity = tangent * orbitSpeed;
+        // --- 2. Desired Tangential Orbit Velocity ---
+        Vector2 tangentDirection = Vector2.Perpendicular(directionToPlayer); // 90° from radius
+        Vector2 desiredOrbitVelocity = tangentDirection * orbitSpeed;
 
-        // Actual velocity relative to player
-        Vector2 relativeVelocity = rb.velocity - Player.GetComponent<Rigidbody2D>()?.velocity ?? Vector2.zero;
+        // --- 3. Add Player Velocity (if moving) ---
+        if(currentDistance>distanceToCreep){
+        Vector2 baseVelocity = Player.GetComponent<Rigidbody2D>() ? Player.GetComponent<Rigidbody2D>().velocity : Vector2.zero;
+        Vector2 desiredVelocity = baseVelocity + desiredOrbitVelocity;
+         Vector2 velocityError = desiredVelocity - rb.velocity;
+        Vector2 velocityCorrection = velocityError * correctionForce * Time.fixedDeltaTime;
+        rb.velocity += velocityCorrection * damping;
+        }
 
-        // Difference between current and desired tangential velocity
-        Vector2 tangentialVelocityDiff = desiredVelocity - Vector2.Dot(relativeVelocity, tangent) * tangent;
-
-        // Apply force to match tangential velocity
-        rb.AddForce(tangentialVelocityDiff * tangentialForceMultiplier);
-
-        // ---------- RADIAL CORRECTION FORCE ----------
-        float radialOffset = distance - orbitDistance;
-        Vector2 radialForce = toPlayerDir * radialOffset * radialForceMultiplier;
-        Debug.Log(radialOffset + " | " + radialForce);
-        // rb.AddForce(radialForce);
+        // --- 4. Velocity Correction ---
+       
     }
 
     public override void Action()

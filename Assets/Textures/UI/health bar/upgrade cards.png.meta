@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      upgrade cards_0: 7536060723544826477
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

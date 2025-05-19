@@ -142,14 +142,19 @@ public class ShootingController : MonoBehaviour
             Vector3 pos = _spawnPoint.position;
             // Create the projectile
             Quaternion rotation;
-            if(shootTowardsPlayer){
+            GameObject projectileGameObject;
+            if (shootTowardsPlayer)
+            {
                 Vector2 direction = player.transform.position - transform.position;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                rotation = Quaternion.Euler(0f, 0f, angle);
-            }else{
-                rotation = transform.rotation;
+                rotation = Quaternion.Euler(0f, 0f, angle-90);
+                projectileGameObject = Instantiate(_projectilePrefab, pos, rotation, null);
             }
-            GameObject projectileGameObject = Instantiate(_projectilePrefab, pos, _spawnPoint.rotation, null);
+            else
+            {
+                projectileGameObject = Instantiate(_projectilePrefab, pos, _spawnPoint.rotation, null);
+            }
+            
             projectileGameObject.GetComponent<Damage>().Fired = gameObject;
             // Account for spread
             Vector3 rotationEulerAngles = projectileGameObject.transform.rotation.eulerAngles;
