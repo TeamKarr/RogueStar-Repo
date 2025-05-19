@@ -59,7 +59,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // update visual of the ship
+
+        // rotate ship
 
         float forward = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");

@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Internal;
+using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
@@ -7,15 +10,15 @@ using UnityEngine;
 /// </summary>
 public class ShootingController : MonoBehaviour
 {
-    [Header("GameObject/Component References")]
-    [Tooltip("The projectile to be fired.")]
-    public GameObject projectilePrefab = null;
-    [Tooltip("The transform in the heirarchy which holds projectiles if any")]
-    public Transform projectileHolder = null;
-
-    [Header("Input")]
+    
+    
+    
+    
     [Tooltip("Whether this shooting controller is controled by the player")]
     public bool isPlayerControlled = false;
+
+    public bool shootTowardsPlayer = false;
+    public GameObject player;
 
     [Header("Firing Settings")]
     [Tooltip("The minimum time between projectiles being fired.")]
@@ -35,8 +38,11 @@ public class ShootingController : MonoBehaviour
     [Tooltip("The effect to create when this fires")]
     public GameObject fireEffect;
 
-    [Header("Bullet Spawnpoint")]
-    public Transform spawnpoint;
+    [Header("Bullet Spawnpoints")]
+    public Transform[] spawnpoints;
+    [Header("GameObject/Component References same order as spawn point")]
+    [Tooltip("The projectile to be fired.")]
+    public GameObject[] projectilePrefabs;
 
     /// <summary>
     /// Description:
@@ -93,20 +99,30 @@ public class ShootingController : MonoBehaviour
     /// </summary>
     public void Fire()
     {
+        float variance = 0f;
         // If the cooldown is over fire a projectile
-        if ((Time.timeSinceLevelLoad - lastFired) > fireRate.getvalue())
-        {
-            // Launches a projectile
-            SpawnProjectile();
-
-            if (fireEffect != null)
+        
+            if (!isPlayerControlled)
             {
-                Instantiate(fireEffect, transform.position, transform.rotation, null);
+                variance = UnityEngine.Random.Range(-0.5f, 0.5f);
             }
+            if ((Time.timeSinceLevelLoad - lastFired) > fireRate.getvalue() + variance)
+            {
+                // Launches a projectile
+                for (int i = 0; i < spawnpoints.Length; i++)
+                {
+                SpawnProjectile(projectilePrefabs[i],spawnpoints[i]);
+                }
+                if (fireEffect != null)
+                {
 
-            // Restart the cooldown
-            lastFired = Time.timeSinceLevelLoad;
-        }
+                    Instantiate(fireEffect, transform.position, transform.rotation, null);
+                }
+
+                // Restart the cooldown
+                lastFired = Time.timeSinceLevelLoad;
+            }
+        
     }
 
     /// <summary>
@@ -117,25 +133,36 @@ public class ShootingController : MonoBehaviour
     /// Returns: 
     /// void (no return)
     /// </summary>
-    public void SpawnProjectile()
+    public void SpawnProjectile(GameObject _projectilePrefab, Transform _spawnPoint)
     {
+
         // Check that the prefab is valid
-        if (projectilePrefab != null)
+        if (_projectilePrefab != null)
         {
-            Vector3 pos = spawnpoint.position;
+            Vector3 pos = _spawnPoint.position;
             // Create the projectile
-            GameObject projectileGameObject = Instantiate(projectilePrefab, pos, transform.rotation, null);
+            Quaternion rotation;
+            GameObject projectileGameObject;
+            if (shootTowardsPlayer)
+            {
+                Vector2 direction = player.transform.position - transform.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                rotation = Quaternion.Euler(0f, 0f, angle-90);
+                projectileGameObject = Instantiate(_projectilePrefab, pos, rotation, null);
+            }
+            else
+            {
+                projectileGameObject = Instantiate(_projectilePrefab, pos, _spawnPoint.rotation, null);
+            }
+            
             projectileGameObject.GetComponent<Damage>().Fired = gameObject;
             // Account for spread
             Vector3 rotationEulerAngles = projectileGameObject.transform.rotation.eulerAngles;
-            rotationEulerAngles.z += Random.Range(-projectileSpread, projectileSpread);
+            rotationEulerAngles.z += UnityEngine.Random.Range(-projectileSpread, projectileSpread);
             projectileGameObject.transform.rotation = Quaternion.Euler(rotationEulerAngles);
 
             // Keep the heirarchy organized
-            if (projectileHolder != null)
-            {
-                projectileGameObject.transform.SetParent(projectileHolder);
-            }
+           
         }
     }
 }

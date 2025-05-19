@@ -10,8 +10,8 @@ public class Damage : MonoBehaviour
 
     public string damgageAttribute = "Damage";
     Attribute damage;
-
-    [HideInInspector] public GameObject Fired;
+    public GameObject sparks;
+    [ReadOnly] public GameObject Fired;
 
     void Start()
     {
@@ -24,6 +24,7 @@ public class Damage : MonoBehaviour
             return;
         }
         Health collidedHealth = collision.gameObject.GetComponent<Health>();
+        Instantiate(sparks, transform.position, transform.rotation, null);
         if (collidedHealth != null)
         {
             if (Fired != null)
@@ -35,6 +36,7 @@ public class Damage : MonoBehaviour
         }
         else
         {
+
             Destroy(this.gameObject);
         }
     }
