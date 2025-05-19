@@ -35,6 +35,7 @@ public class WaiveManager : MonoBehaviour
 
     IEnumerator Waive()
     {
+        
         enemies = GetComponentsInChildren<Transform>(true).Select(t => t.gameObject).ToList();
         enemies.RemoveAt(0);
         Debug.Log("Enemies: " + enemies.Count);
@@ -42,6 +43,7 @@ public class WaiveManager : MonoBehaviour
         {
             enemies = enemies.OrderBy(e => Random.value).ToList();
         }
+        
         foreach (var enemy in enemies)
         {
             if (enemy == null) continue;

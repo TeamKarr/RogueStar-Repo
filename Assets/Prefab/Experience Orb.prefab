@@ -187,4 +187,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expAttribute: Experience
-  maxSpeed: 0.5
+  speed: 2
+  radius: 5

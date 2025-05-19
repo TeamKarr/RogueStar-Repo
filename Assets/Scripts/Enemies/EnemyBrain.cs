@@ -86,7 +86,10 @@ public class EnemyBrain : MonoBehaviour
         internal GameObject Player;
 
         public abstract void Action(); // ran everytick when in this state;
-        public virtual void FixedAction(){
+        public virtual void FixedAction()
+        {
+            
+        }
 
         public virtual void Start()
         {

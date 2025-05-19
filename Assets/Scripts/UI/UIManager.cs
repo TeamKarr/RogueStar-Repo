@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
@@ -78,12 +79,19 @@ public class UIManager : MonoBehaviour
         // call upgradeManagerForPlayer to set the upgrade choices
 
         (Upgrade, Upgrade, Upgrade) choices = manager.GetUpgradeChoices();
-        
+
+
         upgradeChoice1.SetUpgrade(choices.Item1);
         upgradeChoice2.SetUpgrade(choices.Item2);
         upgradeChoice3.SetUpgrade(choices.Item3);
 
         upgradePanel.SetActive(true);
+        
+        if (choices.Item1 == choices.Item2 == choices.Item3)
+        {
+            Debug.Log("options are empty");
+            CloseAll();
+        }
     }
 
     // Update is called once per frame

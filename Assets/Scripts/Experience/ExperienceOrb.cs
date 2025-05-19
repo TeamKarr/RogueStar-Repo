@@ -8,9 +8,13 @@ public class ExperienceOrb : MonoBehaviour
     Attribute experience;
 
     Rigidbody2D orb;//hehe thats funny(it stands for orb rigid body)
-    public float maxSpeed;
-    private GameObject player;
+    public float speed = 5;
+    public float radius = 10;
+
+    // private GameObject player;
     private Vector2 rbpPosition, rboPosition;
+
+    private GameObject Player;
 
     void Start()
     {
@@ -18,15 +22,15 @@ public class ExperienceOrb : MonoBehaviour
         orb = GetComponent<Rigidbody2D>();
 
         //find the player object(not prefab)
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
-        foreach (GameObject obj in allObjects)
-        {
-            if (obj.layer == 3)
-            {
-                player = obj;
-            }
-        }
-
+        // GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        // foreach (GameObject obj in allObjects)
+        // {
+        //     if (obj.layer == 3)
+        //     {
+        //         player = obj;
+        //     }
+        // }
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
@@ -35,26 +39,19 @@ public class ExperienceOrb : MonoBehaviour
     {
 
         //player position
-        rbpPosition = player.transform.position;
+        rbpPosition = Player.transform.position;
         rboPosition = orb.position;
+        Debug.Log("hi");
         //look at player
         transform.Rotate(new Vector3(0, 0, 1), 1);
-        Vector3 direction = ((rbpPosition - rboPosition)).normalized;
+        Vector3 direction = (rbpPosition - rboPosition).normalized;
         transform.up = direction;
 
+
+        float setSpeed = speed / ((rbpPosition - rboPosition).magnitude / radius);
         //move the orb
-        orb.AddForce(transform.up * .25f, ForceMode2D.Force);
+        orb.velocity = transform.up * setSpeed;
 
-        //max speed
-        Vector2 velocity = orb.velocity;
-        float currentSpeed = velocity.magnitude;
-
-        if (currentSpeed > maxSpeed)
-        {
-            Vector2 normalizedVelocity = velocity.normalized;
-
-            orb.velocity = normalizedVelocity * maxSpeed;
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -67,7 +67,7 @@ public class UpgradeManager : MonoBehaviour
     public void Start()
     {
         attributeManager = GetComponent<AttributeManager>();
-        
+        Debug.Log("Loaded Upgrades");
         foreach (var upgrade in loadedUpgrades)
         {
             Debug.Log(upgrade.name);
