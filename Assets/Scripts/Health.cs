@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
 
     [Header("For Enemy HealthBars")]
     private Slider healthBar;
-    public new Camera camera;
+    private Camera camera;
     public Transform parent;
     public Vector3 offset;
 
@@ -32,19 +32,25 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (parent == null)
+        {
+            parent = this.transform;
+        }
+        camera = Camera.main;
         if (this.gameObject.layer == 7)
         {
-            
+
             var healthBarCanvasInstance = Instantiate(healthBarCanvas, transform.position, Quaternion.identity, transform);
-            
+
             healthBar = healthBarCanvasInstance.GetComponentInChildren<Slider>();
-        } else if (this.gameObject.layer == 3)
+        }
+        else if (this.gameObject.layer == 3)
         {
             Transform childTransform = healthBarCanvas.transform.Find("PlayerHealthBar");
             healthBar = childTransform.GetComponent<Slider>();
         }
         savedMaxHealth = health;
-        maxHealth = (GetComponent<AttributeManager>()).getAttribute(maxHealthAttribute);
+        maxHealth = GetComponent<AttributeManager>().getAttribute(maxHealthAttribute);
         UpdateMaxHealth();
         
         healthBar.maxValue = maxHealth.getvalue();
@@ -60,7 +66,8 @@ public class Health : MonoBehaviour
 
         health = savedMaxHealth * healthRatio;
 
-        healthBar.maxValue = savedMaxHealth;
+        if (healthBar != null)
+            healthBar.maxValue = savedMaxHealth;
     }
 
     // Update is called once per frame
@@ -68,7 +75,11 @@ public class Health : MonoBehaviour
     {
         if (this.gameObject.layer == 7)
         {
-            healthBar.transform.SetPositionAndRotation(parent.position + offset, camera.transform.rotation);
+            if (healthBar != null)
+            {
+                healthBar.transform.SetPositionAndRotation(parent.position + offset, camera.transform.rotation);
+            }
+            
         }
     }
 

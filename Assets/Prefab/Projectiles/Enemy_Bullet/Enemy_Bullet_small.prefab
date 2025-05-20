@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: -6307687198541728734}
   - component: {fileID: 4427360741470958747}
   - component: {fileID: 906886280889508654}
-  - component: {fileID: 1307561034243636347}
   m_Layer: 6
   m_Name: Enemy_Bullet_small
   m_TagString: Untagged
@@ -191,7 +190,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd8ed0746ef8324aa9b33326bd46bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 20
+  bulletSpeedAttribute: Bullet Speed
+  bulletSpeed:
+    name: 
+    baseValue: 0
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  Fired: {fileID: 0}
 --- !u!114 &-7673024671074650330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +239,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -282,7 +292,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43135b32f89adf43bbfc85845af7f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attributes: []
+  Attributes:
+  - name: Bullet Speed
+    baseValue: 2
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: Bullet Speed
+    baseValue: 2
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
 --- !u!114 &906886280889508654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,25 +325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyChildrenOnDeath: 1
   damgageAttribute: Damage
+  pierceAttribute: Piercing
   sparks: {fileID: 4587441541339043836, guid: d08ac2f352b4f58469ca57cdf44abf1f, type: 3}
   Fired: {fileID: 0}
---- !u!114 &1307561034243636347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6087532128199826423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467631aa4a36324eaa43425b0b43472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Damage
-  description: 
-  baseValue: 1
-  currentValue: 0
-  onValueChange:
-    m_PersistentCalls:
-      m_Calls: []
-  modifiers: []

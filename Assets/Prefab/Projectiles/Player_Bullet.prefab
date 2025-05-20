@@ -190,7 +190,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeedAttribute: Bullet Speed
-  bulletSpeed: {fileID: 0}
+  bulletSpeed:
+    name: 
+    baseValue: 0
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
   Fired: {fileID: 0}
 --- !u!114 &-7673024671074650330
 MonoBehaviour:
@@ -285,4 +294,5 @@ MonoBehaviour:
   destroyChildrenOnDeath: 1
   damgageAttribute: Damage
   pierceAttribute: Piercing
+  sparks: {fileID: 4587441541339043836, guid: d08ac2f352b4f58469ca57cdf44abf1f, type: 3}
   Fired: {fileID: 0}

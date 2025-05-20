@@ -20,8 +20,13 @@ public class Damage : MonoBehaviour
 
     void Start()
     {
-        damage = (Fired.GetComponent<AttributeManager>()).getAttribute(damgageAttribute);
-        pierce = (Fired.GetComponent<AttributeManager>()).getAttribute(pierceAttribute);
+        Fired = GetComponent<Projectile>().Fired;
+        foreach (var a in Fired.GetComponent<AttributeManager>().Attributes)
+        {
+            Debug.Log(a.name);
+        }
+        damage = Fired.GetComponent<AttributeManager>().getAttribute(damgageAttribute);
+        pierce = Fired.GetComponent<AttributeManager>().getAttribute(pierceAttribute);
         
     }
     private void OnCollisionEnter2D(Collision2D collision)

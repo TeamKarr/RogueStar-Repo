@@ -16,7 +16,8 @@ public class Upgrade : ScriptableObject
     [SerializeField]
     public UnityEngine.Object[] Components;
 
-
+    public GameObject[] bullets;
+    public bool mergeBullets = false;
     public Upgrade[] requirements;
     public Upgrade[] conflicts;
     public float weight = 1;
@@ -84,7 +85,23 @@ public class Upgrade : ScriptableObject
 
     public void Initialise(GameObject player)
     {
+        
+        // if (bullets.Length != 0)
+        // {
+        //     var playerBullets = player.GetComponent<ShootingController>().projectilePrefabs;
 
+        //     if (!mergeBullets)
+        //     {
+        //         playerBullets.Clear();
+        //     }
+            
+        //     foreach (var bullet in bullets)
+        //     {
+        //         playerBullets.Add(bullet);
+        //     }
+        // }
+       
+        
         foreach (UnityEngine.Object c in Components)
         {
             Component cp = player.AddComponent(((MonoScript)c).GetClass());
@@ -92,7 +109,7 @@ public class Upgrade : ScriptableObject
             //{
             //    ub.Start();
             //}
-            
+
         }
         foreach (var modifier in AttributeModifiers)
         {

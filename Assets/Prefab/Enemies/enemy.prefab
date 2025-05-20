@@ -197,6 +197,24 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     modifiers: []
+  - name: Piercing
+    baseValue: 1
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: Bullet Speed
+    baseValue: 1
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
 --- !u!114 &-647486573142469624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerControlled: 0
   shootTowardsPlayer: 0
-  player: {fileID: 0}
   fireRateAttribute: FiringRate
   projectileSpread: 5
   fireEffect: {fileID: 0}

@@ -38,4 +38,10 @@ MonoBehaviour:
       value: 1.5
       enabled: 1
   Components: []
+  bullets:
+  - {fileID: 5502556043720978855, guid: 97baa30f5d00bfc42bdfa2b5c9cd32f5, type: 3}
+  mergeBullets: 0
+  requirements:
+  - {fileID: 11400000, guid: 4725a2a738251ec46a260097c1ed0db7, type: 2}
+  conflicts: []
   weight: 1

@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        bulletSpeed = (Fired.GetComponent<AttributeManager>()).getAttribute(bulletSpeedAttribute);
+        bulletSpeed = Fired.GetComponent<AttributeManager>().getAttribute(bulletSpeedAttribute);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up* bulletSpeed.getvalue();
 

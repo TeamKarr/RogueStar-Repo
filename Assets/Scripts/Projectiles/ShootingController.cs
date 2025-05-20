@@ -18,7 +18,7 @@ public class ShootingController : MonoBehaviour
     public bool isPlayerControlled = false;
 
     public bool shootTowardsPlayer = false;
-    public GameObject player;
+    private GameObject player;
 
     [Header("Firing Settings")]
     [Tooltip("The minimum time between projectiles being fired.")]
@@ -42,7 +42,7 @@ public class ShootingController : MonoBehaviour
     public Transform[] spawnpoints;
     [Header("GameObject/Component References same order as spawn point")]
     [Tooltip("The projectile to be fired.")]
-    public GameObject[] projectilePrefabs;
+    public List<GameObject> projectilePrefabs;
 
     /// <summary>
     /// Description:
@@ -59,6 +59,7 @@ public class ShootingController : MonoBehaviour
 
     public void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         fireRate = GetComponent<AttributeManager>().getAttribute(fireRateAttribute);
     }
 
@@ -111,7 +112,8 @@ public class ShootingController : MonoBehaviour
                 // Launches a projectile
                 for (int i = 0; i < spawnpoints.Length; i++)
                 {
-                SpawnProjectile(projectilePrefabs[i],spawnpoints[i]);
+                    if (projectilePrefabs[i] != null)
+                        SpawnProjectile(projectilePrefabs[i],spawnpoints[i]);
                 }
                 if (fireEffect != null)
                 {
@@ -155,7 +157,7 @@ public class ShootingController : MonoBehaviour
                 projectileGameObject = Instantiate(_projectilePrefab, pos, _spawnPoint.rotation, null);
             }
             
-            projectileGameObject.GetComponent<Damage>().Fired = gameObject;
+            projectileGameObject.GetComponent<Projectile>().Fired = gameObject;
             // Account for spread
             Vector3 rotationEulerAngles = projectileGameObject.transform.rotation.eulerAngles;
             rotationEulerAngles.z += UnityEngine.Random.Range(-projectileSpread, projectileSpread);

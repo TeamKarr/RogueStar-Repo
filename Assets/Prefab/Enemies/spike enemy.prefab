@@ -70,6 +70,33 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     modifiers: []
+  - name: Damage
+    baseValue: 5
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: Piercing
+    baseValue: 1
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: Bullet Speed
+    baseValue: 100
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
 --- !u!114 &6562515894859445065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerControlled: 0
   shootTowardsPlayer: 1
-  player: {fileID: 0}
   fireRateAttribute: FiringRate
   projectileSpread: 1
   fireEffect: {fileID: 0}
@@ -152,8 +178,7 @@ MonoBehaviour:
   onHeal:
     m_PersistentCalls:
       m_Calls: []
-  healthBarCanvas: {fileID: 0}
-  camera: {fileID: 0}
+  healthBarCanvas: {fileID: 7739726488088840786, guid: d1ca44c4a8a0446069918a69d59f56ee, type: 3}
   parent: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   isDead: 0

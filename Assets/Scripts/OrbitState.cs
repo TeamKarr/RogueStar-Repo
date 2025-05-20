@@ -92,8 +92,9 @@ public class OrbitState : EnemyBrain.State
         rb.AddForce(-direction*strength);
         Debug.Log("hit");
     }
-     void Start()
+    override public void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
     }

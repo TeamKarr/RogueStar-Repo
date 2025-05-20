@@ -5323,6 +5323,48 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     modifiers: []
+  - name: Piercing
+    baseValue: 0
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6342558946373712119}
+            m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+            m_MethodName: set_drag
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    modifiers: []
+  - name: Bullet Speed
+    baseValue: 5
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6342558946373712119}
+            m_TargetAssemblyTypeName: UnityEngine.Rigidbody2D, UnityEngine
+            m_MethodName: set_drag
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    modifiers: []
 --- !u!114 &643044991468295282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5356,7 +5398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerControlled: 1
   shootTowardsPlayer: 0
-  player: {fileID: 0}
   fireRateAttribute: FiringRate
   projectileSpread: 3
   fireEffect: {fileID: 0}
@@ -5412,7 +5453,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   healthBarCanvas: {fileID: 0}
-  camera: {fileID: 0}
   parent: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   isDead: 0
