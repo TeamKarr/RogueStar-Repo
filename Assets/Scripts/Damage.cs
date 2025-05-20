@@ -17,16 +17,25 @@ public class Damage : MonoBehaviour
 
     public GameObject sparks;
     [ReadOnly] public GameObject Fired;
+    [HideInInspector] public bool inheritAttribute;
 
     void Start()
     {
         Fired = GetComponent<Projectile>().Fired;
-        foreach (var a in Fired.GetComponent<AttributeManager>().Attributes)
-        {
-            Debug.Log(a.name);
-        }
-        damage = Fired.GetComponent<AttributeManager>().getAttribute(damgageAttribute);
-        pierce = Fired.GetComponent<AttributeManager>().getAttribute(pierceAttribute);
+        inheritAttribute = GetComponent<Projectile>().inheritAttribute;
+        
+        // foreach (var a in Fired.GetComponent<AttributeManager>().Attributes)
+        // {
+        //     Debug.Log(a.name);
+        // }
+        if(inheritAttribute){
+            damage = Fired.GetComponent<AttributeManager>().getAttribute(damgageAttribute);
+            pierce = Fired.GetComponent<AttributeManager>().getAttribute(pierceAttribute);
+        }else{
+            damage = GetComponent<AttributeManager>().getAttribute(damgageAttribute);
+            pierce = GetComponent<AttributeManager>().getAttribute(pierceAttribute);
+    }
+        
         
     }
     private void OnCollisionEnter2D(Collision2D collision)

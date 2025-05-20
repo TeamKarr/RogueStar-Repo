@@ -14,10 +14,14 @@ public class Projectile : MonoBehaviour
     [HideInInspector]public Attribute bulletSpeed;
 
     [HideInInspector] public GameObject Fired;
-
+    [HideInInspector] public bool inheritAttribute;
     void Start()
     {
-        bulletSpeed = Fired.GetComponent<AttributeManager>().getAttribute(bulletSpeedAttribute);
+        if(inheritAttribute)
+            bulletSpeed = Fired.GetComponent<AttributeManager>().getAttribute(bulletSpeedAttribute);
+        else
+            bulletSpeed = GetComponent<AttributeManager>().getAttribute(bulletSpeedAttribute);
+        
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up* bulletSpeed.getvalue();
 

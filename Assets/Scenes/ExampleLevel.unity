@@ -820,6 +820,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b8e00cffadc284da3e27fc3858eb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &589275611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589275573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010676364cd5f514bac0ffbbd2698fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctRotation: 0
+  rollAmplifier: 16
+  aungularAcceleration: 32
+  maxRoll: 90
 --- !u!114 &597911495 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2336887312366799546, guid: d5dad0682a6594d0e83e9957e547e982, type: 3}
@@ -843,6 +859,10 @@ PrefabInstance:
       propertyPath: projectileHolder
       value: 
       objectReference: {fileID: 1636474366}
+    - target: {fileID: -3630723181897511699, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      propertyPath: inheritBulletAttributes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 935130362025404555, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1045,7 +1065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8369431800573641515, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       propertyPath: Attributes.Array.data[5].baseValue
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8369431800573641515, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       propertyPath: Attributes.Array.data[6].baseValue
@@ -1140,6 +1160,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5665322699795123541, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
       insertIndex: 9
       addedObject: {fileID: 589275604}
+    - targetCorrespondingSourceObject: {fileID: 5665322699795123541, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 589275611}
   m_SourcePrefab: {fileID: 100100000, guid: 05f6a2ee9a8f05a44a5668e9d53c6486, type: 3}
 --- !u!114 &735473485 stripped
 MonoBehaviour:
@@ -2766,7 +2789,9 @@ MonoBehaviour:
   Score: 0
   StationScene: SpaceStation
   ui: {fileID: 735473485}
-  waives: []
+  waives:
+  - {fileID: 226552142}
+  - {fileID: 1686900446}
   activeWaives: []
   howToWin: 0000000002000000
 --- !u!4 &1658060929
@@ -3073,6 +3098,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 589275573}
+    - target: {fileID: 3710196074681699181, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5015389633847579232, guid: b9663581807c04e4f9b02ae7a882ac17, type: 3}
       propertyPath: Attributes.Array.data[4].baseValue
       value: 10

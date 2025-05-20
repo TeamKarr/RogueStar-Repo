@@ -18,6 +18,7 @@ public class ShootingController : MonoBehaviour
     public bool isPlayerControlled = false;
 
     public bool shootTowardsPlayer = false;
+    public bool inheritBulletAttributes = false;
     private GameObject player;
 
     [Header("Firing Settings")]
@@ -158,6 +159,7 @@ public class ShootingController : MonoBehaviour
             }
             
             projectileGameObject.GetComponent<Projectile>().Fired = gameObject;
+            projectileGameObject.GetComponent<Projectile>().inheritAttribute = inheritBulletAttributes;
             // Account for spread
             Vector3 rotationEulerAngles = projectileGameObject.transform.rotation.eulerAngles;
             rotationEulerAngles.z += UnityEngine.Random.Range(-projectileSpread, projectileSpread);

@@ -15,7 +15,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene));
+        // SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene));
         Debug.Log("Loading scene: " + scene);
     }
 

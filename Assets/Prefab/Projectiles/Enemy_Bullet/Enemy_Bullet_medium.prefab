@@ -202,6 +202,7 @@ MonoBehaviour:
           m_Calls: []
     modifiers: []
   Fired: {fileID: 0}
+  inheritAttribute: 0
 --- !u!114 &-7673024671074650330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,8 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attributes:
-  - name: Bullet Speed
-    baseValue: 5
+  - name: Damage
+    baseValue: 10
     details:
       description: 
       currentValue: 0
@@ -302,8 +303,17 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
     modifiers: []
-  - name: Damage
-    baseValue: 1
+  - name: Bullet Speed
+    baseValue: 10
+    details:
+      description: 
+      currentValue: 0
+      onValueChange:
+        m_PersistentCalls:
+          m_Calls: []
+    modifiers: []
+  - name: Piercing
+    baseValue: 0
     details:
       description: 
       currentValue: 0
