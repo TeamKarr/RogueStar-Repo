@@ -31,11 +31,14 @@ public class UpgradeChoice : MonoBehaviour
         if (upgrade != null)
         foreach (var label in upgrade.ModifierLabels)
         {
+            if (label == null || label == "")
+                continue;
             upgradeLabels += label[0] == '+' 
             ? $"<color=#00DD00>{label.Substring(1)}</color>\n" // Green for '+'
             : label[0] == '-' 
             ? $"<color=#DD0000>{label.Substring(1)}</color>\n" // Red for '-'
             : $"{label}\n"; // Default color for others
+            
         }
         upgradeActions.text = upgradeLabels;
 
