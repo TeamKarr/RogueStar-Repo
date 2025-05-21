@@ -12,13 +12,19 @@ public class UpdateLabel : MonoBehaviour
     private bool HasRun = false;
     void Start()
     {
+        if (HasRun)
+        {
+            return;
+        }
         HasRun = true;
         label = GetComponent<TMPro.TextMeshProUGUI>();
         template = label.text;
+        //Debug.Log("template: " + template);
     }
 
     public void updateToValue(float value)
     {
+        //Debug.Log("Updated to " + template + "|" + value);
         if (!HasRun)
         {
             Start();

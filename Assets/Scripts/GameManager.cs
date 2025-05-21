@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public UnityEvent<float> OnScoreChange = new();
-    public UnityEvent<float> OnMatterChange = new();
+    //public UnityEvent<float> OnScoreChange = new();
+    //public UnityEvent<float> OnMatterChange = new();
 
 
     public ChapterManager currentChapter;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             {
                 score = 0;
             }
-            OnScoreChange.Invoke(score);
+            updateMenuHead();
         }
     }
 
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             {
                 matter = 0;
             }
-            OnMatterChange.Invoke(matter);
+            updateMenuHead();
         }
     }
     public void addMatter(int value)
@@ -93,6 +93,19 @@ public class GameManager : MonoBehaviour
            new("FiringRate", new AttributeUpgrade { amount = 0.5f, UpgradeAmount = 0.5f, MaxUpgrades = 7, Cost = 10, CostIncrease = 1 }),
        };
 
+    public void updateMenuHead()
+    {
+        var menu = FindAnyObjectByType<MenuManager>();
+        if (menu == null)
+        {
+            //Debug.LogError("MenuManager not found");
+            return;
+        }
+
+        menu.updateMenus();
+        
+    }
+
     private void Awake()
     {
         if (Instance != null)
@@ -105,7 +118,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         InitializeAttributes();
-        OnMatterChange.Invoke(matter);
+        //OnMatterChange.Invoke(matter);
     }
 
     private void InitializeAttributes()
@@ -119,8 +132,9 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        OnMatterChange.Invoke(matter);
-        OnScoreChange.Invoke(score);
+        //OnMatterChange.Invoke(matter);
+        //OnScoreChange.Invoke(score);
+        updateMenuHead();
     }
 
     public bool NextLevel()
@@ -148,4 +162,10 @@ public class GameManager : MonoBehaviour
             return true;
         }
     }
+
+    //public void goToStation()
+    //{
+    //    updateMenuHead();
+
+    //}
 }

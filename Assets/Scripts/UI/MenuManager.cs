@@ -18,10 +18,17 @@ public class MenuManager : MonoBehaviour
     public Button mechButton;
     public Button launchButton;
 
+
+    public UpdateLabel scoreLabel;
+    public UpdateLabel matterLabel;
+
+    public MechanicUpgrade[] mechanicUpgrades;
+
     // Start is called before the first frame update
     void Start()
     {
         goToNav();
+        updateMenus();
     }
 
     public void goToNav()
@@ -58,5 +65,18 @@ public class MenuManager : MonoBehaviour
         navButton.interactable = true;
         mechButton.interactable = true;
         launchButton.interactable = false;
+    }
+
+    public void updateMenus()
+    {
+        Debug.Log("Updating menus");
+        GameManager manager = FindAnyObjectByType<GameManager>();
+        scoreLabel.updateToValue(manager.score);
+        matterLabel.updateToValue(manager.matter);
+
+        foreach (var m in mechanicUpgrades)
+        {
+            m.updateDisplay();
+        }
     }
 }

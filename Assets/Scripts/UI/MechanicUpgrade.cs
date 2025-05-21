@@ -29,10 +29,11 @@ public class MechanicUpgrade : MonoBehaviour
     {
 
         manager = FindAnyObjectByType<GameManager>();
-        // Debug.Log(manager);
+         Debug.Log(manager);
         //hasRun = true;
         //float amount = manager.GetAttribute(upgradeName);\
         //Debug.Log("upgradename" + upgradeName);
+
         upgrade = manager.defaultAttributes[upgradeName];
         //Debug.Log(upgradeName + "  " + upgrade + " ---------------------");
         titleText = title.text;

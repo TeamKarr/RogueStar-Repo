@@ -85,8 +85,9 @@ public class LevelManager : MonoBehaviour
 
     public void returnToStation(bool shouldSave)
     {
-        DontDestroy.Instance = null;
+        //DontDestroy.Instance = null;
         Destroy(player);
+        Debug.Log("returning to station");
         
         if (shouldSave)
         {
@@ -97,9 +98,13 @@ public class LevelManager : MonoBehaviour
             }
 
         }
-        
-
         SceneManager.LoadScene(StationScene);
+
+        //gameManager.updateMenuHead();
+
+
+
+
         //SceneManager.SetActiveScene(SceneManager.GetSceneByName(StationScene));
     }
 
