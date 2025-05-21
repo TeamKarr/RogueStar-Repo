@@ -23,9 +23,8 @@ public class UpgradeManager : MonoBehaviour
         activeUpgrades.Add(upgrade);
         upgrade.Initialise(gameObject);
         availableUpgrades = loadedUpgrades.Where(
-            x => !activeUpgrades.Contains(x) && (x.requirements.Length == 0 || x.requirements.All(a => activeUpgrades.Contains(a))) && 
-            (x.conflicts.Length == 0 || !x.conflicts.Any(a => activeUpgrades.Contains(a)))).ToList();
-        culmitiveWeights.Clear();
+            x => !activeUpgrades.Contains(x) && (upgrade.requirements.Count == 0 || x.requirements.All(a => activeUpgrades.Contains(a))) && 
+            (x.conflicts.Count == 0 || !x.conflicts.Any(a => activeUpgrades.Contains(a)))).ToList();
     }
 
     public void removeUpgrade(Upgrade upgrade)
@@ -68,10 +67,10 @@ public class UpgradeManager : MonoBehaviour
     {
         attributeManager = GetComponent<AttributeManager>();
         Debug.Log("Loaded Upgrades");
+        loadedUpgrades.RemoveAll(upgrade => upgrade == null);
         foreach (var upgrade in loadedUpgrades)
         {
-            Debug.Log(upgrade.name);
-            if (upgrade.requirements.Length == 0)
+            if (upgrade.requirements.Count == 0)
                 availableUpgrades.Add(upgrade);
         }
     }

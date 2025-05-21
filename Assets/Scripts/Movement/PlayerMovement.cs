@@ -43,10 +43,10 @@ public class PlayerMovement : MonoBehaviour
         foreach (GameObject booster in boosterObjects)
         {
             booster.transform.localScale = new Vector3(booster.transform.localScale.x, boosterLevel, booster.transform.localScale.z);
-            Debug.Log(booster);
+            
         }
         maxSpeed = GetComponent<AttributeManager>().getAttribute(maxSpeedAttribute);
-        Debug.Log(maxSpeed.getvalue());
+    
         acceleration = GetComponent<AttributeManager>().getAttribute(accelerationAttribute);
         rotationSpeed = GetComponent<AttributeManager>().getAttribute(rotationAttribute);
         lightIntensity = fireLight.intensity;

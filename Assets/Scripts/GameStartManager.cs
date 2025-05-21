@@ -25,17 +25,18 @@ public class GameStartManager : MonoBehaviour
         SceneAsset scene = gameManager.currentChapter.levels[gameManager.currentLevel];
 
         SceneManager.LoadScene(scene.name);
-        var player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<UpgradeManager>().Start();
-        var spawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
-        if (spawn != null)
-        {
-            player.transform.position = spawn.transform.position;
-        }
-        else
-        {
-            Debug.LogError("Spawn point not found");
-        }
+        // var player = GameObject.FindGameObjectWithTag("Player");
+    
+        // // player.GetComponent<UpgradeManager>().Start();
+        // var spawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
+        // if (spawn != null)
+        // {
+        //     player.transform.position = spawn.transform.position;
+        // }
+        // else
+        // {
+        //     // Debug.LogError("Spawn point not found");
+        // }
 
         //SceneManager.SetActiveScene(SceneManager.GetSceneByName(selectedLevelName));
     }

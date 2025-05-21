@@ -7,11 +7,11 @@ public class ShieldUpgrade : MonoBehaviour
     // Start is called before the first frame update
     private Material Shield = null;
     private float baseThickness;
-    private float strength = 10;
+    private float strength = 25;
     void Start()
     {
 
-        GetComponent<Health>().onDamage.AddListener(damage);
+        // GetComponent<Health>().onDamage.AddListener(damage);
 
         Transform t = this.transform;
 
@@ -21,13 +21,12 @@ public class ShieldUpgrade : MonoBehaviour
         baseThickness = 0.45f;
         Shield.SetFloat("_base_electric_transprarency", 0.40f);
     }
-    public void damage()
+    public void damage(float amount)
     {
         if (strength > 0)
         {
-            Debug.Log("Shield damaged");
             StartCoroutine(visualDamage());
-            strength--;
+            strength-= amount;
         }
 
     }

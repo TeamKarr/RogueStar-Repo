@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System;
 using UnityEditor;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "NewUpgrade", menuName = "Upgrades/Simple Upgrade")]
 public class Upgrade : ScriptableObject
@@ -16,10 +17,10 @@ public class Upgrade : ScriptableObject
     [SerializeField]
     public UnityEngine.Object[] Components;
 
-    public GameObject[] bullets;
+    public List<GameObject> bullets;
     public bool mergeBullets = false;
-    public Upgrade[] requirements;
-    public Upgrade[] conflicts;
+    public List<Upgrade> requirements = new();
+    public List<Upgrade> conflicts = new();
     public float weight = 1;
  
     public string[] ModifierLabels
@@ -86,20 +87,20 @@ public class Upgrade : ScriptableObject
     public void Initialise(GameObject player)
     {
         
-        // if (bullets.Length != 0)
-        // {
-        //     var playerBullets = player.GetComponent<ShootingController>().projectilePrefabs;
+        if (bullets.Count != 0)
+        {
+            var playerBullets = player.GetComponent<ShootingController>().projectilePrefabs;
 
-        //     if (!mergeBullets)
-        //     {
-        //         playerBullets.Clear();
-        //     }
+            if (!mergeBullets)
+            {
+                playerBullets.Clear();
+            }
             
-        //     foreach (var bullet in bullets)
-        //     {
-        //         playerBullets.Add(bullet);
-        //     }
-        // }
+            foreach (var bullet in bullets)
+            {
+                playerBullets.Add(bullet);
+            }
+        }
        
         
         foreach (UnityEngine.Object c in Components)

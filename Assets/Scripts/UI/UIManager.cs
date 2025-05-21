@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
@@ -22,6 +23,9 @@ public class UIManager : MonoBehaviour
     [Header("Upgrade Manager")]
     private UpgradeManager manager;
     public TextMeshProUGUI upgradeHUD;
+
+    public UnityEvent<float> onMatterDisplay;
+    public UnityEvent<float> onScoreDisplay;
 
     
 
@@ -87,7 +91,7 @@ public class UIManager : MonoBehaviour
 
         upgradePanel.SetActive(true);
         
-        if (choices.Item1 == choices.Item2 == choices.Item3)
+        if (choices.Item1 == null && choices.Item2 == null && choices.Item3 == null)
         {
             Debug.Log("options are empty");
             CloseAll();
@@ -122,6 +126,10 @@ public class UIManager : MonoBehaviour
     {
         CloseAll(false);
         pause();
+
+        onMatterDisplay?.Invoke(FindAnyObjectByType<LevelManager>().Matter);
+        onScoreDisplay?.Invoke(FindAnyObjectByType<LevelManager>().Score);
+
         ShowUpgrades();
         isPausable = false;
         gameOverPanel.SetActive(true);
@@ -131,6 +139,10 @@ public class UIManager : MonoBehaviour
     {
         CloseAll(false);
         pause();
+
+        onMatterDisplay?.Invoke(FindAnyObjectByType<LevelManager>().Matter);
+        onScoreDisplay?.Invoke(FindAnyObjectByType<LevelManager>().Score);
+
         ShowUpgrades();
         isPausable = false;
         gameWindPanel.SetActive(true);

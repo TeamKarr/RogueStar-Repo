@@ -26,6 +26,9 @@ public class PlayerExperience : MonoBehaviour
         expValue += exp;
         if (expValue >= ExpBar.maxValue)
         {
+            
+            FindAnyObjectByType<LevelManager>().Score += 30;
+
             manager.ShowUpgradePanel();
             expValue = 0;
         }

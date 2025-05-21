@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("LevelManager started");
         gameManager = FindFirstObjectByType<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         if (gameManager != null)

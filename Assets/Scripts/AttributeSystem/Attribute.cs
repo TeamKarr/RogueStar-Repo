@@ -62,6 +62,7 @@ public class Attribute
         float totalMultiplier = 1;
         foreach (AttributeModifier m in modifiers)
         {
+            if (m == null) continue;
             if (m.enabled)
                 switch (m.type)
                 {

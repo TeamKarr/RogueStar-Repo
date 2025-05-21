@@ -18,7 +18,14 @@ public class AttributeManager : MonoBehaviour
 
     public Attribute getAttribute(string name)
     {
+        if (attributes.ContainsKey(name) == false)
+        {
+            Debug.LogError($"Attribute {name} not found");
+            return null;
+        }
+        // return Attributes.FirstOrDefault(x => x.name == name);
         return attributes[name];
+
     }
 
     void Awake()

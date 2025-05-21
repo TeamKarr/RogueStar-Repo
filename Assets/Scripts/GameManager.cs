@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int Score
     {
-        get { return matter; }
+        get { return score; }
         set
         {
             score = value;
@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         OnMatterChange.Invoke(matter);
+        OnScoreChange.Invoke(score);
     }
 
     public bool NextLevel()

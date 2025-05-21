@@ -9,16 +9,20 @@ public class UpdateLabel : MonoBehaviour
     private TMPro.TextMeshProUGUI label;
     private string template;
 
+    private bool HasRun = false;
     void Start()
     {
+        HasRun = true;
         label = GetComponent<TMPro.TextMeshProUGUI>();
         template = label.text;
     }
 
     public void updateToValue(float value)
     {
+        if (!HasRun)
+        {
+            Start();
+        }
         label.text = template + value;
     }
-
-
 }

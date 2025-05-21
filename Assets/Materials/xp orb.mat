@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI background
-  m_Shader: {fileID: -6465566751694194690, guid: 0cbc25d17806d4376bb5e2c4e5abd532, type: 3}
+  m_Name: xp orb
+  m_Shader: {fileID: -6465566751694194690, guid: 7a32e6a2788a1478bb8ba82908d9988f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -114,18 +114,15 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _scale: 1.59
+    - _strength: 2
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.5707547, g: 0.68694794, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _color_1: {r: 0.2042542, g: 0.4687338, b: 0.509434, a: 0}
-    - _color_2: {r: 0.585197, g: 0.19215687, b: 0.7058824, a: 0}
-    - _star_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6662462062445121254
+--- !u!114 &5375845300488865267
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

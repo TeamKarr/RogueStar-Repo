@@ -24,13 +24,13 @@ MonoBehaviour:
       enabled: 1
   - attribute: FiringRate
     modifier:
-      type: 1
-      value: 50
+      type: 0
+      value: 2
       enabled: 1
   - attribute: Bullet Speed
     modifier:
       type: 1
-      value: -0.9
+      value: 0.5
       enabled: 1
   - attribute: Piercing
     modifier:

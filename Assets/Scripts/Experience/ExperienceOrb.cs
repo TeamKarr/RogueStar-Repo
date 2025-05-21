@@ -41,7 +41,7 @@ public class ExperienceOrb : MonoBehaviour
         //player position
         rbpPosition = Player.transform.position;
         rboPosition = orb.position;
-        Debug.Log("hi");
+        
         //look at player
         transform.Rotate(new Vector3(0, 0, 1), 1);
         Vector3 direction = (rbpPosition - rboPosition).normalized;

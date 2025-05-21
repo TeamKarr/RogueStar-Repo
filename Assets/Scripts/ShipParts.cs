@@ -12,7 +12,7 @@ public class ShipParts : MonoBehaviour
     void Start()
     {
         ran = true;
-        Debug.Log("ship parts");
+       
         Transform t = this.transform;
         for (int i = 0; i < t.childCount; i++)
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ public class Health : MonoBehaviour
 
     [Header("For Enemy HealthBars")]
     private Slider healthBar;
-    private Camera camera;
+    private Camera _camera;
     public Transform parent;
     public Vector3 offset;
 
@@ -36,7 +37,7 @@ public class Health : MonoBehaviour
         {
             parent = this.transform;
         }
-        camera = Camera.main;
+        _camera = Camera.main;
         if (this.gameObject.layer == 7)
         {
 
@@ -46,14 +47,26 @@ public class Health : MonoBehaviour
         }
         else if (this.gameObject.layer == 3)
         {
-            Transform childTransform = healthBarCanvas.transform.Find("PlayerHealthBar");
+            Transform childTransform = GameObject.FindWithTag("healthBar").transform;
             healthBar = childTransform.GetComponent<Slider>();
         }
         savedMaxHealth = health;
         maxHealth = GetComponent<AttributeManager>().getAttribute(maxHealthAttribute);
+        if (maxHealth == null)
+        {
+            Debug.LogError(gameObject.name + " Max Health attribute not found");
+            // Debug.LogError("Max Health attribute not found");
+
+        }
+        else
+        {
+            Debug.Log("Max Health attribute found: " + maxHealth.getvalue());
+        }
+
+
+        // healthBar.maxValue = maxHealth.getvalue();
+
         UpdateMaxHealth();
-        
-        healthBar.maxValue = maxHealth.getvalue();
         updateHealthBar();
     }
 
@@ -62,6 +75,8 @@ public class Health : MonoBehaviour
 
         var healthRatio = health / savedMaxHealth;
 
+        if (maxHealth != null)
+            return;
         savedMaxHealth = maxHealth.getvalue();
 
         health = savedMaxHealth * healthRatio;
@@ -77,7 +92,7 @@ public class Health : MonoBehaviour
         {
             if (healthBar != null)
             {
-                healthBar.transform.SetPositionAndRotation(parent.position + offset, camera.transform.rotation);
+                healthBar.transform.SetPositionAndRotation(parent.position + offset, _camera.transform.rotation);
             }
             
         }
@@ -94,14 +109,14 @@ public class Health : MonoBehaviour
     public void takeDamage(float damage, Collision2D collision)
     {
         // handel if player has shield
-        //if (GetComponent<Shield>() != null)
-        //{
-        //    GetComponent<Shield>().takeDamage(damage, collision);
-        //}
-
-
-        takeDamage(damage);
-
+        if (GetComponent<ShieldUpgrade>() != null)
+        {
+            GetComponent<ShieldUpgrade>().damage(damage);
+        }
+        else
+        {
+            takeDamage(damage);
+        }
     }
 
     public void takeDamage(float damage)
@@ -146,12 +161,16 @@ public class Health : MonoBehaviour
         deathpos = this.transform.position;
         onDeath.Invoke();
         // do something when the object dies
-        
+
+        FindAnyObjectByType<LevelManager>().Matter += (int)Mathf.Max(Mathf.Ceil(health / 5f),1);
+        FindAnyObjectByType<LevelManager>().Score += (int)Mathf.Max(Mathf.Ceil(health / 2f),1);
+
 
         if (this.gameObject.layer == 3)
         {
             gameObject.SetActive(false);
-        } else
+        }
+        else
         {
             Destroy(this.gameObject);
         }
